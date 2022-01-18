@@ -1,0 +1,12 @@
+home:
+  logo_image:           //img[@src='https://demo.nopcommerce.com/Themes/DefaultClean/Content/images/logo.png']
+  login:                //a[contains(text(),'Log in')]
+  register:             //a[contains(text(),'Register')]
+  apparel:              //*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]
+  shoes:                //*[@class='top-menu notmobile']//a[contains(text(),'Shoes')]
+login:
+  email:                //input[@id='Email']
+  password:             //input[@id='Password']
+  rememberme:           //input[@id='RememberMe']
+  login_button:         //button[contains(text(),'Log in')]
+  
