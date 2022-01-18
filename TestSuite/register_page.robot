@@ -38,7 +38,10 @@ Optional Registration Fields
     Open Webui    ${browser}    ${url}register
     Page Should Contain    Register
 
-    Fill Registration Form    ${EMPTY}    david    knuth    ${EMPTY}    ${EMPTY}    ${EMPTY}    davidknuth11@mail.com    ${EMPTY}    yesyes    ${True}
+    Fill Registration Form    ${EMPTY}    ${test_data}[register][firstname]    ${test_data}[register][lastname]
+    ...                        ${EMPTY}    ${EMPTY}    ${EMPTY}    ${test_data}[register][valid_email1]    ${EMPTY}
+    ...                        ${test_data}[register][valid_password]    ${True}
+    
     Click Register Button
 
     Sleep    5
@@ -56,7 +59,9 @@ Valid Registration
 
     Page Should Contain    Register
 
-    Fill Registration Form    M    david    knuth    10    1    1938    davidknuth12@mail.com    acme    yesyes    ${True}
+    Fill Registration Form    M    ${test_data}[register][firstname]    ${test_data}[register][lastname]
+    ...                        10    1    1938    ${test_data}[register][valid_email2]    acme    ${test_data}[register][valid_password]    ${True}
+    
     Click Register Button
 
     Sleep    5
@@ -73,7 +78,8 @@ Invalid Registration
 
     Page Should Contain    Register
 
-    Fill Registration Form    M    david    knuth    10    1    1938    davidknuth    acme    yesyes    ${True}
+    Fill Registration Form    M    ${test_data}[register][firstname]    ${test_data}[register][lastname]
+    ...                        10    1    1938    ${test_data}[register][invalid_email]    acme    invp    ${True}
     Click Register Button
 
     Verify Unsuccessful Registration

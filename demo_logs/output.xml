@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.3 (Python 3.10.1 on linux)" generated="20220118 22:21:29.853" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.3 (Python 3.10.1 on linux)" generated="20220118 22:41:16.288" rpa="false" schemaversion="2">
 <suite id="s1" name="Register Page" source="/home/genericspecimen/repos/work/nopcommerce/TestSuite/register_page.robot">
 <test id="s1-t1" name="Required Registration Fields">
 <kw name="Open Webui" library="Common_Utils">
@@ -11,16 +11,16 @@
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:29.998" level="INFO" html="true">Browser: Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:29.997" endtime="20220118 22:21:29.998"/>
+<msg timestamp="20220118 22:41:16.432" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:16.432" endtime="20220118 22:41:16.432"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>URL: ${url}</arg>
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:29.998" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
-<status status="PASS" starttime="20220118 22:21:29.998" endtime="20220118 22:21:29.998"/>
+<msg timestamp="20220118 22:41:16.433" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
+<status status="PASS" starttime="20220118 22:41:16.432" endtime="20220118 22:41:16.433"/>
 </kw>
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
 <arg>3 times</arg>
@@ -51,100 +51,100 @@
 <arg>Setting up Chrome</arg>
 <arg>console=${True}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:30.000" level="INFO">Setting up Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:29.999" endtime="20220118 22:21:30.000"/>
+<msg timestamp="20220118 22:41:16.434" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:16.434" endtime="20220118 22:41:16.434"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:30.000" endtime="20220118 22:21:30.000"/>
+<status status="PASS" starttime="20220118 22:41:16.434" endtime="20220118 22:41:16.434"/>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>Chrome</arg>
 <arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220118 22:21:30.000" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
-<status status="PASS" starttime="20220118 22:21:30.000" endtime="20220118 22:21:33.075"/>
+<msg timestamp="20220118 22:41:16.435" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
+<status status="PASS" starttime="20220118 22:41:16.435" endtime="20220118 22:41:19.590"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:29.999" endtime="20220118 22:21:33.075"/>
+<status status="PASS" starttime="20220118 22:41:16.434" endtime="20220118 22:41:19.590"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:29.999" endtime="20220118 22:21:33.075"/>
+<status status="PASS" starttime="20220118 22:41:16.433" endtime="20220118 22:41:19.590"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Setting window size to 1920x1000 for standard execution across displays</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:33.076" endtime="20220118 22:21:33.076"/>
+<status status="PASS" starttime="20220118 22:41:19.590" endtime="20220118 22:41:19.591"/>
 </kw>
 <kw name="Set Window Size" library="SeleniumLibrary">
 <arg>1920</arg>
 <arg>1000</arg>
 <doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" starttime="20220118 22:21:33.076" endtime="20220118 22:21:33.193"/>
+<status status="PASS" starttime="20220118 22:41:19.591" endtime="20220118 22:41:19.712"/>
 </kw>
 <kw name="Get Window Size" library="SeleniumLibrary">
 <var>${width}</var>
 <var>${height}</var>
 <doc>Returns current window width and height as integers.</doc>
-<msg timestamp="20220118 22:21:33.202" level="INFO">${width} = 1920</msg>
-<msg timestamp="20220118 22:21:33.202" level="INFO">${height} = 1000</msg>
-<status status="PASS" starttime="20220118 22:21:33.194" endtime="20220118 22:21:33.202"/>
+<msg timestamp="20220118 22:41:19.721" level="INFO">${width} = 1920</msg>
+<msg timestamp="20220118 22:41:19.721" level="INFO">${height} = 1000</msg>
+<status status="PASS" starttime="20220118 22:41:19.713" endtime="20220118 22:41:19.721"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Window: width: ${width} height: ${height}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:33.202" endtime="20220118 22:21:33.203"/>
+<status status="PASS" starttime="20220118 22:41:19.721" endtime="20220118 22:41:19.722"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
 <arg>${home}[logo_image]</arg>
 <arg>timeout=30</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220118 22:21:33.204" endtime="20220118 22:21:33.282"/>
+<status status="PASS" starttime="20220118 22:41:19.723" endtime="20220118 22:41:19.793"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:29.998" endtime="20220118 22:21:33.282"/>
+<status status="PASS" starttime="20220118 22:41:16.433" endtime="20220118 22:41:19.793"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:29.998" endtime="20220118 22:21:33.282"/>
+<status status="PASS" starttime="20220118 22:41:16.433" endtime="20220118 22:41:19.793"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:29.997" endtime="20220118 22:21:33.282"/>
+<status status="PASS" starttime="20220118 22:41:16.432" endtime="20220118 22:41:19.794"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Register</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:21:33.304" level="INFO">Current page contains text 'Register'.</msg>
-<status status="PASS" starttime="20220118 22:21:33.283" endtime="20220118 22:21:33.305"/>
+<msg timestamp="20220118 22:41:19.812" level="INFO">Current page contains text 'Register'.</msg>
+<status status="PASS" starttime="20220118 22:41:19.794" endtime="20220118 22:41:19.812"/>
 </kw>
 <kw name="Click Register Button" library="Register">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${register}[register_button]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:33.306" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:33.305" endtime="20220118 22:21:33.393"/>
+<msg timestamp="20220118 22:41:19.813" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:19.813" endtime="20220118 22:41:19.905"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:33.305" endtime="20220118 22:21:33.393"/>
+<status status="PASS" starttime="20220118 22:41:19.813" endtime="20220118 22:41:19.905"/>
 </kw>
 <kw name="Verify Unsuccessful Registration" library="Register">
 <kw name="Page Should Not Contain" library="SeleniumLibrary">
 <arg>Your registration completed</arg>
 <doc>Verifies the current page does not contain ``text``.</doc>
-<msg timestamp="20220118 22:21:33.424" level="INFO">Current page does not contain text 'Your registration completed'.</msg>
-<status status="PASS" starttime="20220118 22:21:33.394" endtime="20220118 22:21:33.424"/>
+<msg timestamp="20220118 22:41:19.932" level="INFO">Current page does not contain text 'Your registration completed'.</msg>
+<status status="PASS" starttime="20220118 22:41:19.906" endtime="20220118 22:41:19.933"/>
 </kw>
 <kw name="Page Should Not Contain" library="SeleniumLibrary">
 <arg>Log out</arg>
 <doc>Verifies the current page does not contain ``text``.</doc>
-<msg timestamp="20220118 22:21:33.446" level="INFO">Current page does not contain text 'Log out'.</msg>
-<status status="PASS" starttime="20220118 22:21:33.424" endtime="20220118 22:21:33.446"/>
+<msg timestamp="20220118 22:41:19.952" level="INFO">Current page does not contain text 'Log out'.</msg>
+<status status="PASS" starttime="20220118 22:41:19.933" endtime="20220118 22:41:19.952"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:33.394" endtime="20220118 22:21:33.446"/>
+<status status="PASS" starttime="20220118 22:41:19.905" endtime="20220118 22:41:19.952"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20220118 22:21:33.446" endtime="20220118 22:21:33.505"/>
+<status status="PASS" starttime="20220118 22:41:19.953" endtime="20220118 22:41:20.012"/>
 </kw>
 <doc>Test required fields</doc>
 <tag>WebUI</tag>
 <tag>WebUI_Register</tag>
-<status status="PASS" starttime="20220118 22:21:29.997" endtime="20220118 22:21:33.505"/>
+<status status="PASS" starttime="20220118 22:41:16.431" endtime="20220118 22:41:20.012"/>
 </test>
 <test id="s1-t2" name="Optional Registration Fields">
 <kw name="Open Webui" library="Common_Utils">
@@ -156,16 +156,16 @@
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:33.509" level="INFO" html="true">Browser: Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:33.509" endtime="20220118 22:21:33.509"/>
+<msg timestamp="20220118 22:41:20.015" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:20.014" endtime="20220118 22:41:20.015"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>URL: ${url}</arg>
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:33.510" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
-<status status="PASS" starttime="20220118 22:21:33.510" endtime="20220118 22:21:33.510"/>
+<msg timestamp="20220118 22:41:20.015" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
+<status status="PASS" starttime="20220118 22:41:20.015" endtime="20220118 22:41:20.015"/>
 </kw>
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
 <arg>3 times</arg>
@@ -196,78 +196,78 @@
 <arg>Setting up Chrome</arg>
 <arg>console=${True}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:33.514" level="INFO">Setting up Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:33.514" endtime="20220118 22:21:33.514"/>
+<msg timestamp="20220118 22:41:20.018" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:20.017" endtime="20220118 22:41:20.018"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:33.515" endtime="20220118 22:21:33.515"/>
+<status status="PASS" starttime="20220118 22:41:20.018" endtime="20220118 22:41:20.018"/>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>Chrome</arg>
 <arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220118 22:21:33.516" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
-<status status="PASS" starttime="20220118 22:21:33.515" endtime="20220118 22:21:36.638"/>
+<msg timestamp="20220118 22:41:20.019" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
+<status status="PASS" starttime="20220118 22:41:20.018" endtime="20220118 22:41:23.150"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:33.513" endtime="20220118 22:21:36.639"/>
+<status status="PASS" starttime="20220118 22:41:20.017" endtime="20220118 22:41:23.150"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:33.512" endtime="20220118 22:21:36.639"/>
+<status status="PASS" starttime="20220118 22:41:20.016" endtime="20220118 22:41:23.150"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Setting window size to 1920x1000 for standard execution across displays</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:36.639" endtime="20220118 22:21:36.639"/>
+<status status="PASS" starttime="20220118 22:41:23.151" endtime="20220118 22:41:23.152"/>
 </kw>
 <kw name="Set Window Size" library="SeleniumLibrary">
 <arg>1920</arg>
 <arg>1000</arg>
 <doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" starttime="20220118 22:21:36.639" endtime="20220118 22:21:36.754"/>
+<status status="PASS" starttime="20220118 22:41:23.152" endtime="20220118 22:41:23.281"/>
 </kw>
 <kw name="Get Window Size" library="SeleniumLibrary">
 <var>${width}</var>
 <var>${height}</var>
 <doc>Returns current window width and height as integers.</doc>
-<msg timestamp="20220118 22:21:36.763" level="INFO">${width} = 1920</msg>
-<msg timestamp="20220118 22:21:36.763" level="INFO">${height} = 1000</msg>
-<status status="PASS" starttime="20220118 22:21:36.755" endtime="20220118 22:21:36.764"/>
+<msg timestamp="20220118 22:41:23.289" level="INFO">${width} = 1920</msg>
+<msg timestamp="20220118 22:41:23.289" level="INFO">${height} = 1000</msg>
+<status status="PASS" starttime="20220118 22:41:23.281" endtime="20220118 22:41:23.289"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Window: width: ${width} height: ${height}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:36.764" endtime="20220118 22:21:36.765"/>
+<status status="PASS" starttime="20220118 22:41:23.290" endtime="20220118 22:41:23.291"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
 <arg>${home}[logo_image]</arg>
 <arg>timeout=30</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220118 22:21:36.766" endtime="20220118 22:21:36.839"/>
+<status status="PASS" starttime="20220118 22:41:23.291" endtime="20220118 22:41:23.369"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:33.511" endtime="20220118 22:21:36.840"/>
+<status status="PASS" starttime="20220118 22:41:20.016" endtime="20220118 22:41:23.370"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:33.511" endtime="20220118 22:21:36.840"/>
+<status status="PASS" starttime="20220118 22:41:20.015" endtime="20220118 22:41:23.370"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:33.508" endtime="20220118 22:21:36.840"/>
+<status status="PASS" starttime="20220118 22:41:20.014" endtime="20220118 22:41:23.370"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Register</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:21:36.860" level="INFO">Current page contains text 'Register'.</msg>
-<status status="PASS" starttime="20220118 22:21:36.840" endtime="20220118 22:21:36.860"/>
+<msg timestamp="20220118 22:41:23.386" level="INFO">Current page contains text 'Register'.</msg>
+<status status="PASS" starttime="20220118 22:41:23.370" endtime="20220118 22:41:23.387"/>
 </kw>
 <kw name="Fill Registration Form" library="Register">
 <arg>${EMPTY}</arg>
-<arg>david</arg>
-<arg>knuth</arg>
+<arg>${test_data}[register][firstname]</arg>
+<arg>${test_data}[register][lastname]</arg>
 <arg>${EMPTY}</arg>
 <arg>${EMPTY}</arg>
 <arg>${EMPTY}</arg>
-<arg>davidknuth11@mail.com</arg>
+<arg>${test_data}[register][valid_email1]</arg>
 <arg>${EMPTY}</arg>
-<arg>yesyes</arg>
+<arg>${test_data}[register][valid_password]</arg>
 <arg>${True}</arg>
 <kw name="Choose Gender" library="Register">
 <arg>${gender}</arg>
@@ -277,9 +277,9 @@
 <arg>${register}[radio_gender]</arg>
 <arg>${gender}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:21:36.864" endtime="20220118 22:21:36.864"/>
+<status status="PASS" starttime="20220118 22:41:23.390" endtime="20220118 22:41:23.391"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:36.863" endtime="20220118 22:21:36.864"/>
+<status status="PASS" starttime="20220118 22:41:23.390" endtime="20220118 22:41:23.391"/>
 </kw>
 <kw name="Input FirstName" library="Register">
 <arg>${firstName}</arg>
@@ -287,10 +287,10 @@
 <arg>${register}[firstname]</arg>
 <arg>${firstName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:36.865" level="INFO">Typing text 'david' into text field '//*[@id="FirstName"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:36.865" endtime="20220118 22:21:36.962"/>
+<msg timestamp="20220118 22:41:23.392" level="INFO">Typing text 'david' into text field '//*[@id="FirstName"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:23.392" endtime="20220118 22:41:23.484"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:36.864" endtime="20220118 22:21:36.962"/>
+<status status="PASS" starttime="20220118 22:41:23.391" endtime="20220118 22:41:23.484"/>
 </kw>
 <kw name="Input LastName" library="Register">
 <arg>${lastName}</arg>
@@ -298,10 +298,10 @@
 <arg>${register}[lastname]</arg>
 <arg>${lastName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:36.963" level="INFO">Typing text 'knuth' into text field '//*[@id="LastName"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:36.963" endtime="20220118 22:21:37.050"/>
+<msg timestamp="20220118 22:41:23.485" level="INFO">Typing text 'knuth' into text field '//*[@id="LastName"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:23.484" endtime="20220118 22:41:23.572"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:36.962" endtime="20220118 22:21:37.051"/>
+<status status="PASS" starttime="20220118 22:41:23.484" endtime="20220118 22:41:23.573"/>
 </kw>
 <kw name="Input DOB" library="Register">
 <arg>${day}</arg>
@@ -313,7 +313,7 @@
 <arg>${register}[birthday_date]</arg>
 <arg>${day}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:21:37.051" endtime="20220118 22:21:37.052"/>
+<status status="PASS" starttime="20220118 22:41:23.573" endtime="20220118 22:41:23.574"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>"${month}" != "${EMPTY}"</arg>
@@ -321,7 +321,7 @@
 <arg>${register}[birthday_month]</arg>
 <arg>${month}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:21:37.052" endtime="20220118 22:21:37.053"/>
+<status status="PASS" starttime="20220118 22:41:23.574" endtime="20220118 22:41:23.574"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>"${year}" != "${EMPTY}"</arg>
@@ -329,9 +329,9 @@
 <arg>${register}[birthday_year]</arg>
 <arg>${year}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:21:37.053" endtime="20220118 22:21:37.054"/>
+<status status="PASS" starttime="20220118 22:41:23.575" endtime="20220118 22:41:23.575"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:37.051" endtime="20220118 22:21:37.054"/>
+<status status="PASS" starttime="20220118 22:41:23.573" endtime="20220118 22:41:23.575"/>
 </kw>
 <kw name="Input Email" library="Register">
 <arg>${email}</arg>
@@ -339,10 +339,10 @@
 <arg>${register}[email]</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:37.055" level="INFO">Typing text 'davidknuth11@mail.com' into text field '//*[@id="Email"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:37.054" endtime="20220118 22:21:37.152"/>
+<msg timestamp="20220118 22:41:23.576" level="INFO">Typing text 'davidknuth25@mail.com' into text field '//*[@id="Email"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:23.576" endtime="20220118 22:41:23.672"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:37.054" endtime="20220118 22:21:37.152"/>
+<status status="PASS" starttime="20220118 22:41:23.575" endtime="20220118 22:41:23.672"/>
 </kw>
 <kw name="Input Company" library="Register">
 <arg>${company}</arg>
@@ -352,9 +352,9 @@
 <arg>${register}[company]</arg>
 <arg>${company}</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:21:37.153" endtime="20220118 22:21:37.154"/>
+<status status="PASS" starttime="20220118 22:41:23.672" endtime="20220118 22:41:23.673"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:37.153" endtime="20220118 22:21:37.154"/>
+<status status="PASS" starttime="20220118 22:41:23.672" endtime="20220118 22:41:23.673"/>
 </kw>
 <kw name="Input Password" library="Register">
 <arg>${password}</arg>
@@ -362,64 +362,64 @@
 <arg>${register}[password]</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:37.155" level="INFO">Typing text 'yesyes' into text field '//*[@id="Password"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:37.154" endtime="20220118 22:21:37.265"/>
+<msg timestamp="20220118 22:41:23.674" level="INFO">Typing text 'abcd@1234' into text field '//*[@id="Password"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:23.674" endtime="20220118 22:41:23.766"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${register}[confirm_password]</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:37.266" level="INFO">Typing text 'yesyes' into text field '//*[@id="ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:37.265" endtime="20220118 22:21:37.352"/>
+<msg timestamp="20220118 22:41:23.766" level="INFO">Typing text 'abcd@1234' into text field '//*[@id="ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:23.766" endtime="20220118 22:41:23.857"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:37.154" endtime="20220118 22:21:37.352"/>
+<status status="PASS" starttime="20220118 22:41:23.673" endtime="20220118 22:41:23.857"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>not ${want_newsletter}</arg>
 <arg>Toggle Newsletter Checkbox</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:21:37.352" endtime="20220118 22:21:37.352"/>
+<status status="PASS" starttime="20220118 22:41:23.857" endtime="20220118 22:41:23.857"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:36.860" endtime="20220118 22:21:37.352"/>
+<status status="PASS" starttime="20220118 22:41:23.387" endtime="20220118 22:41:23.857"/>
 </kw>
 <kw name="Click Register Button" library="Register">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${register}[register_button]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:37.353" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:37.353" endtime="20220118 22:21:40.161"/>
+<msg timestamp="20220118 22:41:23.858" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:23.858" endtime="20220118 22:41:26.748"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:37.353" endtime="20220118 22:21:40.161"/>
+<status status="PASS" starttime="20220118 22:41:23.858" endtime="20220118 22:41:26.748"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220118 22:21:45.162" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20220118 22:21:40.161" endtime="20220118 22:21:45.162"/>
+<msg timestamp="20220118 22:41:31.750" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220118 22:41:26.749" endtime="20220118 22:41:31.750"/>
 </kw>
 <kw name="Verify Successful Registration" library="Register">
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Your registration completed</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:21:45.192" level="INFO">Current page contains text 'Your registration completed'.</msg>
-<status status="PASS" starttime="20220118 22:21:45.164" endtime="20220118 22:21:45.192"/>
+<msg timestamp="20220118 22:41:31.776" level="INFO">Current page contains text 'Your registration completed'.</msg>
+<status status="PASS" starttime="20220118 22:41:31.752" endtime="20220118 22:41:31.776"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Log out</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:21:45.219" level="INFO">Current page contains text 'Log out'.</msg>
-<status status="PASS" starttime="20220118 22:21:45.192" endtime="20220118 22:21:45.219"/>
+<msg timestamp="20220118 22:41:31.797" level="INFO">Current page contains text 'Log out'.</msg>
+<status status="PASS" starttime="20220118 22:41:31.776" endtime="20220118 22:41:31.797"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:45.163" endtime="20220118 22:21:45.219"/>
+<status status="PASS" starttime="20220118 22:41:31.751" endtime="20220118 22:41:31.797"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20220118 22:21:45.220" endtime="20220118 22:21:45.279"/>
+<status status="PASS" starttime="20220118 22:41:31.798" endtime="20220118 22:41:31.856"/>
 </kw>
 <doc>Test optional fields</doc>
 <tag>WebUI</tag>
 <tag>WebUI_Register</tag>
-<status status="PASS" starttime="20220118 22:21:33.506" endtime="20220118 22:21:45.279"/>
+<status status="PASS" starttime="20220118 22:41:20.013" endtime="20220118 22:41:31.856"/>
 </test>
 <test id="s1-t3" name="Valid Registration">
 <kw name="Open Webui" library="Common_Utils">
@@ -431,16 +431,16 @@
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:45.282" level="INFO" html="true">Browser: Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:45.281" endtime="20220118 22:21:45.282"/>
+<msg timestamp="20220118 22:41:31.860" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:31.859" endtime="20220118 22:41:31.860"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>URL: ${url}</arg>
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:45.282" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
-<status status="PASS" starttime="20220118 22:21:45.282" endtime="20220118 22:21:45.283"/>
+<msg timestamp="20220118 22:41:31.860" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
+<status status="PASS" starttime="20220118 22:41:31.860" endtime="20220118 22:41:31.860"/>
 </kw>
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
 <arg>3 times</arg>
@@ -471,78 +471,78 @@
 <arg>Setting up Chrome</arg>
 <arg>console=${True}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:45.286" level="INFO">Setting up Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:45.285" endtime="20220118 22:21:45.286"/>
+<msg timestamp="20220118 22:41:31.864" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:31.863" endtime="20220118 22:41:31.864"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:45.286" endtime="20220118 22:21:45.286"/>
+<status status="PASS" starttime="20220118 22:41:31.864" endtime="20220118 22:41:31.865"/>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>Chrome</arg>
 <arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220118 22:21:45.287" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
-<status status="PASS" starttime="20220118 22:21:45.286" endtime="20220118 22:21:48.308"/>
+<msg timestamp="20220118 22:41:31.866" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
+<status status="PASS" starttime="20220118 22:41:31.865" endtime="20220118 22:41:34.919"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:45.285" endtime="20220118 22:21:48.308"/>
+<status status="PASS" starttime="20220118 22:41:31.863" endtime="20220118 22:41:34.919"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:45.284" endtime="20220118 22:21:48.308"/>
+<status status="PASS" starttime="20220118 22:41:31.862" endtime="20220118 22:41:34.919"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Setting window size to 1920x1000 for standard execution across displays</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:48.309" endtime="20220118 22:21:48.309"/>
+<status status="PASS" starttime="20220118 22:41:34.919" endtime="20220118 22:41:34.920"/>
 </kw>
 <kw name="Set Window Size" library="SeleniumLibrary">
 <arg>1920</arg>
 <arg>1000</arg>
 <doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" starttime="20220118 22:21:48.309" endtime="20220118 22:21:48.434"/>
+<status status="PASS" starttime="20220118 22:41:34.920" endtime="20220118 22:41:35.036"/>
 </kw>
 <kw name="Get Window Size" library="SeleniumLibrary">
 <var>${width}</var>
 <var>${height}</var>
 <doc>Returns current window width and height as integers.</doc>
-<msg timestamp="20220118 22:21:48.443" level="INFO">${width} = 1920</msg>
-<msg timestamp="20220118 22:21:48.443" level="INFO">${height} = 1000</msg>
-<status status="PASS" starttime="20220118 22:21:48.435" endtime="20220118 22:21:48.443"/>
+<msg timestamp="20220118 22:41:35.045" level="INFO">${width} = 1920</msg>
+<msg timestamp="20220118 22:41:35.045" level="INFO">${height} = 1000</msg>
+<status status="PASS" starttime="20220118 22:41:35.037" endtime="20220118 22:41:35.045"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Window: width: ${width} height: ${height}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:48.444" endtime="20220118 22:21:48.445"/>
+<status status="PASS" starttime="20220118 22:41:35.045" endtime="20220118 22:41:35.046"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
 <arg>${home}[logo_image]</arg>
 <arg>timeout=30</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220118 22:21:48.445" endtime="20220118 22:21:48.511"/>
+<status status="PASS" starttime="20220118 22:41:35.047" endtime="20220118 22:41:35.111"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:45.283" endtime="20220118 22:21:48.511"/>
+<status status="PASS" starttime="20220118 22:41:31.861" endtime="20220118 22:41:35.111"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:45.283" endtime="20220118 22:21:48.511"/>
+<status status="PASS" starttime="20220118 22:41:31.861" endtime="20220118 22:41:35.111"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:45.281" endtime="20220118 22:21:48.511"/>
+<status status="PASS" starttime="20220118 22:41:31.858" endtime="20220118 22:41:35.111"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Register</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:21:48.529" level="INFO">Current page contains text 'Register'.</msg>
-<status status="PASS" starttime="20220118 22:21:48.511" endtime="20220118 22:21:48.529"/>
+<msg timestamp="20220118 22:41:35.127" level="INFO">Current page contains text 'Register'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.111" endtime="20220118 22:41:35.127"/>
 </kw>
 <kw name="Fill Registration Form" library="Register">
 <arg>M</arg>
-<arg>david</arg>
-<arg>knuth</arg>
+<arg>${test_data}[register][firstname]</arg>
+<arg>${test_data}[register][lastname]</arg>
 <arg>10</arg>
 <arg>1</arg>
 <arg>1938</arg>
-<arg>davidknuth12@mail.com</arg>
+<arg>${test_data}[register][valid_email2]</arg>
 <arg>acme</arg>
-<arg>yesyes</arg>
+<arg>${test_data}[register][valid_password]</arg>
 <arg>${True}</arg>
 <kw name="Choose Gender" library="Register">
 <arg>${gender}</arg>
@@ -556,12 +556,12 @@
 <arg>${register}[radio_gender]</arg>
 <arg>${gender}</arg>
 <doc>Sets the radio button group ``group_name`` to ``value``.</doc>
-<msg timestamp="20220118 22:21:48.532" level="INFO">Selecting 'M' from radio button 'Gender'.</msg>
-<status status="PASS" starttime="20220118 22:21:48.531" endtime="20220118 22:21:48.603"/>
+<msg timestamp="20220118 22:41:35.132" level="INFO">Selecting 'M' from radio button 'Gender'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.132" endtime="20220118 22:41:35.194"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.530" endtime="20220118 22:21:48.603"/>
+<status status="PASS" starttime="20220118 22:41:35.131" endtime="20220118 22:41:35.194"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.530" endtime="20220118 22:21:48.603"/>
+<status status="PASS" starttime="20220118 22:41:35.130" endtime="20220118 22:41:35.195"/>
 </kw>
 <kw name="Input FirstName" library="Register">
 <arg>${firstName}</arg>
@@ -569,10 +569,10 @@
 <arg>${register}[firstname]</arg>
 <arg>${firstName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:48.604" level="INFO">Typing text 'david' into text field '//*[@id="FirstName"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:48.603" endtime="20220118 22:21:48.709"/>
+<msg timestamp="20220118 22:41:35.195" level="INFO">Typing text 'david' into text field '//*[@id="FirstName"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.195" endtime="20220118 22:41:35.297"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.603" endtime="20220118 22:21:48.709"/>
+<status status="PASS" starttime="20220118 22:41:35.195" endtime="20220118 22:41:35.297"/>
 </kw>
 <kw name="Input LastName" library="Register">
 <arg>${lastName}</arg>
@@ -580,10 +580,10 @@
 <arg>${register}[lastname]</arg>
 <arg>${lastName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:48.710" level="INFO">Typing text 'knuth' into text field '//*[@id="LastName"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:48.710" endtime="20220118 22:21:48.816"/>
+<msg timestamp="20220118 22:41:35.298" level="INFO">Typing text 'knuth' into text field '//*[@id="LastName"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.298" endtime="20220118 22:41:35.397"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.709" endtime="20220118 22:21:48.816"/>
+<status status="PASS" starttime="20220118 22:41:35.297" endtime="20220118 22:41:35.397"/>
 </kw>
 <kw name="Input DOB" library="Register">
 <arg>${day}</arg>
@@ -599,10 +599,10 @@
 <arg>${register}[birthday_date]</arg>
 <arg>${day}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220118 22:21:48.818" level="INFO">Selecting options from selection list 'DateOfBirthDay' by value 10.</msg>
-<status status="PASS" starttime="20220118 22:21:48.818" endtime="20220118 22:21:48.885"/>
+<msg timestamp="20220118 22:41:35.399" level="INFO">Selecting options from selection list 'DateOfBirthDay' by value 10.</msg>
+<status status="PASS" starttime="20220118 22:41:35.398" endtime="20220118 22:41:35.463"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.816" endtime="20220118 22:21:48.885"/>
+<status status="PASS" starttime="20220118 22:41:35.398" endtime="20220118 22:41:35.464"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>"${month}" != "${EMPTY}"</arg>
@@ -614,10 +614,10 @@
 <arg>${register}[birthday_month]</arg>
 <arg>${month}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220118 22:21:48.886" level="INFO">Selecting options from selection list 'DateOfBirthMonth' by value 1.</msg>
-<status status="PASS" starttime="20220118 22:21:48.886" endtime="20220118 22:21:48.949"/>
+<msg timestamp="20220118 22:41:35.465" level="INFO">Selecting options from selection list 'DateOfBirthMonth' by value 1.</msg>
+<status status="PASS" starttime="20220118 22:41:35.464" endtime="20220118 22:41:35.528"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.885" endtime="20220118 22:21:48.949"/>
+<status status="PASS" starttime="20220118 22:41:35.464" endtime="20220118 22:41:35.529"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>"${year}" != "${EMPTY}"</arg>
@@ -629,12 +629,12 @@
 <arg>${register}[birthday_year]</arg>
 <arg>${year}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220118 22:21:48.951" level="INFO">Selecting options from selection list 'DateOfBirthYear' by value 1938.</msg>
-<status status="PASS" starttime="20220118 22:21:48.950" endtime="20220118 22:21:49.013"/>
+<msg timestamp="20220118 22:41:35.530" level="INFO">Selecting options from selection list 'DateOfBirthYear' by value 1938.</msg>
+<status status="PASS" starttime="20220118 22:41:35.529" endtime="20220118 22:41:35.591"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.949" endtime="20220118 22:21:49.013"/>
+<status status="PASS" starttime="20220118 22:41:35.529" endtime="20220118 22:41:35.591"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.816" endtime="20220118 22:21:49.013"/>
+<status status="PASS" starttime="20220118 22:41:35.397" endtime="20220118 22:41:35.591"/>
 </kw>
 <kw name="Input Email" library="Register">
 <arg>${email}</arg>
@@ -642,10 +642,10 @@
 <arg>${register}[email]</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:49.014" level="INFO">Typing text 'davidknuth12@mail.com' into text field '//*[@id="Email"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:49.013" endtime="20220118 22:21:49.103"/>
+<msg timestamp="20220118 22:41:35.592" level="INFO">Typing text 'davidknuth26@mail.com' into text field '//*[@id="Email"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.592" endtime="20220118 22:41:35.677"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:49.013" endtime="20220118 22:21:49.103"/>
+<status status="PASS" starttime="20220118 22:41:35.592" endtime="20220118 22:41:35.677"/>
 </kw>
 <kw name="Input Company" library="Register">
 <arg>${company}</arg>
@@ -659,12 +659,12 @@
 <arg>${register}[company]</arg>
 <arg>${company}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:49.105" level="INFO">Typing text 'acme' into text field '//*[@id="Company"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:49.105" endtime="20220118 22:21:49.193"/>
+<msg timestamp="20220118 22:41:35.679" level="INFO">Typing text 'acme' into text field '//*[@id="Company"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.679" endtime="20220118 22:41:35.765"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:49.104" endtime="20220118 22:21:49.193"/>
+<status status="PASS" starttime="20220118 22:41:35.678" endtime="20220118 22:41:35.765"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:49.103" endtime="20220118 22:21:49.193"/>
+<status status="PASS" starttime="20220118 22:41:35.678" endtime="20220118 22:41:35.766"/>
 </kw>
 <kw name="Input Password" library="Register">
 <arg>${password}</arg>
@@ -672,64 +672,64 @@
 <arg>${register}[password]</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:49.194" level="INFO">Typing text 'yesyes' into text field '//*[@id="Password"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:49.193" endtime="20220118 22:21:49.280"/>
+<msg timestamp="20220118 22:41:35.766" level="INFO">Typing text 'abcd@1234' into text field '//*[@id="Password"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.766" endtime="20220118 22:41:35.857"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${register}[confirm_password]</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:49.281" level="INFO">Typing text 'yesyes' into text field '//*[@id="ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:49.280" endtime="20220118 22:21:49.368"/>
+<msg timestamp="20220118 22:41:35.858" level="INFO">Typing text 'abcd@1234' into text field '//*[@id="ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.857" endtime="20220118 22:41:35.947"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:49.193" endtime="20220118 22:21:49.368"/>
+<status status="PASS" starttime="20220118 22:41:35.766" endtime="20220118 22:41:35.948"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>not ${want_newsletter}</arg>
 <arg>Toggle Newsletter Checkbox</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:21:49.368" endtime="20220118 22:21:49.369"/>
+<status status="PASS" starttime="20220118 22:41:35.948" endtime="20220118 22:41:35.949"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:48.529" endtime="20220118 22:21:49.369"/>
+<status status="PASS" starttime="20220118 22:41:35.128" endtime="20220118 22:41:35.949"/>
 </kw>
 <kw name="Click Register Button" library="Register">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${register}[register_button]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20220118 22:21:49.370" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
-<status status="PASS" starttime="20220118 22:21:49.369" endtime="20220118 22:21:51.233"/>
+<msg timestamp="20220118 22:41:35.950" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:35.950" endtime="20220118 22:41:38.929"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:49.369" endtime="20220118 22:21:51.234"/>
+<status status="PASS" starttime="20220118 22:41:35.949" endtime="20220118 22:41:38.929"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220118 22:21:56.234" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20220118 22:21:51.234" endtime="20220118 22:21:56.235"/>
+<msg timestamp="20220118 22:41:43.930" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20220118 22:41:38.930" endtime="20220118 22:41:43.931"/>
 </kw>
 <kw name="Verify Successful Registration" library="Register">
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Your registration completed</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:21:56.288" level="INFO">Current page contains text 'Your registration completed'.</msg>
-<status status="PASS" starttime="20220118 22:21:56.237" endtime="20220118 22:21:56.288"/>
+<msg timestamp="20220118 22:41:43.968" level="INFO">Current page contains text 'Your registration completed'.</msg>
+<status status="PASS" starttime="20220118 22:41:43.933" endtime="20220118 22:41:43.968"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Log out</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:21:56.309" level="INFO">Current page contains text 'Log out'.</msg>
-<status status="PASS" starttime="20220118 22:21:56.288" endtime="20220118 22:21:56.309"/>
+<msg timestamp="20220118 22:41:43.991" level="INFO">Current page contains text 'Log out'.</msg>
+<status status="PASS" starttime="20220118 22:41:43.968" endtime="20220118 22:41:43.991"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:56.236" endtime="20220118 22:21:56.309"/>
+<status status="PASS" starttime="20220118 22:41:43.932" endtime="20220118 22:41:43.992"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20220118 22:21:56.309" endtime="20220118 22:21:56.369"/>
+<status status="PASS" starttime="20220118 22:41:43.992" endtime="20220118 22:41:44.052"/>
 </kw>
 <doc>Test a Valid Registration</doc>
 <tag>WebUI</tag>
 <tag>WebUI_Register</tag>
-<status status="PASS" starttime="20220118 22:21:45.280" endtime="20220118 22:21:56.370"/>
+<status status="PASS" starttime="20220118 22:41:31.857" endtime="20220118 22:41:44.052"/>
 </test>
 <test id="s1-t4" name="Invalid Registration">
 <kw name="Open Webui" library="Common_Utils">
@@ -741,16 +741,16 @@
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:56.373" level="INFO" html="true">Browser: Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:56.373" endtime="20220118 22:21:56.373"/>
+<msg timestamp="20220118 22:41:44.056" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:44.055" endtime="20220118 22:41:44.056"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>URL: ${url}</arg>
 <arg>HTML</arg>
 <arg>console=true</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:56.374" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
-<status status="PASS" starttime="20220118 22:21:56.373" endtime="20220118 22:21:56.374"/>
+<msg timestamp="20220118 22:41:44.057" level="INFO" html="true">URL: https://demo.nopcommerce.com/register</msg>
+<status status="PASS" starttime="20220118 22:41:44.057" endtime="20220118 22:41:44.057"/>
 </kw>
 <kw name="Wait Until Keyword Succeeds" library="BuiltIn">
 <arg>3 times</arg>
@@ -781,78 +781,78 @@
 <arg>Setting up Chrome</arg>
 <arg>console=${True}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220118 22:21:56.377" level="INFO">Setting up Chrome</msg>
-<status status="PASS" starttime="20220118 22:21:56.377" endtime="20220118 22:21:56.377"/>
+<msg timestamp="20220118 22:41:44.062" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220118 22:41:44.062" endtime="20220118 22:41:44.062"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:21:56.378" endtime="20220118 22:21:56.378"/>
+<status status="PASS" starttime="20220118 22:41:44.063" endtime="20220118 22:41:44.063"/>
 </kw>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>Chrome</arg>
 <arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220118 22:21:56.378" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
-<status status="PASS" starttime="20220118 22:21:56.378" endtime="20220118 22:22:00.328"/>
+<msg timestamp="20220118 22:41:44.064" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/register'.</msg>
+<status status="PASS" starttime="20220118 22:41:44.063" endtime="20220118 22:41:47.163"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:56.376" endtime="20220118 22:22:00.328"/>
+<status status="PASS" starttime="20220118 22:41:44.061" endtime="20220118 22:41:47.164"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:56.376" endtime="20220118 22:22:00.328"/>
+<status status="PASS" starttime="20220118 22:41:44.059" endtime="20220118 22:41:47.164"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Setting window size to 1920x1000 for standard execution across displays</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:22:00.328" endtime="20220118 22:22:00.328"/>
+<status status="PASS" starttime="20220118 22:41:47.164" endtime="20220118 22:41:47.164"/>
 </kw>
 <kw name="Set Window Size" library="SeleniumLibrary">
 <arg>1920</arg>
 <arg>1000</arg>
 <doc>Sets current windows size to given ``width`` and ``height``.</doc>
-<status status="PASS" starttime="20220118 22:22:00.329" endtime="20220118 22:22:00.446"/>
+<status status="PASS" starttime="20220118 22:41:47.164" endtime="20220118 22:41:47.282"/>
 </kw>
 <kw name="Get Window Size" library="SeleniumLibrary">
 <var>${width}</var>
 <var>${height}</var>
 <doc>Returns current window width and height as integers.</doc>
-<msg timestamp="20220118 22:22:00.449" level="INFO">${width} = 1920</msg>
-<msg timestamp="20220118 22:22:00.449" level="INFO">${height} = 1000</msg>
-<status status="PASS" starttime="20220118 22:22:00.446" endtime="20220118 22:22:00.449"/>
+<msg timestamp="20220118 22:41:47.291" level="INFO">${width} = 1920</msg>
+<msg timestamp="20220118 22:41:47.291" level="INFO">${height} = 1000</msg>
+<status status="PASS" starttime="20220118 22:41:47.283" endtime="20220118 22:41:47.291"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>Window: width: ${width} height: ${height}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20220118 22:22:00.449" endtime="20220118 22:22:00.449"/>
+<status status="PASS" starttime="20220118 22:41:47.292" endtime="20220118 22:41:47.293"/>
 </kw>
 <kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
 <arg>${home}[logo_image]</arg>
 <arg>timeout=30</arg>
 <doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220118 22:22:00.449" endtime="20220118 22:22:00.487"/>
+<status status="PASS" starttime="20220118 22:41:47.293" endtime="20220118 22:41:47.370"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:56.374" endtime="20220118 22:22:00.488"/>
+<status status="PASS" starttime="20220118 22:41:44.058" endtime="20220118 22:41:47.371"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:56.374" endtime="20220118 22:22:00.488"/>
+<status status="PASS" starttime="20220118 22:41:44.058" endtime="20220118 22:41:47.371"/>
 </kw>
-<status status="PASS" starttime="20220118 22:21:56.372" endtime="20220118 22:22:00.488"/>
+<status status="PASS" starttime="20220118 22:41:44.054" endtime="20220118 22:41:47.371"/>
 </kw>
 <kw name="Page Should Contain" library="SeleniumLibrary">
 <arg>Register</arg>
 <doc>Verifies that current page contains ``text``.</doc>
-<msg timestamp="20220118 22:22:00.504" level="INFO">Current page contains text 'Register'.</msg>
-<status status="PASS" starttime="20220118 22:22:00.488" endtime="20220118 22:22:00.504"/>
+<msg timestamp="20220118 22:41:47.393" level="INFO">Current page contains text 'Register'.</msg>
+<status status="PASS" starttime="20220118 22:41:47.371" endtime="20220118 22:41:47.393"/>
 </kw>
 <kw name="Fill Registration Form" library="Register">
 <arg>M</arg>
-<arg>david</arg>
-<arg>knuth</arg>
+<arg>${test_data}[register][firstname]</arg>
+<arg>${test_data}[register][lastname]</arg>
 <arg>10</arg>
 <arg>1</arg>
 <arg>1938</arg>
-<arg>davidknuth</arg>
+<arg>${test_data}[register][invalid_email]</arg>
 <arg>acme</arg>
-<arg>yesyes</arg>
+<arg>invp</arg>
 <arg>${True}</arg>
 <kw name="Choose Gender" library="Register">
 <arg>${gender}</arg>
@@ -866,12 +866,12 @@
 <arg>${register}[radio_gender]</arg>
 <arg>${gender}</arg>
 <doc>Sets the radio button group ``group_name`` to ``value``.</doc>
-<msg timestamp="20220118 22:22:00.507" level="INFO">Selecting 'M' from radio button 'Gender'.</msg>
-<status status="PASS" starttime="20220118 22:22:00.506" endtime="20220118 22:22:00.570"/>
+<msg timestamp="20220118 22:41:47.396" level="INFO">Selecting 'M' from radio button 'Gender'.</msg>
+<status status="PASS" starttime="20220118 22:41:47.396" endtime="20220118 22:41:47.469"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.506" endtime="20220118 22:22:00.570"/>
+<status status="PASS" starttime="20220118 22:41:47.395" endtime="20220118 22:41:47.469"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.505" endtime="20220118 22:22:00.571"/>
+<status status="PASS" starttime="20220118 22:41:47.394" endtime="20220118 22:41:47.469"/>
 </kw>
 <kw name="Input FirstName" library="Register">
 <arg>${firstName}</arg>
@@ -879,10 +879,10 @@
 <arg>${register}[firstname]</arg>
 <arg>${firstName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:22:00.571" level="INFO">Typing text 'david' into text field '//*[@id="FirstName"]'.</msg>
-<status status="PASS" starttime="20220118 22:22:00.571" endtime="20220118 22:22:00.664"/>
+<msg timestamp="20220118 22:41:47.470" level="INFO">Typing text 'david' into text field '//*[@id="FirstName"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:47.470" endtime="20220118 22:41:47.557"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.571" endtime="20220118 22:22:00.664"/>
+<status status="PASS" starttime="20220118 22:41:47.469" endtime="20220118 22:41:47.557"/>
 </kw>
 <kw name="Input LastName" library="Register">
 <arg>${lastName}</arg>
@@ -890,10 +890,10 @@
 <arg>${register}[lastname]</arg>
 <arg>${lastName}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:22:00.665" level="INFO">Typing text 'knuth' into text field '//*[@id="LastName"]'.</msg>
-<status status="PASS" starttime="20220118 22:22:00.664" endtime="20220118 22:22:00.758"/>
+<msg timestamp="20220118 22:41:47.558" level="INFO">Typing text 'knuth' into text field '//*[@id="LastName"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:47.557" endtime="20220118 22:41:47.646"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.664" endtime="20220118 22:22:00.758"/>
+<status status="PASS" starttime="20220118 22:41:47.557" endtime="20220118 22:41:47.646"/>
 </kw>
 <kw name="Input DOB" library="Register">
 <arg>${day}</arg>
@@ -909,10 +909,10 @@
 <arg>${register}[birthday_date]</arg>
 <arg>${day}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220118 22:22:00.760" level="INFO">Selecting options from selection list 'DateOfBirthDay' by value 10.</msg>
-<status status="PASS" starttime="20220118 22:22:00.760" endtime="20220118 22:22:00.825"/>
+<msg timestamp="20220118 22:41:47.648" level="INFO">Selecting options from selection list 'DateOfBirthDay' by value 10.</msg>
+<status status="PASS" starttime="20220118 22:41:47.647" endtime="20220118 22:41:47.712"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.759" endtime="20220118 22:22:00.825"/>
+<status status="PASS" starttime="20220118 22:41:47.647" endtime="20220118 22:41:47.712"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>"${month}" != "${EMPTY}"</arg>
@@ -924,10 +924,10 @@
 <arg>${register}[birthday_month]</arg>
 <arg>${month}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220118 22:22:00.827" level="INFO">Selecting options from selection list 'DateOfBirthMonth' by value 1.</msg>
-<status status="PASS" starttime="20220118 22:22:00.826" endtime="20220118 22:22:00.892"/>
+<msg timestamp="20220118 22:41:47.713" level="INFO">Selecting options from selection list 'DateOfBirthMonth' by value 1.</msg>
+<status status="PASS" starttime="20220118 22:41:47.713" endtime="20220118 22:41:47.778"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.825" endtime="20220118 22:22:00.892"/>
+<status status="PASS" starttime="20220118 22:41:47.712" endtime="20220118 22:41:47.779"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>"${year}" != "${EMPTY}"</arg>
@@ -939,12 +939,12 @@
 <arg>${register}[birthday_year]</arg>
 <arg>${year}</arg>
 <doc>Selects options from selection list ``locator`` by ``values``.</doc>
-<msg timestamp="20220118 22:22:00.893" level="INFO">Selecting options from selection list 'DateOfBirthYear' by value 1938.</msg>
-<status status="PASS" starttime="20220118 22:22:00.893" endtime="20220118 22:22:00.958"/>
+<msg timestamp="20220118 22:41:47.780" level="INFO">Selecting options from selection list 'DateOfBirthYear' by value 1938.</msg>
+<status status="PASS" starttime="20220118 22:41:47.780" endtime="20220118 22:41:47.844"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.892" endtime="20220118 22:22:00.958"/>
+<status status="PASS" starttime="20220118 22:41:47.779" endtime="20220118 22:41:47.844"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.758" endtime="20220118 22:22:00.958"/>
+<status status="PASS" starttime="20220118 22:41:47.646" endtime="20220118 22:41:47.844"/>
 </kw>
 <kw name="Input Email" library="Register">
 <arg>${email}</arg>
@@ -952,10 +952,10 @@
 <arg>${register}[email]</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:22:00.959" level="INFO">Typing text 'davidknuth' into text field '//*[@id="Email"]'.</msg>
-<status status="PASS" starttime="20220118 22:22:00.959" endtime="20220118 22:22:01.049"/>
+<msg timestamp="20220118 22:41:47.845" level="INFO">Typing text 'abc.com|abc@abc|efg@abc.|@abc.com' into text field '//*[@id="Email"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:47.844" endtime="20220118 22:41:47.942"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.958" endtime="20220118 22:22:01.050"/>
+<status status="PASS" starttime="20220118 22:41:47.844" endtime="20220118 22:41:47.942"/>
 </kw>
 <kw name="Input Company" library="Register">
 <arg>${company}</arg>
@@ -969,12 +969,12 @@
 <arg>${register}[company]</arg>
 <arg>${company}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:22:01.051" level="INFO">Typing text 'acme' into text field '//*[@id="Company"]'.</msg>
-<status status="PASS" starttime="20220118 22:22:01.051" endtime="20220118 22:22:01.144"/>
+<msg timestamp="20220118 22:41:47.944" level="INFO">Typing text 'acme' into text field '//*[@id="Company"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:47.944" endtime="20220118 22:41:48.031"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:01.050" endtime="20220118 22:22:01.144"/>
+<status status="PASS" starttime="20220118 22:41:47.943" endtime="20220118 22:41:48.031"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:01.050" endtime="20220118 22:22:01.144"/>
+<status status="PASS" starttime="20220118 22:41:47.942" endtime="20220118 22:41:48.031"/>
 </kw>
 <kw name="Input Password" library="Register">
 <arg>${password}</arg>
@@ -982,60 +982,60 @@
 <arg>${register}[password]</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:22:01.145" level="INFO">Typing text 'yesyes' into text field '//*[@id="Password"]'.</msg>
-<status status="PASS" starttime="20220118 22:22:01.145" endtime="20220118 22:22:01.234"/>
+<msg timestamp="20220118 22:41:48.032" level="INFO">Typing text 'invp' into text field '//*[@id="Password"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:48.032" endtime="20220118 22:41:48.117"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${register}[confirm_password]</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220118 22:22:01.234" level="INFO">Typing text 'yesyes' into text field '//*[@id="ConfirmPassword"]'.</msg>
-<status status="PASS" starttime="20220118 22:22:01.234" endtime="20220118 22:22:01.325"/>
+<msg timestamp="20220118 22:41:48.118" level="INFO">Typing text 'invp' into text field '//*[@id="ConfirmPassword"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:48.117" endtime="20220118 22:41:48.203"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:01.144" endtime="20220118 22:22:01.326"/>
+<status status="PASS" starttime="20220118 22:41:48.031" endtime="20220118 22:41:48.204"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <arg>not ${want_newsletter}</arg>
 <arg>Toggle Newsletter Checkbox</arg>
 <doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220118 22:22:01.326" endtime="20220118 22:22:01.326"/>
+<status status="PASS" starttime="20220118 22:41:48.204" endtime="20220118 22:41:48.204"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:00.505" endtime="20220118 22:22:01.326"/>
+<status status="PASS" starttime="20220118 22:41:47.393" endtime="20220118 22:41:48.204"/>
 </kw>
 <kw name="Click Register Button" library="Register">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${register}[register_button]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20220118 22:22:01.327" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
-<status status="PASS" starttime="20220118 22:22:01.327" endtime="20220118 22:22:01.404"/>
+<msg timestamp="20220118 22:41:48.205" level="INFO">Clicking button '//*[@id="register-button"]'.</msg>
+<status status="PASS" starttime="20220118 22:41:48.205" endtime="20220118 22:41:48.281"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:01.326" endtime="20220118 22:22:01.404"/>
+<status status="PASS" starttime="20220118 22:41:48.204" endtime="20220118 22:41:48.281"/>
 </kw>
 <kw name="Verify Unsuccessful Registration" library="Register">
 <kw name="Page Should Not Contain" library="SeleniumLibrary">
 <arg>Your registration completed</arg>
 <doc>Verifies the current page does not contain ``text``.</doc>
-<msg timestamp="20220118 22:22:01.431" level="INFO">Current page does not contain text 'Your registration completed'.</msg>
-<status status="PASS" starttime="20220118 22:22:01.405" endtime="20220118 22:22:01.431"/>
+<msg timestamp="20220118 22:41:48.307" level="INFO">Current page does not contain text 'Your registration completed'.</msg>
+<status status="PASS" starttime="20220118 22:41:48.281" endtime="20220118 22:41:48.307"/>
 </kw>
 <kw name="Page Should Not Contain" library="SeleniumLibrary">
 <arg>Log out</arg>
 <doc>Verifies the current page does not contain ``text``.</doc>
-<msg timestamp="20220118 22:22:01.453" level="INFO">Current page does not contain text 'Log out'.</msg>
-<status status="PASS" starttime="20220118 22:22:01.431" endtime="20220118 22:22:01.453"/>
+<msg timestamp="20220118 22:41:48.328" level="INFO">Current page does not contain text 'Log out'.</msg>
+<status status="PASS" starttime="20220118 22:41:48.308" endtime="20220118 22:41:48.328"/>
 </kw>
-<status status="PASS" starttime="20220118 22:22:01.404" endtime="20220118 22:22:01.453"/>
+<status status="PASS" starttime="20220118 22:41:48.281" endtime="20220118 22:41:48.329"/>
 </kw>
 <kw name="Close All Browsers" library="SeleniumLibrary">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20220118 22:22:01.454" endtime="20220118 22:22:01.511"/>
+<status status="PASS" starttime="20220118 22:41:48.329" endtime="20220118 22:41:48.387"/>
 </kw>
 <doc>Test an invalid Registration</doc>
 <tag>WebUI</tag>
 <tag>WebUI_Register</tag>
-<status status="PASS" starttime="20220118 22:21:56.371" endtime="20220118 22:22:01.512"/>
+<status status="PASS" starttime="20220118 22:41:44.053" endtime="20220118 22:41:48.387"/>
 </test>
-<status status="PASS" starttime="20220118 22:21:29.854" endtime="20220118 22:22:01.513"/>
+<status status="PASS" starttime="20220118 22:41:16.289" endtime="20220118 22:41:48.389"/>
 </suite>
 <statistics>
 <total>

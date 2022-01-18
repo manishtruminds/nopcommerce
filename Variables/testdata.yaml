@@ -1,11 +1,12 @@
 test_data:
     register:
-        firstname:          myfirstname
-        lastname:           mylastname
+        firstname:          david
+        lastname:           knuth
         invalid_password:   a|#|123|abc12
-        invalid_mailid:     abc.com|abc@abc|efg@abc.|@abc.com
+        invalid_email:      abc.com|abc@abc|efg@abc.|@abc.com
         valid_password:     abcd@1234
-        valid_mailid:       manish.gupta@truminds.com
+        valid_email1:       davidknuth25@mail.com
+        valid_email2:       davidknuth26@mail.com
     login:
         invalid_emailid:    anish.gupta@truminds.com|manishgupta@truminds.com|manish.gupta|manish.gupta@truminds
         invalid_password:   abcd1234|abcd12@34
