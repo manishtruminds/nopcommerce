@@ -60,3 +60,8 @@ Setup Chrome
     Log    Setting up Chrome    console=${True}
     Log To Console  Opening browser with popup blocking disabled and ignoring certificate error
     Open Browser    ${url}   Chrome     options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")
+
+Get Test Data
+    [Arguments]   ${page}   ${attribute}
+    ${data}=  Split String  ${test_data}[${page}][${attribute}]   |
+    [return]    ${data}

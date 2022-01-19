@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.7 on win32)" generated="20220119 18:25:16.647" rpa="false" schemaversion="2">
+<suite id="s1" name="Login Page" source="D:\TruMinds\nopcommerce\TestSuite\login_page.robot">
+<test id="s1-t1" name="Unsuccessful Login With Empty Parameters">
+<kw name="Open Webui" library="Common_Utils">
+<doc>Open demo nopcommerce WebUI</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Browser: ${browser}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220119 18:25:17.147" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220119 18:25:17.147" endtime="20220119 18:25:17.147"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL: ${url}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220119 18:25:17.147" level="INFO" html="true">URL: https://demo.nopcommerce.com/</msg>
+<status status="PASS" starttime="20220119 18:25:17.147" endtime="20220119 18:25:17.147"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>5 seconds</arg>
+<arg>Open Webui Repeat</arg>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Webui Repeat" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser}'=='Firefox'</arg>
+<arg>Setup Firefox</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Chrome'</arg>
+<arg>Setup Chrome</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Edge'</arg>
+<arg>Setup Edge</arg>
+<arg>${url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setup Chrome" library="Common_Utils">
+<arg>${url}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Setting up Chrome</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220119 18:25:17.149" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220119 18:25:17.149" endtime="20220119 18:25:17.149"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220119 18:25:17.149" endtime="20220119 18:25:17.149"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220119 18:25:17.149" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220119 18:25:17.149" endtime="20220119 18:25:23.563"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:17.149" endtime="20220119 18:25:23.563"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:17.149" endtime="20220119 18:25:23.563"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Setting window size to 1920x1000 for standard execution across displays</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220119 18:25:23.563" endtime="20220119 18:25:23.563"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220119 18:25:23.563" endtime="20220119 18:25:23.690"/>
+</kw>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${width}</var>
+<var>${height}</var>
+<doc>Returns current window width and height as integers.</doc>
+<msg timestamp="20220119 18:25:23.690" level="INFO">${width} = 1386</msg>
+<msg timestamp="20220119 18:25:23.690" level="INFO">${height} = 788</msg>
+<status status="PASS" starttime="20220119 18:25:23.690" endtime="20220119 18:25:23.690"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Window: width: ${width} height: ${height}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220119 18:25:23.690" endtime="20220119 18:25:23.690"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${home}[logo_image]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220119 18:25:23.690" endtime="20220119 18:25:23.738"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:17.147" endtime="20220119 18:25:23.738"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:17.147" endtime="20220119 18:25:23.738"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:17.139" endtime="20220119 18:25:23.738"/>
+</kw>
+<kw name="Proceed To Login Page" library="Home">
+<doc>Moving to Login Page</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${home}[login]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220119 18:25:23.738" level="INFO">Clicking link '//a[contains(text(),'Log in')]'.</msg>
+<status status="PASS" starttime="20220119 18:25:23.738" endtime="20220119 18:25:25.818"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Login</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Login</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220119 18:25:25.822" level="INFO">Page title is 'nopCommerce demo store. Login'.</msg>
+<status status="PASS" starttime="20220119 18:25:25.818" endtime="20220119 18:25:25.822"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:25.818" endtime="20220119 18:25:25.822"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:23.738" endtime="20220119 18:25:25.822"/>
+</kw>
+<kw name="Fill Login Form With RememberMe" library="Login">
+<doc>Filling Details in login Form and selecting Remember Me checkbox</doc>
+<kw name="Enter Username" library="Login">
+<arg>${username}</arg>
+<doc>Enter the username into textbox</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${login}[email]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220119 18:25:25.826" endtime="20220119 18:25:25.858"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login}[email]</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220119 18:25:25.858" level="INFO">Typing text ' None' into text field '//input[@id='Email']'.</msg>
+<status status="PASS" starttime="20220119 18:25:25.858" endtime="20220119 18:25:25.946"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:25.826" endtime="20220119 18:25:25.946"/>
+</kw>
+<kw name="Enter Password" library="Login">
+<arg>${password}</arg>
+<doc>Enter the password into textbox</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${login}[password]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220119 18:25:25.946" endtime="20220119 18:25:25.969"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${login}[password]</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220119 18:25:25.973" level="INFO">Typing text ' None' into text field '//input[@id='Password']'.</msg>
+<status status="PASS" starttime="20220119 18:25:25.969" endtime="20220119 18:25:26.069"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:25.946" endtime="20220119 18:25:26.069"/>
+</kw>
+<kw name="Select RememberMe" library="Login">
+<doc>Select checkbox to remember the account</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${login}[rememberme]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220119 18:25:26.069" endtime="20220119 18:25:26.109"/>
+</kw>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>${login}[rememberme]</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20220119 18:25:26.109" level="INFO">Selecting checkbox '//input[@id='RememberMe']'.</msg>
+<status status="PASS" starttime="20220119 18:25:26.109" endtime="20220119 18:25:26.214"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:26.069" endtime="20220119 18:25:26.214"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:25.826" endtime="20220119 18:25:26.214"/>
+</kw>
+<kw name="Click Login Button" library="Login">
+<doc>Clicking the Login button</doc>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${login}[login_button]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220119 18:25:26.214" level="INFO">Clicking button '//button[contains(text(),'Log in')]'.</msg>
+<status status="PASS" starttime="20220119 18:25:26.214" endtime="20220119 18:25:26.269"/>
+</kw>
+<status status="PASS" starttime="20220119 18:25:26.214" endtime="20220119 18:25:26.269"/>
+</kw>
+<kw name="Verify Enter Email Error Message" library="Login">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Please enter your email</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220119 18:25:26.472" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220119 18:25:26.576" level="FAIL">Page should have contained text 'Please enter your email' but did not.</msg>
+<status status="FAIL" starttime="20220119 18:25:26.269" endtime="20220119 18:25:26.576"/>
+</kw>
+<status status="FAIL" starttime="20220119 18:25:26.269" endtime="20220119 18:25:26.580"/>
+</kw>
+<doc>Invalid logging in With empty Parameters</doc>
+<tag>InvalidLogin</tag>
+<tag>InvalidLogin3</tag>
+<tag>WebUI_Login</tag>
+<status status="FAIL" starttime="20220119 18:25:17.139" endtime="20220119 18:25:26.584">Page should have contained text 'Please enter your email' but did not.</status>
+</test>
+<status status="FAIL" starttime="20220119 18:25:16.648" endtime="20220119 18:25:26.592"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">InvalidLogin</stat>
+<stat pass="0" fail="1" skip="0">InvalidLogin3</stat>
+<stat pass="0" fail="1" skip="0">WebUI_Login</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Login Page">Login Page</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220119 18:25:16.937" level="WARN">Imported resource file 'D:\TruMinds\nopcommerce\Lib\Register.robot' is empty.</msg>
+</errors>
+</robot>
