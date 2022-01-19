@@ -112,15 +112,21 @@ Click Register Button
     ...    Click Button    ${register}[register_button]
 
 Verify Successful Registration
-    Page Should Contain   Your registration completed
-    Page Should Contain    Log out
+    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    ...    Page Should Contain   Your registration completed
+    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    ...    Page Should Contain    Log out
 
 Verify Unsuccessful Registration
-  Page Should Not Contain   Your registration completed
-  Page Should Not Contain    Log out
+  Wait Until Keyword Succeeds    30 seconds    2 seconds
+    ...    Page Should Not Contain   Your registration completed
+  Wait Until Keyword Succeeds    30 seconds    2 seconds
+    ...    Page Should Not Contain    Log out
 
 Verify Invalid Email Message
-    Page Should Contain    Wrong email
+    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    ...    Page Should Contain    Wrong email
 
 Verify Invalid Password Message
-    Page Should Contain    Password must meet the following rules:
+    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    ...    Page Should Contain    Password must meet the following rules:
