@@ -1,5 +1,7 @@
 # Test Suite for Register page
 *** Settings ***
+Library    String
+
 Resource    ${EXECDIR}/Lib/Common_Utils.robot
 Resource    ${EXECDIR}/Lib/Register.robot 
 Resource    ../Lib/Common_Utils.robot
@@ -78,11 +80,22 @@ Invalid Registration
 
     Page Should Contain    Register
 
-    Fill Registration Form    M    ${test_data}[register][firstname]    ${test_data}[register][lastname]
-    ...                        10    1    1938    ${test_data}[register][invalid_email]    acme    invp    ${True}
-    Click Register Button
+    ${invalid_emails}=       Split String    ${test_data}[register][invalid_email]    |
+    ${invalid_passwords}=    Split String    ${test_data}[register][invalid_password]    |
 
-    Verify Unsuccessful Registration
+    FOR    ${email}    ${password}    IN ZIP    ${invalid_emails}    ${invalid_passwords}
+        Log    ${email} - ${password}
+        
+        Fill Registration Form    M    ${test_data}[register][firstname]    ${test_data}[register][lastname]
+        ...                        10    1    1938    ${email}    acme    ${password}    ${True}
+        
+        Click Register Button
+
+        Verify Unsuccessful Registration
+        
+    END
+
+
     
     Close All Browsers
     
