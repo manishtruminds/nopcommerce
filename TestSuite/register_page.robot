@@ -20,7 +20,7 @@ ${url}        ${env_variables}[${ENV_TYPE}][url]
 
 Required Registration Fields
     [Tags]    WebUI    WebUI_Register
-    [Documentation]    Test required fields
+    [Documentation]    Test that registration requires required fields to be filled
 
     Open Webui    ${browser}    ${url}register
     Page Should Contain    Register
@@ -31,38 +31,41 @@ Required Registration Fields
 
     Verify Unsuccessful Registration
 
-    Close All Browsers
+    [Teardown]    Close All Browsers
 
 Optional Registration Fields
     [Tags]    WebUI    WebUI_Register
-    [Documentation]    Test optional fields
+    [Documentation]    Test that registration doesn't require optional fields to be filled
 
     Open Webui    ${browser}    ${url}register
     Page Should Contain    Register
 
-    Fill Registration Form    ${EMPTY}    ${test_data}[register][firstname]    ${test_data}[register][lastname]
-    ...                        ${EMPTY}    ${EMPTY}    ${EMPTY}    ${test_data}[register][valid_email1]    ${EMPTY}
-    ...                        ${test_data}[register][valid_password]    ${True}
-    
+    Fill Registration Form
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${test_data}[register][valid_email1]    password=${test_data}[register][valid_password]
+    #...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+
     Click Register Button
 
     Sleep    5
 
     Verify Successful Registration
 
-    Close All Browsers
+    [Teardown]    Close All Browsers
 
 
 Valid Registration
     [Tags]    WebUI    WebUI_Register
-    [Documentation]    Test a Valid Registration
+    [Documentation]    Test a Valid Registration with all data filled
 
     Open Webui    ${browser}    ${url}register
 
     Page Should Contain    Register
 
-    Fill Registration Form    M    ${test_data}[register][firstname]    ${test_data}[register][lastname]
-    ...                        10    1    1938    ${test_data}[register][valid_email2]    acme    ${test_data}[register][valid_password]    ${True}
+    Fill Registration Form
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${test_data}[register][valid_email2]    password=${test_data}[register][valid_password]
+    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
     
     Click Register Button
 
@@ -70,32 +73,59 @@ Valid Registration
 
     Verify Successful Registration
     
-    Close All Browsers
+    [Teardown]    Close All Browsers
 
-Invalid Registration
+Invalid Registration Email
     [Tags]    WebUI    WebUI_Register
-    [Documentation]    Test an invalid Registration
+    [Documentation]    Test an invalid registration with invalid emails
 
     Open Webui    ${browser}    ${url}register
 
     Page Should Contain    Register
 
-    ${invalid_emails}=       Split String    ${test_data}[register][invalid_email]    |
-    ${invalid_passwords}=    Split String    ${test_data}[register][invalid_password]    |
+    ${invalid_emails}=       Split String    ${test_data}[register][invalid_emails]    |
+    #${invalid_passwords}=    Split String    ${test_data}[register][invalid_passwords]    |
 
-    FOR    ${email}    ${password}    IN ZIP    ${invalid_emails}    ${invalid_passwords}
-        Log    ${email} - ${password}
+    FOR    ${invalid_email}    IN    @{invalid_emails}
+        Log    ${invalid_email}
         
-        Fill Registration Form    M    ${test_data}[register][firstname]    ${test_data}[register][lastname]
-        ...                        10    1    1938    ${email}    acme    ${password}    ${True}
+        Fill Registration Form
+        ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+        ...    email=${invalid_email}    password=${test_data}[register][valid_password]
         
         Click Register Button
 
-        Verify Unsuccessful Registration
         
+        Verify Unsuccessful Registration
+        Verify Invalid Email Message
+
     END
-
-
     
-    Close All Browsers
+    [Teardown]    Close All Browsers
+
+Invalid Registration Password
+    [Tags]    WebUI    WebUI_Register
+    [Documentation]    Test an invalid registration with invalid passwords
+
+    Open Webui    ${browser}    ${url}register
+
+    Page Should Contain    Register
+
+    ${invalid_passwords}=    Split String    ${test_data}[register][invalid_passwords]    |
+
+    FOR    ${invalid_password}    IN    @{invalid_passwords}
+        Log    ${invalid_password}
+        
+        Fill Registration Form
+        ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+        ...    email=${test_data}[register][valid_email3]    password=${invalid_password}
+        
+        Click Register Button
+
+        
+        Verify Unsuccessful Registration
+        Verify Invalid Password Message
+
+    END
     
+    [Teardown]    Close All Browsers
