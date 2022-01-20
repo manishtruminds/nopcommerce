@@ -42,7 +42,7 @@ Optional Registration Fields
     Open Webui    ${browser}    ${url}
     Proceed To Register Page
 
-    @{valid_emails}=    Get Test Data From Pipe Separated String    register    valid_emails
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
 
     Fill Registration Form
     ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
@@ -63,7 +63,7 @@ Valid Registration
     Open Webui    ${browser}    ${url}
     Proceed To Register Page
 
-    @{valid_emails}=    Get Test Data From Pipe Separated String    register    valid_emails
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
 
     Fill Registration Form
     ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
@@ -83,7 +83,7 @@ Invalid Registration Email
     Open Webui    ${browser}    ${url}
     Proceed To Register Page
 
-    @{invalid_emails}=    Get Test Data From Pipe Separated String    register    invalid_emails
+    @{invalid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][invalid_emails]
 
     FOR    ${invalid_email}    IN    @{invalid_emails}
         Log    ${invalid_email}
@@ -109,8 +109,8 @@ Invalid Registration Password
     Open Webui    ${browser}    ${url}
     Proceed To Register Page
 
-    @{valid_emails}=    Get Test Data From Pipe Separated String    register    valid_emails
-    @{invalid_passwords}=    Get Test Data From Pipe Separated String    register    invalid_passwords
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+    @{invalid_passwords}=    Get Test Data From Pipe Separated String    ${test_data}[register][invalid_passwords]
 
     FOR    ${invalid_password}    IN    @{invalid_passwords}
         Log    ${invalid_password}
