@@ -24,3 +24,20 @@ register:
   password:             //*[@id="Password"]
   confirm_password:     //*[@id="ConfirmPassword"]
   register_button:      //*[@id="register-button"]
+
+checkout:
+  billing_addr:
+    ship_to_same_addr:  //*[@id="ShipToSameAddress"]
+    firstname:          //*[@id="BillingNewAddress_FirstName"]
+    lastname:           //*[@id="BillingNewAddress_LastName"]
+    email:              //*[@id="BillingNewAddress_Email"]
+    company:            //*[@id="BillingNewAddress_Company"]
+    country:            //*[@id="BillingNewAddress_CountryId"]
+    state:  //*[@id="BillingNewAddress_StateProvinceId"]
+    city:               //*[@id="BillingNewAddress_City"]
+    addr1:              //*[@id="BillingNewAddress_Address1"]
+    addr2:              //*[@id="BillingNewAddress_Address2"]
+    zip:                //*[@id="BillingNewAddress_ZipPostalCode"]
+    phone:              //*[@id="BillingNewAddress_PhoneNumber"]
+    fax:                //*[@id="BillingNewAddress_FaxNumber"]
+    continue_button:    //*[@id="billing-buttons-container"]/button[4]
