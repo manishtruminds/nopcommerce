@@ -32,19 +32,24 @@ Click Login Button
     Click Button     ${login}[login_button]
 
 Verify Login Success
-    Page Should Contain Link    ${home}[logout]
+    [Documentation]     Verifying that Login is Successful
+    Wait Until Keyword Succeeds    3 times  10 seconds      Page Should Contain Link    ${home}[logout]
 
 Verify Incorrect Credentials Error Message
-    Page Should Contain    Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect
+    [Documentation]     Verifying that the credentials entered are incorrect
+    Wait Until Keyword Succeeds    3 times  10 seconds    Page Should Contain    Login was unsuccessful. Please correct the errors and try again.The credentials provided are incorrect
 
 Verify No Cutomer Found Error Message
-    Page Should Contain    Login was unsuccessful. Please correct the errors and try again.No customer account found
+    [Documentation]     Verifying that no customer with given credentials exist
+    Wait Until Keyword Succeeds    3 times  10 seconds    Page Should Contain    Login was unsuccessful. Please correct the errors and try again.No customer account found
 
 Verify Enter Email Error Message
-    Page Should Contain    Please enter your email
+    [Documentation]     Verifying that Enter Email error message is shown
+    Wait Until Keyword Succeeds    3 times  10 seconds    Page Should Contain    Please enter your email
 
 Verify Wrong Email Error Message
-    Page Should Contain    Wrong email
+    [Documentation]     Verifying that wrong mail error message is shown
+    Wait Until Keyword Succeeds    3 times  10 seconds    Page Should Contain    Wrong email
 
 Fill Login Form With RememberMe
     [Documentation]     Filling Details in login Form and selecting Remember Me checkbox

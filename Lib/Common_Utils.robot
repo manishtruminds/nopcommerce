@@ -62,6 +62,6 @@ Setup Chrome
     Open Browser    ${url}   Chrome     options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")
 
 Get Test Data
-    [Arguments]   ${page}   ${attribute}
-    ${data}=  Split String  ${test_data}[${page}][${attribute}]   |
+    [Arguments]   ${string}  
+    ${data}=  Split String  ${string}   |
     [return]    ${data}
