@@ -33,7 +33,7 @@ Required Registration Fields
 
     Verify Unsuccessful Registration
 
-    [Teardown]    Close All Browsers
+    Close All Browsers
 
 Optional Registration Fields
     [Tags]    WebUI    WebUI_Register
@@ -53,7 +53,7 @@ Optional Registration Fields
 
     Verify Successful Registration
 
-    [Teardown]    Close All Browsers
+    Close All Browsers
 
 
 Valid Registration
@@ -74,7 +74,7 @@ Valid Registration
 
     Verify Successful Registration
     
-    [Teardown]    Close All Browsers
+    Close All Browsers
 
 Invalid Registration Email
     [Tags]    WebUI    WebUI_Register
@@ -100,7 +100,7 @@ Invalid Registration Email
 
     END
     
-    [Teardown]    Close All Browsers
+    Close All Browsers
 
 Invalid Registration Password
     [Tags]    WebUI    WebUI_Register
@@ -127,4 +127,4 @@ Invalid Registration Password
 
     END
     
-    [Teardown]    Close All Browsers
+    Close All Browsers
