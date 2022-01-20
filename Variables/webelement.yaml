@@ -10,3 +10,17 @@ login:
   password:             //input[@id='Password']
   rememberme:           //input[@id='RememberMe']
   login_button:         //button[contains(text(),'Log in')]
+  
+register:
+  radio_gender:         Gender
+  firstname:            //*[@id="FirstName"]
+  lastname:             //*[@id="LastName"]
+  birthday_date:        DateOfBirthDay
+  birthday_month:       DateOfBirthMonth
+  birthday_year:        DateOfBirthYear
+  email:                //*[@id="Email"]
+  company:              //*[@id="Company"]
+  newsletter:           //*[@id="Newsletter"]
+  password:             //*[@id="Password"]
+  confirm_password:     //*[@id="ConfirmPassword"]
+  register_button:      //*[@id="register-button"]

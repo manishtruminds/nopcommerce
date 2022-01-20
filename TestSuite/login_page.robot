@@ -63,7 +63,7 @@ Unsuccessful Login With Valid Mailid And Invalid Password
     Open Webui
     Proceed To Login Page
 
-    ${invalid_passwords}=            Get Test Data    ${test_data}[login][invalid_password]
+    ${invalid_passwords}=            Get Test Data From Pipe Separated String    ${test_data}[login][invalid_password]
     ${len_invalid_passwords}=        Get Length    ${invalid_passwords}
 
     FOR   ${i}    IN RANGE   ${len_invalid_passwords}
@@ -78,7 +78,7 @@ Unsuccessful Login With Unregistered Credentials
     [Documentation]       Invalid logging in With Unregistered Credentials
     Open Webui
     Proceed To Login Page
-    ${invalid_emails}=              Get Test Data    ${test_data}[login][invalid_emailid]
+    ${invalid_emails}=              Get Test Data From Pipe Separated String    ${test_data}[login][invalid_emailid]
     ${len_invalid_emails}=          Get Length    ${invalid_emails}
 
     FOR   ${i}    IN RANGE   ${len_invalid_emails}
@@ -103,7 +103,7 @@ Unsuccessful Login With Wrong Mail
     [Documentation]       Invalid logging in with wrong email ids
     Open Webui
     Proceed To Login Page
-    ${wrong_emails}=              Get Test Data    ${testdata}[login][wrong_mails]
+    ${wrong_emails}=              Get Test Data From Pipe Separated String    ${testdata}[login][wrong_mails]
     ${len_wrong_emails}=          Get Length    ${wrong_emails}
 
     FOR   ${i}    IN RANGE   ${len_wrong_emails}
