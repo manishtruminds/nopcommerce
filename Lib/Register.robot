@@ -8,45 +8,45 @@ Documentation    This resource file contains keywords for dealing with the regis
 *** Keywords ***
 
 Choose Gender As Male
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Select Radio Button    ${register}[radio_gender]    M
     Radio Button Should Be Set To    ${register}[radio_gender]    M
 
 Choose Gender As Female
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Select Radio Button    ${register}[radio_gender]    F
     Radio Button Should Be Set To    ${register}[radio_gender]    F
 
 Input FirstName
     [Arguments]   ${firstName}
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Input Text  ${register}[firstname]  ${firstName}
 
 Input LastName
     [Arguments]   ${lastName}
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Input Text  ${register}[lastname]  ${lastName}
 
 
 Input Date Of Birth
     [Arguments]    ${day}=0    ${month}=0    ${year}=0
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...                Select From List By Value    ${register}[birthday_date]    ${day}
     
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...                Select From List By Value    ${register}[birthday_month]    ${month}
     
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...                Select From List By Value    ${register}[birthday_year]    ${year}
 
 Input Email
     [Arguments]    ${email}
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Input Text    ${register}[email]  ${email}
 
 Input Company
     [Arguments]    ${company}
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...                Input Text    ${register}[company]  ${company}
 
 Select Newsletter Checkbox
@@ -70,9 +70,9 @@ Unselect Newsletter Checkbox
 
 Input Password
     [Arguments]    ${password}
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Input Text    ${register}[password]    ${password}
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Input Text    ${register}[confirm_password]    ${password}
 
 Fill Registration Form
@@ -108,25 +108,25 @@ Fill Registration Form
 
 
 Click Register Button
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Button    ${register}[register_button]
 
 Verify Successful Registration
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain   Your registration completed
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain    Log out
 
 Verify Unsuccessful Registration
-  Wait Until Keyword Succeeds    30 seconds    2 seconds
+  Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Not Contain   Your registration completed
-  Wait Until Keyword Succeeds    30 seconds    2 seconds
+  Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Not Contain    Log out
 
 Verify Invalid Email Message
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain    Wrong email
 
 Verify Invalid Password Message
-    Wait Until Keyword Succeeds    30 seconds    2 seconds
+    Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain    Password must meet the following rules:
