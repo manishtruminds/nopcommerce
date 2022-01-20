@@ -41,3 +41,23 @@ checkout:
     phone:              //*[@id="BillingNewAddress_PhoneNumber"]
     fax:                //*[@id="BillingNewAddress_FaxNumber"]
     continue_button:    //*[@id="billing-buttons-container"]/button[4]
+  
+  shipping_method:
+    radio_shipping_method:  shippingoption
+    continue_button:           //*[@id="shipping-method-buttons-container"]/button
+  
+  payment_method:
+    radio_payment_method:  paymentmethod
+    continue_button:           //*[@id="payment-method-buttons-container"]/button
+  
+  payment_info:
+    credit_card:      CreditCardType
+    cardholder_name:  //*[@id="CardholderName"]
+    card_number:      //*[@id="CardNumber"]
+    expire_month:     ExpireMonth
+    expire_year:      ExpireYear
+    card_code:        //*[@id="CardCode"]
+    continue_button:  //*[@id="payment-info-buttons-container"]/button
+
+
+  confirm_order_button:   //*[@id="confirm-order-buttons-container"]/button

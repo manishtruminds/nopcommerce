@@ -134,3 +134,101 @@ Fill Billing Address Form
     IF    "${fax}" != "${None}"
         Input Billing Address Fax    ${fax}
     END
+
+# --------------------------------------------
+
+Choose Shipping Method As Ground
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Select Radio Button    ${checkout}[shipping_method][radio_shipping_method]    Ground___Shipping.FixedByWeightByTotal
+    Radio Button Should Be Set To    ${checkout}[shipping_method][radio_shipping_method]    Ground___Shipping.FixedByWeightByTotal
+
+Choose Shipping Method As Next Day Air
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Select Radio Button    ${checkout}[shipping_method][radio_shipping_method]    Next Day Air___Shipping.FixedByWeightByTotal
+    Radio Button Should Be Set To    ${checkout}[shipping_method][radio_shipping_method]    Next Day Air___Shipping.FixedByWeightByTotal
+
+Choose Shipping Method As Second Day Air
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Select Radio Button    ${checkout}[shipping_method][radio_shipping_method]    2nd Day Air___Shipping.FixedByWeightByTotal
+    Radio Button Should Be Set To    ${checkout}[shipping_method][radio_shipping_method]    2nd Day Air___Shipping.FixedByWeightByTotal
+
+Click Shipping Method Continue Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    ${checkout}[shipping_method][continue_button]
+# --------------------------------------------
+
+Choose Payment Method As Check Or Money Order
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Select Radio Button    ${checkout}[payment_method][radio_payment_method]    Payments.CheckMoneyOrder
+    Radio Button Should Be Set To    ${checkout}[payment_method][radio_payment_method]    Payments.CheckMoneyOrder
+
+Choose Payment Method As Credit Card
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Select Radio Button    ${checkout}[payment_method][radio_payment_method]    Payments.Manual
+    Radio Button Should Be Set To    ${checkout}[payment_method][radio_payment_method]    Payments.Manual
+
+Click Payment Method Continue Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    ${checkout}[payment_method][continue_button]
+# --------------------------------------------
+
+Select Payment Information Credit Card
+    [Arguments]    ${card}
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...                Select From List By Value    ${checkout}[payment_info][credit_card]    ${card}
+
+Input Payment Information Cardholder Name
+    [Arguments]   ${name}
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Input Text    ${checkout}[payment_info][cardholder_name]    ${name}
+
+Input Payment Information Card Number
+    [Arguments]   ${cnum}
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Input Text    ${checkout}[payment_info][card_number]    ${cnum}
+
+Input Payment Information Card Expiration Date
+    [Arguments]    ${month}    ${year}
+    
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...                Select From List By Value    ${checkout}[payment_info][expire_month]    ${month}
+    
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...                Select From List By Value    ${checkout}[payment_info][expire_year]    ${year}
+
+Input Payment Information Card Code
+    [Arguments]   ${code}
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Input Text    ${checkout}[payment_info][card_code]    ${code}
+
+Fill Payment Information Credit Card Form
+    [Arguments]    ${card_type}    ${cardholder_name}    ${card_number}
+    ...            ${expiration_month}    ${expiration_year}    ${card_code}
+
+    Select Payment Information Credit Card    ${card_type}
+    Input Payment Information Cardholder Name    ${cardholder_name}
+    Input Payment Information Card Number    ${card_number}
+    Input Payment Information Card Expiration Date    ${expiration_month}    ${expiration_year}
+    Input Payment Information Card Code    ${card_code}
+
+Click Payment Information Continue Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    ${checkout}[payment_info][continue_button]
+
+# --------------------------------------------
+
+Click Confirm Order Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    ${checkout}[confirm_order_button]
+
+Verify Successful Checkout
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain   Thank you
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Your order has been successfully processed!
+
+Verify Unsuccessful Checkout
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Not Contain   Thank you
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Not Contain    Your order has been successfully processed!

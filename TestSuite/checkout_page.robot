@@ -34,3 +34,29 @@ Keyword Tests
     ...    company=acme    fax=123456
 
     Click Billing Address Continue Button
+
+    Choose Shipping Method As Ground
+    Sleep    1
+    Choose Shipping Method As Next Day Air
+    Sleep    1
+    Choose Shipping Method As Second Day Air
+    Sleep    2
+    Click Shipping Method Continue Button
+
+    #Choose Payment Method As Check Or Money Order
+    Sleep    1
+    Choose Payment Method As Credit Card
+    Sleep    2
+    Click Payment Method Continue Button
+    
+    Sleep    2
+    Fill Payment Information Credit Card Form
+    ...    card_type=Amex    cardholder_name=david knuth    card_number=123456789101112131415
+    ...    expiration_month=5    expiration_year=2024    card_code=344
+    Sleep    2
+    Click Payment Information Continue Button
+
+    Sleep    2
+    Click Confirm Order Button
+
+    Verify Successful Checkout
