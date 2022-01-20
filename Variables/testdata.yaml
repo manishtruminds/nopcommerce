@@ -8,6 +8,7 @@ test_data:
         valid_emails:       davidknuth1@mail.com|davidknuth2@mail.com|davidknuth3@mail.com|davidknuth16@mail.com
     login:
         invalid_emailid:    anish.gupta@truminds.com|manishgupta@truminds.com|manish.gupta|manish.gupta@truminds
+        wrong_mails:        abc|abc@|abc@gmail.|abc@gmail.com.
         invalid_password:   abcd1234|abcd12@34
         valid_mailid:       manish.gupta@truminds.com
         valid_password:     abcd@1234

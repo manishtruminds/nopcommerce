@@ -1,6 +1,7 @@
 home:
   logo_image:           //img[@src='https://demo.nopcommerce.com/Themes/DefaultClean/Content/images/logo.png']
   login:                //a[contains(text(),'Log in')]
+  logout:               //a[contains(text(),'Log out')]
   register:             //a[contains(text(),'Register')]
   apparel:              //*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]
   shoes:                //*[@class='top-menu notmobile']//a[contains(text(),'Shoes')]
