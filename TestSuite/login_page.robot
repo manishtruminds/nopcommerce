@@ -28,31 +28,18 @@ ${password}                                 ${env_variables}[${ENV_TYPE}][passwo
 
 *** Test Cases ***
 
-RegisterTest
-    [Tags]         WebUI_Login  ValidLogin
-    [Documentation]   Successfully registering in
-    Open Webui
-    click link  xpath://a[contains(text(),'Register')]
-    select radio button     Gender  F
-    input text  id:FirstName    Saakshi
-    input text  id:LastName     Singh
-    select from list by label   name:DateOfBirthDay     14
-    select from list by label   name:DateOfBirthMonth   November
-    select from list by label   name:DateOfBirthYear   1997
-    input text  id:Email    ${test_data}[login][valid_mailid]
-    input text  id:Company  NONE
-    unselect checkbox     name:Newsletter
-    input text  id:Password     ${test_data}[login][valid_password]
-    input text  id:ConfirmPassword    ${test_data}[login][valid_password]
-    sleep   3
-    click element    xpath://button[@id='register-button']
-    Close All Browsers
-
 Successful Login With RememberMe
     [Tags]         WebUI_Login  ValidLogin  ValidLoginRememberMe
     [Documentation]   Successfully logging in and selecting Remember Me checkbox
     Open Webui
-    #Need to do registeration here
+    #Need to do registration here
+    Fill Registration Form
+        ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+        ...    email=${valid_emails}[0]    password=${test_data}[register][valid_password]
+        #...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+    Click Register Button
+    #logging out
+    Click Link    ${home}[logout]
     Proceed To Login Page
     Fill Login Form With RememberMe       ${test_data}[login][valid_mailid]   ${test_data}[login][valid_password]
     Click Login Button
