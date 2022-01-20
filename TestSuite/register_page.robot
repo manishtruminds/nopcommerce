@@ -128,3 +128,40 @@ Invalid Registration Password
     END
     
     Close All Browsers
+
+Duplicate Registration
+    [Tags]    WebUI    WebUI_Register
+    [Documentation]    Ensure that duplicate registrations is not possible
+
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+
+    Open Webui    ${browser}    ${url}
+    Proceed To Register Page
+
+    Fill Registration Form
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${valid_emails}[3]    password=${test_data}[register][valid_password]
+    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+    
+    Click Register Button
+
+    Verify Successful Registration
+    
+    Close All Browsers
+
+    # Retry the same registration, this time, it should be unsuccessful
+
+    Open Webui    ${browser}    ${url}
+    Proceed To Register Page
+
+    Fill Registration Form
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${valid_emails}[3]    password=${test_data}[register][valid_password]
+    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+    
+    Click Register Button
+
+    Verify Unsuccessful Registration
+    Verify Email Already Exists Message
+    
+    Close All Browsers

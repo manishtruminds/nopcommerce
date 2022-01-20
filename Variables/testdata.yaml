@@ -5,7 +5,7 @@ test_data:
         invalid_passwords:  a|#|123|abc12
         invalid_emails:     abc.com|abc@abc|efg@abc.|@abc.com
         valid_password:     abcd@1234
-        valid_emails:       davidknuth4@mail.com|davidknuth5@mail.com|davidknuth6@mail.com
+        valid_emails:       davidknuth1@mail.com|davidknuth2@mail.com|davidknuth3@mail.com|davidknuth16@mail.com
     login:
         invalid_emailid:    anish.gupta@truminds.com|manishgupta@truminds.com|manish.gupta|manish.gupta@truminds
         invalid_password:   abcd1234|abcd12@34

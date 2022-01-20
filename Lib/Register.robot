@@ -130,3 +130,7 @@ Verify Invalid Email Message
 Verify Invalid Password Message
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain    Password must meet the following rules:
+
+Verify Email Already Exists Message
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    The specified email already exists
