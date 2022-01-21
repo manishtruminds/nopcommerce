@@ -10,7 +10,7 @@ login:
   password:             //input[@id='Password']
   rememberme:           //input[@id='RememberMe']
   login_button:         //button[contains(text(),'Log in')]
-  
+
 register:
   radio_gender:         Gender
   firstname:            //*[@id="FirstName"]
@@ -24,3 +24,19 @@ register:
   password:             //*[@id="Password"]
   confirm_password:     //*[@id="ConfirmPassword"]
   register_button:      //*[@id="register-button"]
+
+apparel:
+  clothing:        //div[@class='item-grid']//div[@class='item-box'][2]
+  shoes:           //div[@class='item-grid']//div[@class='item-box'][1]
+
+clothing:
+  grid:         //a[contains(text(),'Grid')]
+  list:         //a[contains(text(),'List')]
+  custom_tshirt:
+    add_to_cart_btn:    //button[@class='button-1 add-to-cart-button']
+    text:        //input[@id='product_attribute_12']
+    postive_quantity_error:     //div[@class='bar-notification error']//p[contains(text(),'Quantity should be positive')]
+    empty_textbox_error:        //div[@class='bar-notification-container']//p[contains(text(),'Enter your text:')]
+    success_message:            //div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]
+    productid:          29
+    quantity_box:         //input[@id='product_enteredQuantity_29']

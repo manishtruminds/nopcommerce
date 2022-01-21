@@ -13,5 +13,17 @@ Proceed To Register Page
 
 Proceed To Login Page
     [Documentation]   Moving to Login Page
-    Click Link  ${home}[login]
-    Wait Until Keyword Succeeds    3 times  10 seconds    Title Should Be    nopCommerce demo store. Login
+    Wait Until Keyword Succeeds    5 times  10 seconds
+    ...    Click Link  ${home}[login]
+
+    Wait Until Keyword Succeeds    5 times  10 seconds
+    ...    Title Should Be    nopCommerce demo store. Login
+
+
+Proceed To Apparel Page
+    [Documentation]   Navigating to Apparel Page
+    Wait Until Keyword Succeeds    5 times  10 seconds
+    ...    Click Link  ${home}[apparel]
+
+    Wait Until Keyword Succeeds    5 times  10 seconds
+    ...    Title Should Be    nopCommerce demo store. Apparel

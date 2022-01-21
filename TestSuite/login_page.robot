@@ -5,6 +5,8 @@ Resource                                                                        
 Resource                                                                        ${EXECDIR}/Lib/Login.robot
 Resource                                                                        ${EXECDIR}/Lib/Register.robot
 Resource                                                                        ${EXECDIR}/Lib/Home.robot
+Resource                                                                        ${EXECDIR}/Lib/Apparel.robot
+Resource                                                                        ${EXECDIR}/Lib/Clothing.robot
 
 Library                                                                         SeleniumLibrary
 Library                                                                         DependencyLibrary
@@ -26,12 +28,13 @@ ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 ${username}                                 ${env_variables}[${ENV_TYPE}][username]
 ${password}                                 ${env_variables}[${ENV_TYPE}][password]
 
+
 *** Test Cases ***
 
 Successful Login With RememberMe
     [Tags]         WebUI_Login  ValidLogin  ValidLoginRememberMe
     [Documentation]   Successfully logging in and selecting Remember Me checkbox
-    Open Webui
+    Open Webui  ${browser}  ${url}
     #Need to do registration here
     Fill Registration Form
         ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
@@ -50,7 +53,7 @@ Successful Login With RememberMe
 Successful Login Without RememberMe
     [Tags]         WebUI_Login    ValidLogin  ValidLoginRememberMeNot
     [Documentation]   Successfully logging in without selecting Remember Me checkbox
-    Open Webui
+    Open Webui  ${browser}  ${url}
     Proceed To Login Page
     Fill Login Form Without RememberMe    ${test_data}[login][valid_mailid]   ${test_data}[login][valid_password]
     Click Login Button
@@ -60,7 +63,7 @@ Successful Login Without RememberMe
 Unsuccessful Login With Valid Mailid And Invalid Password
     [Tags]        WebUI_Login    InvalidLogin  InvalidLoginRegisteredCredentials
     [Documentation]       Invalid logging in With Valid Mail ids And Invalid Password
-    Open Webui
+    Open Webui  ${browser}  ${url}
     Proceed To Login Page
 
     ${invalid_passwords}=            Get Test Data From Pipe Separated String    ${test_data}[login][invalid_password]
@@ -76,7 +79,7 @@ Unsuccessful Login With Valid Mailid And Invalid Password
 Unsuccessful Login With Unregistered Credentials
     [Tags]        WebUI_Login    InvalidLogin  InvalidLoginUnregisteredCredentials
     [Documentation]       Invalid logging in With Unregistered Credentials
-    Open Webui
+    Open Webui  ${browser}  ${url}
     Proceed To Login Page
     ${invalid_emails}=              Get Test Data From Pipe Separated String    ${test_data}[login][invalid_emailid]
     ${len_invalid_emails}=          Get Length    ${invalid_emails}
@@ -91,7 +94,7 @@ Unsuccessful Login With Unregistered Credentials
 Unsuccessful Login With Empty Parameters
     [Tags]        WebUI_Login    InvalidLogin  InvalidLoginEmptyParameters
     [Documentation]       Invalid logging in With empty Parameters
-    Open Webui
+    Open Webui  ${browser}  ${url}
     Proceed To Login Page
     #Fill Login Form With RememberMe
     Click Login Button
@@ -101,7 +104,7 @@ Unsuccessful Login With Empty Parameters
 Unsuccessful Login With Wrong Mail
     [Tags]        WebUI_Login    InvalidLogin  InvalidLoginWrongMail
     [Documentation]       Invalid logging in with wrong email ids
-    Open Webui
+    Open Webui  ${browser}  ${url}
     Proceed To Login Page
     ${wrong_emails}=              Get Test Data From Pipe Separated String    ${testdata}[login][wrong_mails]
     ${len_wrong_emails}=          Get Length    ${wrong_emails}
