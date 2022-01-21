@@ -33,7 +33,7 @@ checkout:
     email:              //*[@id="BillingNewAddress_Email"]
     company:            //*[@id="BillingNewAddress_Company"]
     country:            //*[@id="BillingNewAddress_CountryId"]
-    state:  //*[@id="BillingNewAddress_StateProvinceId"]
+    state:              //*[@id="BillingNewAddress_StateProvinceId"]
     city:               //*[@id="BillingNewAddress_City"]
     addr1:              //*[@id="BillingNewAddress_Address1"]
     addr2:              //*[@id="BillingNewAddress_Address2"]
@@ -42,13 +42,29 @@ checkout:
     fax:                //*[@id="BillingNewAddress_FaxNumber"]
     continue_button:    //*[@id="billing-buttons-container"]/button[4]
   
+  shipping_addr:
+    select_shipping_addr:     shipping_address_id
+    firstname:                //*[@id="ShippingNewAddress_FirstName"]
+    lastname:                 //*[@id="ShippingNewAddress_LastName"]
+    email:                    //*[@id="ShippingNewAddress_Email"]
+    company:                  //*[@id="ShippingNewAddress_Company"]
+    country:                  //*[@id="ShippingNewAddress_CountryId"]
+    state:                    //*[@id="ShippingNewAddress_StateProvinceId"]
+    city:                     //*[@id="ShippingNewAddress_City"]
+    addr1:                    //*[@id="ShippingNewAddress_Address1"]
+    addr2:                    //*[@id="ShippingNewAddress_Address2"]
+    zip:                      //*[@id="ShippingNewAddress_ZipPostalCode"]
+    phone:                    //*[@id="ShippingNewAddress_PhoneNumber"]
+    fax:                      //*[@id="ShippingNewAddress_FaxNumber"]
+    continue_button:          //*[@id="shipping-buttons-container"]/button
+  
   shipping_method:
-    radio_shipping_method:  shippingoption
-    continue_button:           //*[@id="shipping-method-buttons-container"]/button
+    radio_shipping_method:      shippingoption
+    continue_button:            //*[@id="shipping-method-buttons-container"]/button
   
   payment_method:
-    radio_payment_method:  paymentmethod
-    continue_button:           //*[@id="payment-method-buttons-container"]/button
+    radio_payment_method:       paymentmethod
+    continue_button:            //*[@id="payment-method-buttons-container"]/button
   
   payment_info:
     credit_card:      CreditCardType

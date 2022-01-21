@@ -24,8 +24,7 @@ Keyword Tests
 
     Unselect Same Shipping Address Checkbox
     Sleep    1
-    Select Same Shipping Address Checkbox
-
+    #Select Same Shipping Address Checkbox
 
     Fill Billing Address Form
     ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
@@ -35,6 +34,17 @@ Keyword Tests
 
     Click Billing Address Continue Button
 
+    Select Shipping Address As New Address
+    
+    Fill Shipping Address Form
+    ...    firstName=donald    lastName=davis
+    ...    email=dd@mail.com    country=1    state=52    city=Anchorage
+    ...    addr1=house no. 456    addr2=xyz street    zip=99502    phone=98989282768
+    ...    company=acme    fax=123456
+
+
+    Click Shipping Address Continue Button
+
     Choose Shipping Method As Ground
     Sleep    1
     Choose Shipping Method As Next Day Air
@@ -43,17 +53,19 @@ Keyword Tests
     Sleep    2
     Click Shipping Method Continue Button
 
-    #Choose Payment Method As Check Or Money Order
+    Choose Payment Method As Check Or Money Order
     Sleep    1
-    Choose Payment Method As Credit Card
-    Sleep    2
+    # Choose Payment Method As Credit Card
+    # Sleep    2
     Click Payment Method Continue Button
     
     Sleep    2
-    Fill Payment Information Credit Card Form
-    ...    card_type=Amex    cardholder_name=david knuth    card_number=123456789101112131415
-    ...    expiration_month=5    expiration_year=2024    card_code=344
-    Sleep    2
+    
+    # Fill Payment Information Credit Card Form
+    # ...    card_type=Amex    cardholder_name=david knuth    card_number=123456789101112131415
+    # ...    expiration_month=5    expiration_year=2024    card_code=344
+    # Sleep    2
+    
     Click Payment Information Continue Button
 
     Sleep    2

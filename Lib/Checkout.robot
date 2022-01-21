@@ -18,7 +18,7 @@ Add Desktop And Proceed To Checkout As Guest
     Click Button    //*[@id="checkout"]
 
     Click Button    class:checkout-as-guest-button
-
+# --------------------------------------------
 Select Same Shipping Address Checkbox
     Wait Until Element Is Visible    ${checkout}[billing_addr][ship_to_same_addr]    10s
     
@@ -37,106 +37,136 @@ Unselect Same Shipping Address Checkbox
     END
 
     Checkbox Should Not Be Selected   ${checkout}[billing_addr][ship_to_same_addr]
-#####
-Input Billing Address FirstName
-    [Arguments]   ${firstName}
-    Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Input Text    ${checkout}[billing_addr][firstname]  ${firstName}
 
-Input Billing Address LastName
-    [Arguments]   ${lastName}
+Input Address Form FirstName
+    [Arguments]   ${addr_type}    ${firstName}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Input Text    ${checkout}[billing_addr][lastname]  ${lastName}
+    ...    Input Text    ${checkout}[${addr_type}][firstname]  ${firstName}
 
-Input Billing Address Email
-    [Arguments]    ${email}
+Input Address Form LastName
+    [Arguments]   ${addr_type}    ${lastName}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Input Text    ${checkout}[billing_addr][email]  ${email}
+    ...    Input Text    ${checkout}[${addr_type}][lastname]  ${lastName}
 
-Input Billing Address Company
-    [Arguments]    ${company}
+Input Address Form Email
+    [Arguments]    ${addr_type}    ${email}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Input Text    ${checkout}[billing_addr][company]  ${company}
+    ...    Input Text    ${checkout}[${addr_type}][email]  ${email}
 
-Select Billing Address Country
-    [Arguments]    ${country}
+Input Address Form Company
+    [Arguments]    ${addr_type}    ${company}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Select From List By Value    ${checkout}[billing_addr][country]    ${country}
+    ...                Input Text    ${checkout}[${addr_type}][company]  ${company}
 
-Select Billing Address State
-    [Arguments]    ${state}
+Select Address Form Country
+    [Arguments]    ${addr_type}    ${country}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Select From List By Value    ${checkout}[billing_addr][state]    ${state}
+    ...                Select From List By Value    ${checkout}[${addr_type}][country]    ${country}
 
-Input Billing Address City
-    [Arguments]    ${city}
+Select Address Form State
+    [Arguments]    ${addr_type}    ${state}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Input Text    ${checkout}[billing_addr][city]  ${city}
+    ...                Select From List By Value    ${checkout}[${addr_type}][state]    ${state}
 
-Input Billing Address Addr1
-    [Arguments]    ${addr1}
+Input Address Form City
+    [Arguments]    ${addr_type}    ${city}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Input Text    ${checkout}[billing_addr][addr1]  ${addr1}
+    ...                Input Text    ${checkout}[${addr_type}][city]  ${city}
 
-Input Billing Address Addr2
-    [Arguments]    ${addr2}
+Input Address Form Addr1
+    [Arguments]    ${addr_type}    ${addr1}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Input Text    ${checkout}[billing_addr][addr2]  ${addr2}
+    ...                Input Text    ${checkout}[${addr_type}][addr1]  ${addr1}
 
-Input Billing Address Zip
-    [Arguments]    ${zip}
+Input Address Form Addr2
+    [Arguments]    ${addr_type}    ${addr2}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Input Text    ${checkout}[billing_addr][zip]  ${zip}
+    ...                Input Text    ${checkout}[${addr_type}][addr2]  ${addr2}
 
-Input Billing Address Phone
-    [Arguments]    ${phone}
+Input Address Form Zip
+    [Arguments]    ${addr_type}    ${zip}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Input Text    ${checkout}[billing_addr][phone]  ${phone}
+    ...                Input Text    ${checkout}[${addr_type}][zip]  ${zip}
 
-Input Billing Address Fax
-    [Arguments]    ${fax}
+Input Address Form Phone
+    [Arguments]    ${addr_type}    ${phone}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...                Input Text    ${checkout}[billing_addr][fax]  ${fax}
+    ...                Input Text    ${checkout}[${addr_type}][phone]  ${phone}
 
-Click Billing Address Continue Button
+Input Address Form Fax
+    [Arguments]    ${addr_type}    ${fax}
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Click Button    ${checkout}[billing_addr][continue_button]
+    ...                Input Text    ${checkout}[${addr_type}][fax]  ${fax}
+
+Fill Address Form
+    [Arguments]    ${addr_type}
+    ...            ${firstName}    ${lastName}    ${email}
+    ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
+    ...            ${state}=0    ${company}=None    ${addr2}=None    ${fax}=None
+
+    Input Address Form FirstName    ${addr_type}    ${firstName}
+    Input Address Form LastName    ${addr_type}    ${lastName}
+    Input Address Form Email    ${addr_type}    ${email}
+    
+    IF    "${company}" != "${None}"
+        Input Address Form Company   ${addr_type}    ${company}        
+    END
+    
+    Select Address Form Country    ${addr_type}    ${country}
+    
+    IF    ${state} != 0
+        Select Address Form State    ${addr_type}    ${state}
+    END
+    
+    Input Address Form City    ${addr_type}    ${city}
+    Input Address Form Addr1    ${addr_type}    ${addr1}
+    
+    IF    "${addr2}" != "${None}"
+        Input Address Form Addr2    ${addr_type}    ${addr2}
+    END
+
+    Input Address Form Zip    ${addr_type}    ${zip}
+    Input Address Form Phone    ${addr_type}    ${phone}
+
+    IF    "${fax}" != "${None}"
+        Input Address Form Fax    ${addr_type}    ${fax}
+    END
 
 Fill Billing Address Form
     [Arguments]    ${firstName}    ${lastName}    ${email}
     ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
     ...            ${state}=0    ${company}=None    ${addr2}=None    ${fax}=None
 
-    Input Billing Address FirstName    ${firstName}
-    Input Billing Address LastName    ${lastName}
-    Input Billing Address Email    ${email}
     
-    IF    "${company}" != "${None}"
-        Input Billing Address Company   ${company}        
-    END
-    
-    Select Billing Address Country    ${country}
-    
-    IF    ${state} != 0
-        Select Billing Address State    ${state}
-    END
-    
-    Input Billing Address City    ${city}
-    Input Billing Address Addr1    ${addr1}
-    
-    IF    "${addr2}" != "${None}"
-        Input Billing Address Addr2    ${addr2}
-    END
+    Fill Address Form    addr_type=billing_addr
+    ...            firstName=${firstName}    lastName=${lastName}    email=${email}
+    ...            country=${country}    city=${city}    addr1=${addr1}    zip=${zip}    phone=${phone}
+    ...            state=${state}    company=${company}    addr2=${addr2}    fax=${fax}
 
-    Input Billing Address Zip    ${zip}
-    Input Billing Address Phone    ${phone}
-
-    IF    "${fax}" != "${None}"
-        Input Billing Address Fax    ${fax}
-    END
+Click Billing Address Continue Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    ${checkout}[billing_addr][continue_button]
 
 # --------------------------------------------
+Select Shipping Address As New Address
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...                Select From List By Label    ${checkout}[shipping_addr][select_shipping_addr]    New Address
 
+Fill Shipping Address Form
+    [Arguments]    ${firstName}    ${lastName}    ${email}
+    ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
+    ...            ${state}=0    ${company}=None    ${addr2}=None    ${fax}=None
+
+    
+    Fill Address Form    addr_type=shipping_addr
+    ...            firstName=${firstName}    lastName=${lastName}    email=${email}
+    ...            country=${country}    city=${city}    addr1=${addr1}    zip=${zip}    phone=${phone}
+    ...            state=${state}    company=${company}    addr2=${addr2}    fax=${fax}
+
+Click Shipping Address Continue Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    ${checkout}[shipping_addr][continue_button]
+# --------------------------------------------
 Choose Shipping Method As Ground
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Select Radio Button    ${checkout}[shipping_method][radio_shipping_method]    Ground___Shipping.FixedByWeightByTotal
