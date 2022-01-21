@@ -167,6 +167,12 @@ Click Shipping Address Continue Button
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Button    ${checkout}[shipping_addr][continue_button]
 # --------------------------------------------
+Verify Invalid Email Message
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Wrong email
+
+# --------------------------------------------
+
 Choose Shipping Method As Ground
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Select Radio Button    ${checkout}[shipping_method][radio_shipping_method]    Ground___Shipping.FixedByWeightByTotal
@@ -201,6 +207,14 @@ Click Payment Method Continue Button
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Button    ${checkout}[payment_method][continue_button]
 # --------------------------------------------
+
+Verify Check Or Money Order Payment Information Message
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Mail Personal or Business Check, Cashier's Check or money order to:
+
+Verify Credit Card Payment Information Message
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain     Select credit card:
 
 Select Payment Information Credit Card
     [Arguments]    ${card}
@@ -240,6 +254,14 @@ Fill Payment Information Credit Card Form
     Input Payment Information Card Number    ${card_number}
     Input Payment Information Card Expiration Date    ${expiration_month}    ${expiration_year}
     Input Payment Information Card Code    ${card_code}
+
+Verify Invalid Card Number Message
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Wrong card number
+
+Verify Invalid Card Code Message
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Wrong card code
 
 Click Payment Information Continue Button
     Wait Until Keyword Succeeds    5 times    10 seconds

@@ -32,6 +32,9 @@ Keyword Tests
     ...    addr1=house no. 123    addr2=abc street    zip=99501    phone=98989282
     ...    company=acme    fax=123456
 
+    #Verify Invalid Email Message
+
+
     Click Billing Address Continue Button
 
     Select Shipping Address As New Address
@@ -42,8 +45,10 @@ Keyword Tests
     ...    addr1=house no. 456    addr2=xyz street    zip=99502    phone=98989282768
     ...    company=acme    fax=123456
 
-
     Click Shipping Address Continue Button
+
+    #Verify Invalid Email Message
+
 
     Choose Shipping Method As Ground
     Sleep    1
@@ -53,20 +58,29 @@ Keyword Tests
     Sleep    2
     Click Shipping Method Continue Button
 
+
     Choose Payment Method As Check Or Money Order
     Sleep    1
-    # Choose Payment Method As Credit Card
-    # Sleep    2
     Click Payment Method Continue Button
+    Verify Check Or Money Order Payment Information Message
+    Click Payment Information Continue Button
+
     
-    Sleep    2
+    # Choose Payment Method As Credit Card
+    # Sleep    1
+    # Click Payment Method Continue Button
+    # Verify Credit Card Payment Information Message
     
     # Fill Payment Information Credit Card Form
     # ...    card_type=Amex    cardholder_name=david knuth    card_number=123456789101112131415
-    # ...    expiration_month=5    expiration_year=2024    card_code=344
+    # ...    expiration_month=5    expiration_year=2024    card_code=6
     # Sleep    2
     
-    Click Payment Information Continue Button
+    # Click Payment Information Continue Button
+    # Verify Invalid Card Number Message
+    # Verify Invalid Card Code Message
+
+
 
     Sleep    2
     Click Confirm Order Button
