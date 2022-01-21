@@ -1,3 +1,5 @@
 demo_logs
 *.html
 *.xml
+.venv
+.vscode
