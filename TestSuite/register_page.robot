@@ -3,8 +3,8 @@
 Library    String
 Library    Collections
 
-Resource    ${EXECDIR}/Lib/Common_Utils.robot
-Resource    ${EXECDIR}/Lib/Register.robot 
+Resource    ../Lib/Common_Utils.robot
+Resource    ../Lib/Register.robot 
 Resource    ../Lib/Common_Utils.robot
 Resource    ../Lib/Register.robot
 Resource    ../Lib/Home.robot

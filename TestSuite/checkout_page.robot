@@ -3,8 +3,7 @@
 Library    String
 Library    Collections
 
-Resource    ${EXECDIR}/Lib/Common_Utils.robot
-Resource    ${EXECDIR}/Lib/Checkout.robot 
+Resource    ../Lib/Checkout.robot 
 Resource    ../Lib/Common_Utils.robot
 Resource    ../Lib/Home.robot
 
@@ -66,19 +65,19 @@ Keyword Tests
     Click Payment Information Continue Button
 
     
-    # Choose Payment Method As Credit Card
-    # Sleep    1
-    # Click Payment Method Continue Button
-    # Verify Credit Card Payment Information Message
+    # # Choose Payment Method As Credit Card
+    # # Sleep    1
+    # # Click Payment Method Continue Button
+    # # Verify Credit Card Payment Information Message
     
-    # Fill Payment Information Credit Card Form
-    # ...    card_type=Amex    cardholder_name=david knuth    card_number=123456789101112131415
-    # ...    expiration_month=5    expiration_year=2024    card_code=6
-    # Sleep    2
+    # # Fill Payment Information Credit Card Form
+    # # ...    card_type=Amex    cardholder_name=david knuth    card_number=123456789101112131415
+    # # ...    expiration_month=5    expiration_year=2024    card_code=6
+    # # Sleep    2
     
-    # Click Payment Information Continue Button
-    # Verify Invalid Card Number Message
-    # Verify Invalid Card Code Message
+    # # Click Payment Information Continue Button
+    # # Verify Invalid Card Number Message
+    # # Verify Invalid Card Code Message
 
 
 

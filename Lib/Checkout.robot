@@ -1,5 +1,7 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    ../Lib/Common_Utils.robot
+
 Variables    ${EXECDIR}/Variables/webelement.yaml
 
 Documentation    This resource file contains keywords for dealing with the checkout page
