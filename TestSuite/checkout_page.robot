@@ -18,6 +18,9 @@ ${url}        ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
 Required Billing Address Fields
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test that billing address form requires required fields to be filled
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -31,6 +34,9 @@ Required Billing Address Fields
 
 
 Optional Billing Address Fields
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test that billing address form doesn't require optional fields to be filled
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
     
@@ -49,6 +55,9 @@ Optional Billing Address Fields
     Close All Browsers
 
 Valid Billing Address Form
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test a Valid billing address form with all data filled
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
     
@@ -69,6 +78,9 @@ Valid Billing Address Form
     Close All Browsers
 
 Invalid Billing Address Form With Invalid Email
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test an invalid billing address form with invalid emails
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -91,6 +103,9 @@ Invalid Billing Address Form With Invalid Email
 
 
 Shipping Address Form Appears When Same Shipping Address Checkbox Is Unchecked
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test that the shipping address form appears when the same shipping address checkbox was unchecked
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -107,6 +122,9 @@ Shipping Address Form Appears When Same Shipping Address Checkbox Is Unchecked
     Close All Browsers
 
 Shipping Address Form Does Not Appear When Same Shipping Address Checkbox Is Checked
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test that the shipping address form does not appear when the same shipping address checkbox was checked
+    
     Add Desktop And Proceed To Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -122,10 +140,11 @@ Shipping Address Form Does Not Appear When Same Shipping Address Checkbox Is Che
 
     Close All Browsers
 
-
-
 #-----------------------
 Required Shipping Address Fields
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test that shipping address form requires required fields to be filled
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -149,6 +168,9 @@ Required Shipping Address Fields
 
 
 Optional Shipping Address Fields
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test that shipping address form doesn't require optional fields to be filled
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -178,6 +200,9 @@ Optional Shipping Address Fields
     Close All Browsers
 
 Valid Shipping Address Fields
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test a Valid shipping address form with all data filled
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -209,6 +234,9 @@ Valid Shipping Address Fields
     Close All Browsers
 
 Invalid Shipping Address Form With Invalid Email
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test an invalid shipping address form with invalid emails
+    
     Add Desktop And Proceed To Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -243,6 +271,9 @@ Invalid Shipping Address Form With Invalid Email
 
 
 Valid Checkout With Ground Shipping And Check Or Money Order Payment
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test a valid checkout with shipping method as "Ground" and payment method as "Check or Money Order" 
+    
     Add Desktop And Proceed To Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -275,6 +306,9 @@ Valid Checkout With Ground Shipping And Check Or Money Order Payment
 
 
 Invalid Checkout With Ground Shipping And Credit Card Payment
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test an invalid checkout with shipping method as "Ground" and payment method as "Credit Card"
+    
     Add Desktop And Proceed To Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -310,6 +344,9 @@ Invalid Checkout With Ground Shipping And Credit Card Payment
     Close All Browsers
 
 Valid Checkout With Next Day Air Shipping And Check Or Money Order Payment
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test a valid checkout with shipping method as "Next Day Air" and payment method as "Check or Money Order"
+    
     Add Desktop And Proceed To Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -341,6 +378,9 @@ Valid Checkout With Next Day Air Shipping And Check Or Money Order Payment
     Close All Browsers
 
 Invalid Checkout With Next Day Air Shipping And Credit Card Payment
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test an invalid checkout with shipping method as "Next Day Air" and payment method as "Credit Card"
+    
     Add Desktop And Proceed To Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -375,6 +415,9 @@ Invalid Checkout With Next Day Air Shipping And Credit Card Payment
     Close All Browsers
 
 Valid Checkout With Second Day Air Shipping And Check Or Money Order Payment
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test a valid checkout with shipping method as "Second Day Air" and payment method as "Check Or Money Order"
+    
     Add Desktop And Proceed To Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -406,6 +449,9 @@ Valid Checkout With Second Day Air Shipping And Check Or Money Order Payment
     Close All Browsers
 
 Invalid Checkout With Second Day Air Shipping And Credit Card Payment
+    [Tags]    WebUI    WebUI_Checkout
+    [Documentation]    Test an invalid checkout with shipping method as "Second Day Air" and payment method as "Credit Card"
+    
     Add Desktop And Proceed To Checkout As Guest
     Select Same Shipping Address Checkbox
 
