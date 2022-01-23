@@ -43,6 +43,7 @@ checkout:
     continue_button:    //*[@id="billing-buttons-container"]/button[4]
   
   shipping_addr:
+    form:                     //*[@id="shipping-addresses-form"]
     select_shipping_addr:     shipping_address_id
     firstname:                //*[@id="ShippingNewAddress_FirstName"]
     lastname:                 //*[@id="ShippingNewAddress_LastName"]
@@ -59,14 +60,17 @@ checkout:
     continue_button:          //*[@id="shipping-buttons-container"]/button
   
   shipping_method:
+    form:                       //*[@id="co-shipping-method-form"]
     radio_shipping_method:      shippingoption
     continue_button:            //*[@id="shipping-method-buttons-container"]/button
   
   payment_method:
+    form:                       //*[@id="co-payment-method-form"]
     radio_payment_method:       paymentmethod
     continue_button:            //*[@id="payment-method-buttons-container"]/button
   
   payment_info:
+    form:             //*[@id="co-payment-info-form"]
     credit_card:      CreditCardType
     cardholder_name:  //*[@id="CardholderName"]
     card_number:      //*[@id="CardNumber"]
@@ -75,5 +79,6 @@ checkout:
     card_code:        //*[@id="CardCode"]
     continue_button:  //*[@id="payment-info-buttons-container"]/button
 
-
-  confirm_order_button:   //*[@id="confirm-order-buttons-container"]/button
+  confirm_order:
+    form:                   //*[@id="checkout-step-confirm-order"]
+    confirm_order_button:   //*[@id="confirm-order-buttons-container"]/button

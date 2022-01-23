@@ -17,71 +17,424 @@ ${browser}    ${env_variables}[${ENV_TYPE}][browser]
 ${url}        ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
-Keyword Tests
+Required Billing Address Fields
     Add Desktop And Proceed To Checkout As Guest
-    Page Should Contain    Checkout
-
     Unselect Same Shipping Address Checkbox
-    Sleep    1
-    #Select Same Shipping Address Checkbox
 
+    # don't fill anything in the billing address form, just click on continue
+    Click Billing Address Continue Button
+
+    Verify Is Required Message Appears
+    Verify Shipping Address Form Is Not Visible
+
+    Close All Browsers
+
+
+Optional Billing Address Fields
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
+    
+    # fill only required fields, leaving optional fields empty
     Fill Billing Address Form
-    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
-    ...    email=dk@mail.com    country=1    state=52    city=Anchorage
-    ...    addr1=house no. 123    addr2=abc street    zip=99501    phone=98989282
-    ...    company=acme    fax=123456
-
-    #Verify Invalid Email Message
-
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
 
     Click Billing Address Continue Button
 
-    Select Shipping Address As New Address
+    Verify Is Required Message Does Not Appear
+    Verify Shipping Address Form Is Visible
+
+    Close All Browsers
+
+Valid Billing Address Form
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
     
+    # fill all fields
+    Fill Billing Address Form
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    addr2=${test_data}[checkout][addr2]
+    ...    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    ...    company=${test_data}[checkout][company]    fax=${test_data}[checkout][fax]
+
+    Click Billing Address Continue Button
+
+    Verify Is Required Message Does Not Appear
+    Verify Shipping Address Form Is Visible
+
+    Close All Browsers
+
+Invalid Billing Address Form With Invalid Email
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
+
+    @{invalid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][invalid_emails]
+
+    FOR    ${invalid_email}    IN    @{invalid_emails}
+        Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${invalid_email}    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+
+        Click Billing Address Continue Button
+        Verify Invalid Email Message
+
+        Verify Shipping Address Form Is Not Visible
+    END
+    
+    Close All Browsers
+
+
+Shipping Address Form Appears When Same Shipping Address Checkbox Is Unchecked
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+
+    Click Billing Address Continue Button
+
+    Verify Shipping Address Form Is Visible
+
+    Close All Browsers
+
+Shipping Address Form Does Not Appear When Same Shipping Address Checkbox Is Checked
+    Add Desktop And Proceed To Checkout As Guest
+    Select Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+
+    Click Billing Address Continue Button
+
+    Verify Shipping Address Form Is Not Visible
+
+    Close All Browsers
+
+
+
+#-----------------------
+Required Shipping Address Fields
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Address Form Is Visible
+    Select Shipping Address As New Address
+    # don't fill anything in the new shipping address form, just click on continue
+    Click Shipping Address Continue Button
+
+    Verify Is Required Message Appears
+    Verify Shipping Method Form Is Not Visible
+
+    Close All Browsers
+
+
+Optional Shipping Address Fields
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Address Form Is Visible
+    Select Shipping Address As New Address
+
+    # fill only required fields in the shipping address form, leaving optional fields empty
     Fill Shipping Address Form
-    ...    firstName=donald    lastName=davis
-    ...    email=dd@mail.com    country=1    state=52    city=Anchorage
-    ...    addr1=house no. 456    addr2=xyz street    zip=99502    phone=98989282768
-    ...    company=acme    fax=123456
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
 
     Click Shipping Address Continue Button
 
-    #Verify Invalid Email Message
+    Verify Is Required Message Does Not Appear
+    Verify Shipping Method Form Is Visible
+
+    Close All Browsers
+
+Valid Shipping Address Fields
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Address Form Is Visible
+    Select Shipping Address As New Address
+
+    # fill all fields in the shipping address form
+    Fill Shipping Address Form
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    addr2=${test_data}[checkout][addr2]
+    ...    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    ...    company=${test_data}[checkout][company]    fax=${test_data}[checkout][fax]
+
+    Click Shipping Address Continue Button
+
+    Verify Is Required Message Does Not Appear
+    Verify Shipping Method Form Is Visible
+
+    Close All Browsers
+
+Invalid Shipping Address Form With Invalid Email
+    Add Desktop And Proceed To Checkout As Guest
+    Unselect Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Address Form Is Visible
+    Select Shipping Address As New Address
+
+    @{invalid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][invalid_emails]
+
+    FOR    ${invalid_email}    IN    @{invalid_emails}
+        Fill Shipping Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${invalid_email}    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+
+        Click Shipping Address Continue Button
+        Verify Invalid Email Message
+
+        Verify Shipping Method Form Is Not Visible
+    END
+    
+    Close All Browsers
+#-----------------------
 
 
+Valid Checkout With Ground Shipping And Check Or Money Order Payment
+    Add Desktop And Proceed To Checkout As Guest
+    Select Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Method Form Is Visible
     Choose Shipping Method As Ground
-    Sleep    1
-    Choose Shipping Method As Next Day Air
-    Sleep    1
-    Choose Shipping Method As Second Day Air
-    Sleep    2
     Click Shipping Method Continue Button
 
-
+    Verify Payment Method Form Is Visible
     Choose Payment Method As Check Or Money Order
-    Sleep    1
     Click Payment Method Continue Button
+
+    Verify Payment Information Form Is Visible
     Verify Check Or Money Order Payment Information Message
     Click Payment Information Continue Button
 
-    
-    # # Choose Payment Method As Credit Card
-    # # Sleep    1
-    # # Click Payment Method Continue Button
-    # # Verify Credit Card Payment Information Message
-    
-    # # Fill Payment Information Credit Card Form
-    # # ...    card_type=Amex    cardholder_name=david knuth    card_number=123456789101112131415
-    # # ...    expiration_month=5    expiration_year=2024    card_code=6
-    # # Sleep    2
-    
-    # # Click Payment Information Continue Button
-    # # Verify Invalid Card Number Message
-    # # Verify Invalid Card Code Message
-
-
-
-    Sleep    2
+    Verify Confirm Order Form Is Visible
     Click Confirm Order Button
 
     Verify Successful Checkout
+
+    Close All Browsers
+
+
+Invalid Checkout With Ground Shipping And Credit Card Payment
+    Add Desktop And Proceed To Checkout As Guest
+    Select Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Method Form Is Visible
+    Choose Shipping Method As Ground
+    Click Shipping Method Continue Button
+
+    Verify Payment Method Form Is Visible
+    Choose Payment Method As Credit Card
+    Click Payment Method Continue Button
+
+    Verify Payment Information Form Is Visible
+    Verify Credit Card Payment Information Message
+    Fill Payment Information Credit Card Form
+    ...    card_type=${test_data}[checkout][card_type]    cardholder_name=${test_data}[checkout][cardholder_name]
+    ...    card_number=${test_data}[checkout][card_number]    expiration_month=${test_data}[checkout][expiration_month]
+    ...    expiration_year=${test_data}[checkout][expiration_year]    card_code=${test_data}[checkout][card_code]
+    Click Payment Information Continue Button
+
+    Verify Invalid Card Number Message
+    Verify Confirm Order Form Is Not Visible
+
+    Verify Unsuccessful Checkout
+
+    Close All Browsers
+
+Valid Checkout With Next Day Air Shipping And Check Or Money Order Payment
+    Add Desktop And Proceed To Checkout As Guest
+    Select Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Method Form Is Visible
+    Choose Shipping Method As Next Day Air
+    Click Shipping Method Continue Button
+
+    Verify Payment Method Form Is Visible
+    Choose Payment Method As Check Or Money Order
+    Click Payment Method Continue Button
+
+    Verify Payment Information Form Is Visible
+    Verify Check Or Money Order Payment Information Message
+    Click Payment Information Continue Button
+
+    Verify Confirm Order Form Is Visible
+    Click Confirm Order Button
+
+    Verify Successful Checkout
+
+    Close All Browsers
+
+Invalid Checkout With Next Day Air Shipping And Credit Card Payment
+    Add Desktop And Proceed To Checkout As Guest
+    Select Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Method Form Is Visible
+    Choose Shipping Method As Next Day Air
+    Click Shipping Method Continue Button
+
+    Verify Payment Method Form Is Visible
+    Choose Payment Method As Credit Card
+    Click Payment Method Continue Button
+
+    Verify Payment Information Form Is Visible
+    Verify Credit Card Payment Information Message
+    Fill Payment Information Credit Card Form
+    ...    card_type=${test_data}[checkout][card_type]    cardholder_name=${test_data}[checkout][cardholder_name]    card_number=${test_data}[checkout][card_number]
+    ...    expiration_month=${test_data}[checkout][expiration_month]    expiration_year=${test_data}[checkout][expiration_year]    card_code=${test_data}[checkout][card_code]
+    Click Payment Information Continue Button
+
+    Verify Invalid Card Number Message
+    Verify Confirm Order Form Is Not Visible
+
+    Verify Unsuccessful Checkout
+
+    Close All Browsers
+
+Valid Checkout With Second Day Air Shipping And Check Or Money Order Payment
+    Add Desktop And Proceed To Checkout As Guest
+    Select Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Method Form Is Visible
+    Choose Shipping Method As Second Day Air
+    Click Shipping Method Continue Button
+
+    Verify Payment Method Form Is Visible
+    Choose Payment Method As Check Or Money Order
+    Click Payment Method Continue Button
+
+    Verify Payment Information Form Is Visible
+    Verify Check Or Money Order Payment Information Message
+    Click Payment Information Continue Button
+
+    Verify Confirm Order Form Is Visible
+    Click Confirm Order Button
+
+    Verify Successful Checkout
+
+    Close All Browsers
+
+Invalid Checkout With Second Day Air Shipping And Credit Card Payment
+    Add Desktop And Proceed To Checkout As Guest
+    Select Same Shipping Address Checkbox
+
+    Fill Billing Address Form
+        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    
+    Click Billing Address Continue Button
+    
+    Verify Shipping Method Form Is Visible
+    Choose Shipping Method As Second Day Air
+    Click Shipping Method Continue Button
+
+    Verify Payment Method Form Is Visible
+    Choose Payment Method As Credit Card
+    Click Payment Method Continue Button
+
+    Verify Payment Information Form Is Visible
+    Verify Credit Card Payment Information Message
+    Fill Payment Information Credit Card Form
+    ...    card_type=${test_data}[checkout][card_type]    cardholder_name=${test_data}[checkout][cardholder_name]    card_number=${test_data}[checkout][card_number]
+    ...    expiration_month=${test_data}[checkout][expiration_month]    expiration_year=${test_data}[checkout][expiration_year]    card_code=${test_data}[checkout][card_code]
+    Click Payment Information Continue Button
+
+    Verify Invalid Card Number Message
+    Verify Confirm Order Form Is Not Visible
+
+    Verify Unsuccessful Checkout
+
+    Close All Browsers

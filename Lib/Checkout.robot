@@ -12,14 +12,16 @@ Add Desktop And Proceed To Checkout As Guest
     Open Webui    ${browser}    ${url}digital-storm-vanquish-3-custom-performance-pc
     Page Should Contain    Digital Storm
     Click Button    //*[@id="add-to-cart-button-2"]
-    Sleep    5
-    Click Link    //*[@id="topcartlink"]/a
+    Sleep    2
+    Wait Until Keyword Succeeds    5 times    5 seconds
+    ...    Click Link    //*[@id="topcartlink"]/a
     Page Should Contain    Shopping Cart
     Select Checkbox    //*[@id="termsofservice"]
 
     Click Button    //*[@id="checkout"]
 
     Click Button    class:checkout-as-guest-button
+    Page Should Contain    Checkout
 # --------------------------------------------
 Select Same Shipping Address Checkbox
     Wait Until Element Is Visible    ${checkout}[billing_addr][ship_to_same_addr]    10s
@@ -104,7 +106,7 @@ Fill Address Form
     [Arguments]    ${addr_type}
     ...            ${firstName}    ${lastName}    ${email}
     ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
-    ...            ${state}=0    ${company}=None    ${addr2}=None    ${fax}=None
+    ...            ${state}    ${company}=None    ${addr2}=None    ${fax}=None
 
     Input Address Form FirstName    ${addr_type}    ${firstName}
     Input Address Form LastName    ${addr_type}    ${lastName}
@@ -116,9 +118,8 @@ Fill Address Form
     
     Select Address Form Country    ${addr_type}    ${country}
     
-    IF    ${state} != 0
-        Select Address Form State    ${addr_type}    ${state}
-    END
+    
+    Select Address Form State    ${addr_type}    ${state}
     
     Input Address Form City    ${addr_type}    ${city}
     Input Address Form Addr1    ${addr_type}    ${addr1}
@@ -137,7 +138,7 @@ Fill Address Form
 Fill Billing Address Form
     [Arguments]    ${firstName}    ${lastName}    ${email}
     ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
-    ...            ${state}=0    ${company}=None    ${addr2}=None    ${fax}=None
+    ...            ${state}    ${company}=None    ${addr2}=None    ${fax}=None
 
     
     Fill Address Form    addr_type=billing_addr
@@ -150,6 +151,15 @@ Click Billing Address Continue Button
     ...    Click Button    ${checkout}[billing_addr][continue_button]
 
 # --------------------------------------------
+
+Verify Shipping Address Form Is Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Be Visible    ${checkout}[shipping_addr][form]
+
+Verify Shipping Address Form Is Not Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Not Be Visible    ${checkout}[shipping_addr][form]
+
 Select Shipping Address As New Address
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...                Select From List By Label    ${checkout}[shipping_addr][select_shipping_addr]    New Address
@@ -157,7 +167,7 @@ Select Shipping Address As New Address
 Fill Shipping Address Form
     [Arguments]    ${firstName}    ${lastName}    ${email}
     ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
-    ...            ${state}=0    ${company}=None    ${addr2}=None    ${fax}=None
+    ...            ${state}    ${company}=None    ${addr2}=None    ${fax}=None
 
     
     Fill Address Form    addr_type=shipping_addr
@@ -173,7 +183,22 @@ Verify Invalid Email Message
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain    Wrong email
 
+Verify Is Required Message Appears
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    is required.
+
+Verify Is Required Message Does Not Appear
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Not Contain    is required.
 # --------------------------------------------
+
+Verify Shipping Method Form Is Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Be Visible    ${checkout}[shipping_method][form]
+
+Verify Shipping Method Form Is Not Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Not Be Visible    ${checkout}[shipping_method][form]
 
 Choose Shipping Method As Ground
     Wait Until Keyword Succeeds    5 times    10 seconds
@@ -194,6 +219,13 @@ Click Shipping Method Continue Button
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Button    ${checkout}[shipping_method][continue_button]
 # --------------------------------------------
+Verify Payment Method Form Is Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Be Visible    ${checkout}[payment_method][form]
+
+Verify Payment Method Form Is Not Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Not Be Visible    ${checkout}[payment_method][form]
 
 Choose Payment Method As Check Or Money Order
     Wait Until Keyword Succeeds    5 times    10 seconds
@@ -209,7 +241,14 @@ Click Payment Method Continue Button
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Button    ${checkout}[payment_method][continue_button]
 # --------------------------------------------
+Verify Payment Information Form Is Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Be Visible    ${checkout}[payment_info][form]
 
+Verify Payment Information Form Is Not Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Not Be Visible    ${checkout}[payment_info][form]
+    
 Verify Check Or Money Order Payment Information Message
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain    Mail Personal or Business Check, Cashier's Check or money order to:
@@ -271,9 +310,17 @@ Click Payment Information Continue Button
 
 # --------------------------------------------
 
+Verify Confirm Order Form Is Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Be Visible    ${checkout}[confirm_order][form]
+
+Verify Confirm Order Form Is Not Visible
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Element Should Not Be Visible    ${checkout}[confirm_order][form]
+
 Click Confirm Order Button
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Click Button    ${checkout}[confirm_order_button]
+    ...    Click Button    ${checkout}[confirm_order][confirm_order_button]
 
 Verify Successful Checkout
     Wait Until Keyword Succeeds    5 times    10 seconds

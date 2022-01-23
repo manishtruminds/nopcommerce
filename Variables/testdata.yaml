@@ -12,3 +12,24 @@ test_data:
         invalid_password:   abcd1234|abcd12@34
         valid_mailid:       manish.gupta@truminds.com
         valid_password:     abcd@1234
+    
+    checkout:
+        firstname:          david
+        lastname:           knuth
+        valid_email:        davidknuth@mail.com
+        invalid_emails:     abc.com|@abc.com
+        country:            1
+        state:              52
+        city:               Anchorage
+        addr1:              house no. 123
+        addr2:              abc street
+        zip:                99501
+        phone:              98989282899
+        company:            acme
+        fax:                123456
+        card_type:          Amex
+        cardholder_name:    david knuth
+        card_number:        123456789101112131415
+        expiration_month:   5
+        expiration_year:    2024
+        card_code:          633
