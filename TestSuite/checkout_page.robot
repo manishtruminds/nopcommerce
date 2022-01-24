@@ -5,7 +5,6 @@ Library    Collections
 
 Resource    ../Lib/Checkout.robot 
 Resource    ../Lib/Common_Utils.robot
-Resource    ../Lib/Home.robot
 
 Variables    ${EXECDIR}/Variables/env.yaml
 Variables    ${EXECDIR}/Variables/webelement.yaml
