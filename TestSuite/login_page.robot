@@ -30,7 +30,6 @@ ${password}                                 ${env_variables}[${ENV_TYPE}][passwo
 
 
 *** Test Cases ***
-
 Successful Login With RememberMe
     [Tags]         WebUI_Login  ValidLogin  ValidLoginRememberMe
     [Documentation]   Successfully logging in and selecting Remember Me checkbox

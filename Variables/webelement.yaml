@@ -32,11 +32,34 @@ apparel:
 clothing:
   grid:         //a[contains(text(),'Grid')]
   list:         //a[contains(text(),'List')]
+  add_to_cart_btn:    //button[@class='button-1 add-to-cart-button']
+  quantity_box:       //input[@class='qty-input']
+  postive_quantity_error:     //div[@class='bar-notification error']//p[contains(text(),'Quantity should be positive')]
+  empty_textbox_error:        //div[@class='bar-notification-container']//p[contains(text(),'Enter your text:')]
+  success_message:            //div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]
+  size_error:        //div[@class='bar-notification error']//p[contains(text(),'Please select Size')]
+
   custom_tshirt:
-    add_to_cart_btn:    //button[@class='button-1 add-to-cart-button']
     text:        //input[@id='product_attribute_12']
-    postive_quantity_error:     //div[@class='bar-notification error']//p[contains(text(),'Quantity should be positive')]
-    empty_textbox_error:        //div[@class='bar-notification-container']//p[contains(text(),'Enter your text:')]
-    success_message:            //div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]
     productid:          29
     quantity_box:         //input[@id='product_enteredQuantity_29']
+
+  nike_shirt:
+    productid:    27
+    size_selector:    product_attribute_11
+
+shoes:
+  no_color_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Color')]
+  no_print_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Print')]
+  adidas_shoes:
+    productid:  25
+    size_selector:  product_attribute_9
+    color:  product_attribute_10
+  nike_floral_shoes:
+    productid:  24
+    color_selector: product_attribute_7
+    natural_print:  //ul[@class='option-list attribute-squares image-squares']//li[@data-attr-value='19']
+    fresh_print:  //ul[@class='option-list attribute-squares image-squares']//li[@data-attr-value='20']
+    size_selector:    product_attribute_6
+  nike_zoom_shoes:
+    productid:  26
