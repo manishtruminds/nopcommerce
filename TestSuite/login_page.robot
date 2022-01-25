@@ -48,7 +48,6 @@ Successful Login With RememberMe
     Verify Login Success
     Close All Browsers
 
-
 Successful Login Without RememberMe
     [Tags]         WebUI_Login    ValidLogin  ValidLoginRememberMeNot
     [Documentation]   Successfully logging in without selecting Remember Me checkbox

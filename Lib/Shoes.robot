@@ -31,13 +31,12 @@ Add Adidas Shoes
             Select Square Color  ${square_color}
         END
         #Count
+        Enter Quantity    ${count}
+        Sleep    3
+        Enter Add To Cart
         IF  ${count} < 1
-            Enter Quantity    ${count}
-            Enter Add To Cart
             Verify Positive Quantity Error
         ELSE
-            Enter Quantity    ${count}
-            Enter Add To Cart
             Verify Successful Addition
         END
 
@@ -60,14 +59,13 @@ Add Nike Floral Shoes
             Select List Color  ${list_color}
             IF  "${print}" != "None"
                 Select Print Option  ${print}
+                Sleep    3
+                Enter Quantity    ${count}
+                Sleep    3
+                Enter Add To Cart
                 IF  ${count} < 1
-                    Enter Quantity    ${count}
-                    Enter Add To Cart
-                    #Click Element    //button[@id='add-to-cart-button-24']
                     Verify Positive Quantity Error
-                ELSE IF   ${count} > 1
-                    Enter Quantity    ${count}
-                    Enter Add To Cart
+                ELSE IF   ${count} >= 1
                     Verify Successful Addition
                 END
             ELSE
@@ -95,26 +93,28 @@ Add Nike Zoom Shoes
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain     Nike SB Zoom Stefan Janoski "Medium Mint"
 
-    IF  ${count} > 1
-        Enter Quantity    ${count}
-        Enter Add To Cart
+    Enter Quantity    ${count}
+    Sleep    3
+    Enter Add To Cart
+    IF  ${count} >= 1
         Verify Successful Addition
-    ELSE
-        Enter Quantity    ${count}
-        Enter Add To Cart
+    ELSE IF  ${count} < 1
         Verify Positive Quantity Error
     END
 
-
 Select List Color
+    [Documentation]   Selecting Color from dropdown menu
     [Arguments]   ${list_color}
+
     Wait Until Keyword Succeeds    5times    10seconds
     ...    Select From List By Label    name:${shoes}[nike_floral_shoes][color_selector]    ${list_color}
     Wait Until Keyword Succeeds    2times    10seconds
     ...    Element Should Contain    ${shoes}[nike_floral_shoes][color_selector]    ${list_color}
 
 Select Print Option
+    [Documentation]     Select print of shoes
     [Arguments]     ${print}
+
     IF  "${print}" == "Natural"
         Select Natural Print
     ELSE
@@ -122,18 +122,20 @@ Select Print Option
     END
 
 Select Natural Print
+    [Documentation]   Selecting Natural print of shoes
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Element    ${shoes}[nike_floral_shoes][natural_print]
     Element Attribute Value Should Be    ${shoes}[nike_floral_shoes][natural_print]    class    selected-value
 
-
 Select Fresh Print
+    [Documentation]     Selecting Fresh print of shoes
+
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...   Click Element    ${shoes}[nike_floral_shoes][fresh_print]
     Element Attribute Value Should Be    ${shoes}[nike_floral_shoes][fresh_print]    class    selected-value
 
-
 Select Square Color
+    [Documentation]   Selecting color from square images boxes
     [Arguments]     ${square_color}
 
     IF  "${square_color}" == "red"
@@ -145,30 +147,34 @@ Select Square Color
     END
 
 Select Red Color
+    [Documentation]   Selecting Red Color from square color box
+
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Select Radio Button    ${shoes}[adidas_shoes][color]     25
-    Radio Button Should Be Set To    ${shoes}[adidas_shoes][color]      25
+    ...    Click Element    ${shoes}[adidas_shoes][red_color]
+    Element Attribute Value Should Be   ${shoes}[adidas_shoes][red_color]    class    selected-value
 
 Select Blue Color
+    [Documentation]   Selecting Blue Color from square color box
+
     Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Select Radio Button     ${shoes}[adidas_shoes][color]      26
-    Radio Button Should Be Set To     ${shoes}[adidas_shoes][color]      26
+    ...    Click Element    ${shoes}[adidas_shoes][blue_color]
+    Element Attribute Value Should Be   ${shoes}[adidas_shoes][blue_color]    class    selected-value
 
 Select Silver Color
-    Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Select Radio Button     ${shoes}[adidas_shoes][color]      27
-    Radio Button Should Be Set To     ${shoes}[adidas_shoes][color]       27
+    [Documentation]   Selecting Silver Color from square color box
 
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Element    ${shoes}[adidas_shoes][silver_color]
+    Element Attribute Value Should Be   ${shoes}[adidas_shoes][silver_color]    class    selected-value
 
 Verify No Color Error
-    [Documentation]     Verifying no color is selected error is visible
+    [Documentation]     Verifying "no color is selected" error message is visible
 
     Wait Until Keyword Succeeds    3 times  10 seconds
     ...     Page Should Contain Element    ${shoes}[no_color_error]
 
-
 Verify No Print Error
-    [Documentation]     Verifying no print is selected error is visible
+    [Documentation]     Verifying "no print is selected" error is visible
 
     Wait Until Keyword Succeeds    3 times  10 seconds
     ...     Page Should Contain Element    ${shoes}[no_print_error]

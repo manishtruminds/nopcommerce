@@ -28,7 +28,6 @@ View By List
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...      Page Should Contain Element    //div[@class='product-list']
 
-
 Enter Add To Cart
     [Documentation]   Clicking Add To cart button
 
@@ -36,16 +35,15 @@ Enter Add To Cart
     Click Button    ${clothing}[add_to_cart_btn]
     Sleep    3
 
-
 Select Item
-    [Documentation]   To select an item
+    [Documentation]   To select an item with given product id
     [Arguments]     ${product_id}
-    #select product with product id
+
     Wait Until Element Is Visible    //div[@data-productid=${product_id}]  timeout=10
     Click Element    //div[@data-productid=${product_id}]
 
-
 Select Size Option
+    [Documentation]     Select size from dropdown list
     [Arguments]   ${size}  ${name}
 
     Wait Until Keyword Succeeds    5times    10seconds
@@ -53,45 +51,40 @@ Select Size Option
     Wait Until Keyword Succeeds    2times    10seconds
     ...    Element Should Contain    ${name}    ${size}
 
-
 Verify No Size Error
-    [Documentation]     Verifying that size is not selected error message
+    [Documentation]     Verifying that "size is not selected" error message is visible
 
     Wait Until Keyword Succeeds    3 times  10 seconds
     ...     Page Should Contain Element    ${clothing}[size_error]
 
-
 Verify Successful Addition
-    [Documentation]     Verifying that item is added to cart
+    [Documentation]     Verifying that item is successfully added to cart
 
     Wait Until Keyword Succeeds    3 times  10 seconds
     ...     Page Should Contain Element    ${clothing}[success_message]
 
-
 Verify Positive Quantity Error
-    [Documentation]     Verifying that Positive Quantity Error message is Visible
+    [Documentation]     Verifying that "Positive Quantity" Error message is Visible
 
     Wait Until Keyword Succeeds    3 times  10 seconds
     ...     Page Should Contain Element    ${clothing}[postive_quantity_error]
 
-
 Verify Enter Text Error Message
-    [Documentation]     Verifying that Enter Text Error message is Visible
-
+    [Documentation]     Verifying that "Enter Text Error" message is Visible
 
     Wait Until Keyword Succeeds    3 times  10 seconds
     ...     Page Should Contain Element    ${clothing}[empty_textbox_error]
 
-
 Enter Quantity
+    [Documentation]   Enter number of items to be added to cart
     [Arguments]   ${count}
+
     Wait Until Element Is Visible    ${clothing}[quantity_box]  timeout=10
     Input Text    ${clothing}[quantity_box]    ${count}
 
 Add Clothes
-    [Documentation]     Add Product according to the product name
+    [Documentation]     Add Clothes according to the product name
     [Arguments]   ${title}    ${count}=1     ${custom_text}=None   ${size}=None
-
 
     IF  "${title}" == "Custom T-Shirt"
         Add Custom Tshirt    ${custom_text}   ${count}
@@ -100,7 +93,7 @@ Add Clothes
     END
 
 Add Custom Tshirt
-    [Documentation]   Adding Custom tshirt into cart
+    [Documentation]   Adding Custom tshirt into the cart
     [Arguments]      ${custom_text}   ${count}=1
 
     Select Item    ${clothing}[custom_tshirt][productid]
@@ -128,7 +121,7 @@ Add Custom Tshirt
     END
 
 Add Nike Shirt
-    [Documentation]   Adding Nike Tailwind Loose Short-Sleeve Running Shirt into Cart
+    [Documentation]   Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart
     [Arguments]   ${size}=None   ${count}= 1
 
     Select Item    ${clothing}[nike_shirt][productid]

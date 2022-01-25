@@ -30,8 +30,25 @@ ${password}                                 ${env_variables}[${ENV_TYPE}][passwo
 
 
 *** Test Cases ***
+Successfully Adding Custom T-Shirt into cart
+    [Tags]    Clothes
+    [Documentation]   Successfully adding Custom T-shirt into the Cart
+    Open Webui  ${browser}  ${url}
+    Proceed To Apparel Page
+    Proceed To Clothing Page
+    Add Clothes    Custom T-Shirt   custom_text=My New Shirt
+    Close All Browsers
 
-Successfully Adding Clothes into cart
+Successfully Adding Nike T-Shirt into cart
+    [Tags]    Clothes
+    [Documentation]   Successfully adding Nike T-shirt into the Cart
+    Open Webui  ${browser}  ${url}
+    Proceed To Apparel Page
+    Proceed To Clothing Page
+    Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt   size=1X
+    Close All Browsers
+
+Successfully Adding Many Clothes into cart
     [Tags]    Clothes
     [Documentation]   Successfully adding clothes into the Cart
     Open Webui  ${browser}  ${url}
@@ -52,11 +69,10 @@ Empty Custom TextBox
     Proceed To Clothing Page
     Add Clothes    Custom T-Shirt
     Sleep    3
-
     Close All Browsers
 
-Empty Size TextBox
-    [Tags]    Clothes   Unsuccessful_Addition   EmptySizetextbox
+Empty Size Option
+    [Tags]    Clothes   Unsuccessful_Addition   EmptySize
     [Documentation]   Unsuccessful in adding clothes into the Cart due to empty size textbox error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -75,18 +91,4 @@ Negative Count Error
     Go Back
     Add Clothes    Custom T-Shirt   custom_text=Hie  count=-1
     Sleep    3
-    Close All Browsers
-
-Successfully Adding Adidas Shoes Into Cart
-    [Tags]    Shoes
-    [Documentation]   Successfully adding Adidas Shoes into the Cart
-    Open Webui  ${browser}  ${url}
-    Proceed To Apparel Page
-    Proceed To Shoes Page
-    Add I
-    Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt   size=1X
-    Go Back
-    Add Clothes    Custom T-Shirt   custom_text=My New Shirt  count=2
-    Sleep    3
-    #Check Correct Items Are In Cart
     Close All Browsers

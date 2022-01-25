@@ -5,6 +5,7 @@ Variables   ${EXECDIR}/Variables/webelement.yaml
 *** Keywords ***
 Proceed To Clothing Page
     [Documentation]   Navigating to Clothing Page
+
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...    Click Element       ${apparel}[clothing]
 
@@ -13,6 +14,7 @@ Proceed To Clothing Page
 
 Proceed To Shoes Page
     [Documentation]   Navigating to Shoes Page
+    
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...    Click Element   ${apparel}[shoes]
 

@@ -54,7 +54,9 @@ shoes:
   adidas_shoes:
     productid:  25
     size_selector:  product_attribute_9
-    color:  product_attribute_10
+    red_color:        //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='25']
+    blue_color:       //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='26']
+    silver_color:     //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='27']
   nike_floral_shoes:
     productid:  24
     color_selector: product_attribute_7
