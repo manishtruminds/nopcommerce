@@ -27,3 +27,11 @@ Proceed To Apparel Page
 
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...    Title Should Be    nopCommerce demo store. Apparel
+
+Proceed To Shopping Cart
+    [Documentation]   Navigating to Shopping Cart Page
+    Wait Until Keyword Succeeds    5 times    5 seconds
+    ...    Click Link    ${home}[cart]
+
+    Wait Until Keyword Succeeds    5 times  10 seconds
+    ...    Title Should Be    nopCommerce demo store. Shopping Cart

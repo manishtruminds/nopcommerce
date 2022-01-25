@@ -1,27 +1,32 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library     SeleniumLibrary
 Resource    ../Lib/Common_Utils.robot
+Resource    ../Lib/Home.robot
+Resource    ../Lib/Apparel.robot
+Resource    ../Lib/Clothing.robot
+Resource    ../Lib/Shoes.robot
 
 Variables    ${EXECDIR}/Variables/webelement.yaml
 
 Documentation    This resource file contains keywords for dealing with the checkout page
 
 *** Keywords ***
-Add Desktop And Proceed To Checkout As Guest
-    Set Selenium Implicit Wait    15s
-    Open Webui    ${browser}    ${url}digital-storm-vanquish-3-custom-performance-pc
-    Page Should Contain    Digital Storm
-    Click Button    //*[@id="add-to-cart-button-2"]
-    Sleep    2
-    Wait Until Keyword Succeeds    5 times    5 seconds
-    ...    Click Link    //*[@id="topcartlink"]/a
-    Page Should Contain    Shopping Cart
-    Select Checkbox    //*[@id="termsofservice"]
+Add Nike Floral Shoes To Cart And Checkout As Guest
+    Open Webui  ${browser}  ${url}
 
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=White/Blue     size=9   print=Fresh
+    Verify Successful Addition
+
+    Proceed To Shopping Cart
+
+    Select Checkbox    //*[@id="termsofservice"]
     Click Button    //*[@id="checkout"]
 
     Click Button    class:checkout-as-guest-button
     Page Should Contain    Checkout
+
 # --------------------------------------------
 Select Same Shipping Address Checkbox
     Wait Until Element Is Visible    ${checkout}[billing_addr][ship_to_same_addr]    10s
