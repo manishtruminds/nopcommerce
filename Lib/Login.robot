@@ -29,6 +29,7 @@ Unselect RememberMe
 Click Login Button
     [Documentation]     Clicking the Login button
     [Arguments]
+    Wait Until Element Is Visible    ${login}[login_button]  timeout=10
     Click Button     ${login}[login_button]
 
 Verify Login Success
