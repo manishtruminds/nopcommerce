@@ -24,26 +24,15 @@ Add Adidas Shoes
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain    adidas Consortium Campus 80s Running Shoes
 
-
     IF   "${size}" != "None"
         Select Size Option    ${size}    ${shoes}[adidas_shoes][size_selector]
-        IF  "${square_color}" != "None"
-            Select Square Color  ${square_color}
-        END
-        #Count
-        Enter Quantity    ${count}
-        Sleep    3
-        Enter Add To Cart
-        IF  ${count} < 1
-            Verify Positive Quantity Error
-        ELSE
-            Verify Successful Addition
-        END
-
-    ELSE
-        Enter Add To Cart
-        Verify No Size Error
     END
+    IF  "${square_color}" != "None"
+        Select Square Color  ${square_color}
+    END
+    Enter Quantity    ${count}
+    Sleep    3
+    Enter Add To Cart
 
 Add Nike Floral Shoes
     [Documentation]     Add Nike Floral Shoes into the cart
@@ -53,37 +42,22 @@ Add Nike Floral Shoes
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain     Nike Floral Roshe Customized Running Shoes
 
+
     IF   "${size}" != "None"
         Select Size Option    ${size}    ${shoes}[nike_floral_shoes][size_selector]
-        IF  "${list_color}" != "None"
-            Select List Color  ${list_color}
-            IF  "${print}" != "None"
-                Select Print Option  ${print}
-                Sleep    3
-                Enter Quantity    ${count}
-                Sleep    3
-                Enter Add To Cart
-                IF  ${count} < 1
-                    Verify Positive Quantity Error
-                ELSE IF   ${count} >= 1
-                    Verify Successful Addition
-                END
-            ELSE
-                Enter Add To Cart
-                Verify No Print Error
-            END
-
-        ELSE
-            Enter Add To Cart
-            Verify No Color Error
-        END
-
-
-
-    ELSE
-        Enter Add To Cart
-        Verify No Size Error
     END
+    IF  "${list_color}" != "None"
+        Select List Color    ${list_color}
+    END
+    IF  "${print}" != "None"
+        Select Print Option   ${print}
+    END
+    Enter Quantity    ${count}
+    Sleep    3
+    #Click Element    //div[class='master-wrapper-page']
+    Mouse Out     ${shoes}[nike_floral_shoes][fresh_print]
+    #Mouse Over    ${clothing}[add_to_cart_btn]
+    Enter Add To Cart
 
 Add Nike Zoom Shoes
     [Documentation]     Add Nike Zoom Shoes into the cart
@@ -96,11 +70,6 @@ Add Nike Zoom Shoes
     Enter Quantity    ${count}
     Sleep    3
     Enter Add To Cart
-    IF  ${count} >= 1
-        Verify Successful Addition
-    ELSE IF  ${count} < 1
-        Verify Positive Quantity Error
-    END
 
 Select List Color
     [Documentation]   Selecting Color from dropdown menu

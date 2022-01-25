@@ -102,23 +102,12 @@ Add Custom Tshirt
     ...         Page Should Contain    Custom T-Shirt
 
     IF    "${custom_text}" != "None"
-
         Wait Until Element Is Visible    ${clothing}[custom_tshirt][text]  timeout=10
         Input Text    ${clothing}[custom_tshirt][text]    ${custom_text}
-
-        IF  ${count} < 1
-            Enter Quantity    ${count}
-            Enter Add To Cart
-            Verify Positive Quantity Error
-        ELSE
-            Enter Quantity    ${count}
-            Enter Add To Cart
-            Verify Successful Addition
-        END
-    ELSE
-        Enter Add To Cart
-        Verify Enter Text Error Message
     END
+    Enter Quantity    ${count}
+    Sleep    3
+    Enter Add To Cart
 
 Add Nike Shirt
     [Documentation]   Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart
@@ -130,18 +119,7 @@ Add Nike Shirt
 
     IF   "${size}" != "None"
         Select Size Option    ${size}   ${clothing}[nike_shirt][size_selector]
-        IF   ${count} < 1
-            Enter Quantity    ${count}
-            Enter Add To Cart
-            Verify Positive Quantity Error
-        ELSE
-            Enter Quantity    ${count}
-            Enter Add To Cart
-            Verify Successful Addition
-            # verify that tem is added to the cart
-        END
-    ELSE
-        Enter Add To Cart
-        Verify No Size Error
-
     END
+    Enter Quantity    ${count}
+    Sleep    3
+    Enter Add To Cart
