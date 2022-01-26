@@ -43,7 +43,7 @@ checkout:
     phone:              //*[@id="BillingNewAddress_PhoneNumber"]
     fax:                //*[@id="BillingNewAddress_FaxNumber"]
     continue_button:    //*[@id="billing-buttons-container"]/button[4]
-  
+
   shipping_addr:
     form:                     //*[@id="shipping-addresses-form"]
     select_shipping_addr:     shipping_address_id
@@ -60,17 +60,17 @@ checkout:
     phone:                    //*[@id="ShippingNewAddress_PhoneNumber"]
     fax:                      //*[@id="ShippingNewAddress_FaxNumber"]
     continue_button:          //*[@id="shipping-buttons-container"]/button
-  
+
   shipping_method:
     form:                       //*[@id="co-shipping-method-form"]
     radio_shipping_method:      shippingoption
     continue_button:            //*[@id="shipping-method-buttons-container"]/button
-  
+
   payment_method:
     form:                       //*[@id="co-payment-method-form"]
     radio_payment_method:       paymentmethod
     continue_button:            //*[@id="payment-method-buttons-container"]/button
-  
+
   payment_info:
     form:             //*[@id="co-payment-info-form"]
     credit_card:      CreditCardType
@@ -84,8 +84,8 @@ checkout:
   confirm_order:
     form:                   //*[@id="checkout-step-confirm-order"]
     confirm_order_button:   //*[@id="confirm-order-buttons-container"]/button
-  
-  order_details_link:       //a[contains(text(),'Click here for order details.')] 
+
+  order_details_link:       //a[contains(text(),'Click here for order details.')]
   order_details_info:       class:order-details-page
 
 apparel:
@@ -128,3 +128,8 @@ shoes:
     size_selector:    product_attribute_6
   nike_zoom_shoes:
     productid:  26
+shopping_cart:
+  cart_table:    //*[@id="shopping-cart-form"]/div[1]/table
+  terms_and_conditions:   //*[@id="termsofservice"]
+  checkout:   //*[@id="checkout"]
+  gift_wrap_dropdown:   //*[@id="checkout_attribute_1"]
