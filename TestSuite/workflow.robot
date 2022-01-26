@@ -19,12 +19,22 @@ Documentation    This resource file contains keywords for dealing with workflows
 
 *** Keywords ***
 Proceed To Checkout
-    Select Checkbox    //*[@id="termsofservice"]
-    Click Button    //*[@id="checkout"]
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Select Checkbox    //*[@id="termsofservice"]
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    //*[@id="checkout"]
 
-Checkout As Guest
-    Click Button    class:checkout-as-guest-button
-    Page Should Contain    Checkout
+Click Checkout As Guest Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    class:checkout-as-guest-button
+
+Proceed To Order Details Page
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Link    //a[contains(text(),'Click here for order details.')] 
+
+Verify Order Details Are Visible
+    Element Should Be Visible    class:order-details-page
+    Page Should Contain    Order information
 
 *** Test Cases ***
 Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order Payment
@@ -40,7 +50,7 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
 
     Proceed To Shopping Cart
     Proceed To Checkout
-    Checkout As Guest
+    Click Checkout As Guest Button
 
     Select Same Shipping Address Checkbox
 
@@ -69,6 +79,12 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
 
     Verify Successful Checkout
 
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
+
+    Close All Browsers
+
+
 Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And Check Or Money Order Payment 
     [Tags]    WebUI    WebUI_Workflow
     [Documentation]    Test the workflow of adding custom T-shirt to cart, checking out as a registered user, using next day air shipping and check or money order payment
@@ -92,7 +108,7 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
     
     Proceed To Shopping Cart
     Proceed To Checkout
-    # Checkout As Guest
+    # Click Checkout As Guest Button
 
     Select Same Shipping Address Checkbox
 
@@ -120,6 +136,9 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
     Click Confirm Order Button
 
     Verify Successful Checkout
+
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
 
     Close All Browsers
 
@@ -177,4 +196,8 @@ Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air
     Click Confirm Order Button
 
     Verify Successful Checkout
+
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
+
     Close All Browsers
