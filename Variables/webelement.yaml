@@ -24,3 +24,114 @@ register:
   password:             //*[@id="Password"]
   confirm_password:     //*[@id="ConfirmPassword"]
   register_button:      //*[@id="register-button"]
+<<<<<<< Updated upstream
+=======
+
+checkout:
+  checkout_as_guest_button: class:checkout-as-guest-button
+  billing_addr:
+    ship_to_same_addr:  //*[@id="ShipToSameAddress"]
+    firstname:          //*[@id="BillingNewAddress_FirstName"]
+    lastname:           //*[@id="BillingNewAddress_LastName"]
+    email:              //*[@id="BillingNewAddress_Email"]
+    company:            //*[@id="BillingNewAddress_Company"]
+    country:            //*[@id="BillingNewAddress_CountryId"]
+    state:              //*[@id="BillingNewAddress_StateProvinceId"]
+    city:               //*[@id="BillingNewAddress_City"]
+    addr1:              //*[@id="BillingNewAddress_Address1"]
+    addr2:              //*[@id="BillingNewAddress_Address2"]
+    zip:                //*[@id="BillingNewAddress_ZipPostalCode"]
+    phone:              //*[@id="BillingNewAddress_PhoneNumber"]
+    fax:                //*[@id="BillingNewAddress_FaxNumber"]
+    continue_button:    //*[@id="billing-buttons-container"]/button[4]
+
+  shipping_addr:
+    form:                     //*[@id="shipping-addresses-form"]
+    select_shipping_addr:     shipping_address_id
+    firstname:                //*[@id="ShippingNewAddress_FirstName"]
+    lastname:                 //*[@id="ShippingNewAddress_LastName"]
+    email:                    //*[@id="ShippingNewAddress_Email"]
+    company:                  //*[@id="ShippingNewAddress_Company"]
+    country:                  //*[@id="ShippingNewAddress_CountryId"]
+    state:                    //*[@id="ShippingNewAddress_StateProvinceId"]
+    city:                     //*[@id="ShippingNewAddress_City"]
+    addr1:                    //*[@id="ShippingNewAddress_Address1"]
+    addr2:                    //*[@id="ShippingNewAddress_Address2"]
+    zip:                      //*[@id="ShippingNewAddress_ZipPostalCode"]
+    phone:                    //*[@id="ShippingNewAddress_PhoneNumber"]
+    fax:                      //*[@id="ShippingNewAddress_FaxNumber"]
+    continue_button:          //*[@id="shipping-buttons-container"]/button
+
+  shipping_method:
+    form:                       //*[@id="co-shipping-method-form"]
+    radio_shipping_method:      shippingoption
+    continue_button:            //*[@id="shipping-method-buttons-container"]/button
+
+  payment_method:
+    form:                       //*[@id="co-payment-method-form"]
+    radio_payment_method:       paymentmethod
+    continue_button:            //*[@id="payment-method-buttons-container"]/button
+
+  payment_info:
+    form:             //*[@id="co-payment-info-form"]
+    credit_card:      CreditCardType
+    cardholder_name:  //*[@id="CardholderName"]
+    card_number:      //*[@id="CardNumber"]
+    expire_month:     ExpireMonth
+    expire_year:      ExpireYear
+    card_code:        //*[@id="CardCode"]
+    continue_button:  //*[@id="payment-info-buttons-container"]/button
+
+  confirm_order:
+    form:                   //*[@id="checkout-step-confirm-order"]
+    confirm_order_button:   //*[@id="confirm-order-buttons-container"]/button
+
+  order_details_link:       //a[contains(text(),'Click here for order details.')]
+  order_details_info:       class:order-details-page
+
+apparel:
+  clothing:        //div[@class='item-grid']//div[@class='item-box'][2]
+  shoes:           //div[@class='item-grid']//div[@class='item-box'][1]
+
+clothing:
+  grid:         //a[contains(text(),'Grid')]
+  list:         //a[contains(text(),'List')]
+  add_to_cart_btn:    //button[@class='button-1 add-to-cart-button']
+  quantity_box:       //input[@class='qty-input']
+  postive_quantity_error:     //div[@class='bar-notification error']//p[contains(text(),'Quantity should be positive')]
+  empty_textbox_error:        //div[@class='bar-notification-container']//p[contains(text(),'Enter your text:')]
+  success_message:            //div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]
+  size_error:        //div[@class='bar-notification error']//p[contains(text(),'Please select Size')]
+
+  custom_tshirt:
+    text:        //input[@id='product_attribute_12']
+    productid:          29
+    quantity_box:         //input[@id='product_enteredQuantity_29']
+
+  nike_shirt:
+    productid:    27
+    size_selector:    product_attribute_11
+
+shoes:
+  no_color_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Color')]
+  no_print_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Print')]
+  adidas_shoes:
+    productid:  25
+    size_selector:  product_attribute_9
+    red_color:        //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='25']
+    blue_color:       //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='26']
+    silver_color:     //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='27']
+  nike_floral_shoes:
+    productid:  24
+    color_selector: product_attribute_7
+    natural_print:  //ul[@class='option-list attribute-squares image-squares']//li[@data-attr-value='19']
+    fresh_print:  //ul[@class='option-list attribute-squares image-squares']//li[@data-attr-value='20']
+    size_selector:    product_attribute_6
+  nike_zoom_shoes:
+    productid:  26
+shopping_cart:
+  cart_table:    //*[@id="shopping-cart-form"]/div[1]/table
+  terms_and_conditions:   //*[@id="termsofservice"]
+  checkout:   //*[@id="checkout"]
+  gift_wrap_dropdown:   //*[@id="checkout_attribute_1"]
+>>>>>>> Stashed changes
