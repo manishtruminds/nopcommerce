@@ -17,6 +17,7 @@ test_data:
         firstname:          david
         lastname:           knuth
         valid_email:        davidknuth@mail.com
+        valid_emails:       davidknuth23@mail.com|davidknuth24@mail.com
         invalid_emails:     abc.com|@abc.com
         country:            1
         state:              52
