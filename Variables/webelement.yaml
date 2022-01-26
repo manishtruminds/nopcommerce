@@ -27,6 +27,7 @@ register:
   register_button:      //*[@id="register-button"]
 
 checkout:
+  checkout_as_guest_button: class:checkout-as-guest-button
   billing_addr:
     ship_to_same_addr:  //*[@id="ShipToSameAddress"]
     firstname:          //*[@id="BillingNewAddress_FirstName"]
@@ -83,6 +84,9 @@ checkout:
   confirm_order:
     form:                   //*[@id="checkout-step-confirm-order"]
     confirm_order_button:   //*[@id="confirm-order-buttons-container"]/button
+  
+  order_details_link:       //a[contains(text(),'Click here for order details.')] 
+  order_details_info:       class:order-details-page
 
 apparel:
   clothing:        //div[@class='item-grid']//div[@class='item-box'][2]
