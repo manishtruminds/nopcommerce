@@ -349,5 +349,5 @@ Proceed To Order Details Page
     ...    Click Link    ${checkout}[order_details_link]
 
 Verify Order Details Are Visible
-    Element Should Be Visible    ${checkout}[order_details_page]
+    Element Should Be Visible    ${checkout}[order_details_info]
     Page Should Contain    Order information
