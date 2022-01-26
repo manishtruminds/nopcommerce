@@ -11,6 +11,10 @@ Variables    ${EXECDIR}/Variables/webelement.yaml
 Documentation    This resource file contains keywords for dealing with the checkout page
 
 *** Keywords ***
+Click Checkout As Guest Button
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    ${checkout}[checkout_as_guest_button]
+
 Add Nike Floral Shoes To Cart And Checkout As Guest
     Open Webui  ${browser}  ${url}
 
@@ -24,7 +28,8 @@ Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Checkbox    //*[@id="termsofservice"]
     Click Button    //*[@id="checkout"]
 
-    Click Button    class:checkout-as-guest-button
+    Click Checkout As Guest Button
+    
     Page Should Contain    Checkout
 
 # --------------------------------------------
@@ -338,3 +343,11 @@ Verify Unsuccessful Checkout
     ...    Page Should Not Contain   Thank you
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Not Contain    Your order has been successfully processed!
+
+Proceed To Order Details Page
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Link    ${checkout}[order_details_link]
+
+Verify Order Details Are Visible
+    Element Should Be Visible    ${checkout}[order_details_info]
+    Page Should Contain    Order information
