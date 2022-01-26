@@ -24,18 +24,6 @@ Proceed To Checkout
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Button    //*[@id="checkout"]
 
-Click Checkout As Guest Button
-    Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Click Button    class:checkout-as-guest-button
-
-Proceed To Order Details Page
-    Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Click Link    //a[contains(text(),'Click here for order details.')] 
-
-Verify Order Details Are Visible
-    Element Should Be Visible    class:order-details-page
-    Page Should Contain    Order information
-
 *** Test Cases ***
 Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order Payment
     [Tags]    WebUI    WebUI_Workflow
