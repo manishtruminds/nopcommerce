@@ -9,6 +9,7 @@ Resource                                                                        
 Resource                                                                        ${EXECDIR}/Lib/Clothing.robot
 Resource                                                                        ${EXECDIR}/Lib/Shoes.robot
 Resource                                                                        ${EXECDIR}/Lib/Checkout.robot
+Resource                                                                        ${EXECDIR}/Lib/Cart.robot
 
 Library                                                                         SeleniumLibrary
 Library                                                                         DependencyLibrary
@@ -33,44 +34,103 @@ ${password}                                 ${env_variables}[${ENV_TYPE}][passwo
 
 *** Test Cases ***
 
-Shopping for shoes and 4 Custom Tshirt using second day air shipping and Cheque/Money Order payment as a new user
+Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/Money Order Payment As A New User
     [Tags]    Workflow  Testcase4
     [Documentation]   Shopping for shoes and 4 Custom Tshirt using second day air shipping and Cheque/Money Order payment as a new user
 
     Open Webui    ${browser}    ${url}
-    Proceed To Register Page
-    # can make keyword for this
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
-    Fill Registration Form
-    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
-    ...    email=${valid_emails}[1]    password=${test_data}[register][valid_password]
-    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
-    Click Register Button
-    Verify Successful Registration
 
+    Do Registration
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${valid_emails}[2]    password=${test_data}[register][valid_password]
+    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
     Proceed To Apparel Page
     Proceed To Shoes Page
+
     Add Shoes    Nike Floral Roshe Customized Running Shoes
     ...      size=11    print=Natural   list_color=White/Black
     Verify Successful Addition
+
+
     Go Back
+
     Add Shoes    adidas Consortium Campus 80s Running Shoes
-    ...     size=11   square_color=blue   count=4
+    ...     size=11   square_color=blue   count=3
     Verify Successful Addition
+
+
     Go To    ${url}clothing
     Add Clothes    Custom T-Shirt   custom_text=My New Shirt    count=4
     Verify Successful Addition
-    Proceed To Shopping Cart
-    #need to be modified  to #Proceed To Checkout
 
-    Select Checkbox    //*[@id="termsofservice"]
+    Proceed To Shopping Cart
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes
+    Check Item In Cart    adidas Consortium Campus 80s Running Shoes
+    Check Item In Cart    Custom T-Shirt
+    #need to be modified  to #Proceed To Checkout
+    Select Term And Conditions
+  #  Select Checkbox    //*[@id="termsofservice"]
     Click Button    //*[@id="checkout"]
-    # add attributes
+
     Fill Default Checkout Details    Second Day Air     Check/Money Order
 
     Close All Browsers
 
+Window Shopping For Clothes And Shoes As A Registered User
+    [Documentation]
+    [Tags]    Workflow    TestCase5
+    Open Webui    ${browser}    ${url}
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+
+    Do Registration
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${valid_emails}[1]    password=${test_data}[register][valid_password]
+    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+    Logout
+    Login    ${valid_emails}[1]   ${test_data}[register][valid_password]
+
+    Search Store    shirt
+
+    Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt   size=2X   count=2
+
+    Search Store    shoes
+
+    Add Shoes    adidas Consortium Campus 80s Running Shoes     size=10     square_color=silver
+
+    Proceed To Shopping Cart
+
+    #modify count in shopping card
+
+    Logout
+
+
 ***Keywords***
+
+Login
+    [Documentation]
+    [Arguments]     ${mail}     ${password}
+    Proceed To Login Page
+    Fill Login Form With RememberMe       ${mail}     ${password}
+    Click Login Button
+    Verify Login Success
+
+Do Registration
+    [Documentation]
+    [Arguments]    ${firstName}    ${lastName}    ${email}    ${password}
+    ...            ${day}=0    ${month}=0    ${year}=0
+    ...            ${gender}=None    ${company}=None
+    ...            ${want_newsletter}=False
+
+    Proceed To Register Page
+    Fill Registration Form
+    ...            ${firstName}    ${lastName}    ${email}    ${password}
+    ...            ${day}    ${month}    ${year}
+    ...            ${gender}    ${company}
+    ...            ${want_newsletter}
+    Click Register Button
+    Verify Successful Registration
+
 Fill Default Billing Form
     [Documentation]
     Fill Billing Address Form
