@@ -134,4 +134,7 @@ shopping_cart:
   terms_and_conditions:   //*[@id="termsofservice"]
   checkout:   //*[@id="checkout"]
   gift_wrap_dropdown:   //*[@id="checkout_attribute_1"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
