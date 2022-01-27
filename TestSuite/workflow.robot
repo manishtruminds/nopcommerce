@@ -101,9 +101,55 @@ Window Shopping For Clothes And Shoes As A Registered User
     Proceed To Shopping Cart
 
     #modify count in shopping card
-
     Logout
+    Close All Browsers
 
+Shopping for Shoes and Shirt as a new registered user(Registering After Shopping)
+    [Documentation]
+    [Tags]    Workflow    TestCase6
+    Open Webui    ${browser}    ${url}
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    View By List
+    Add Shoes    Nike SB Zoom Stefan Janoski    count=2
+    Verify Successful Addition
+    Proceed To Apparel Page
+    Proceed To Clothing Page
+    View By List
+    Add Clothes    Custom T-Shirt  count=3    custom_text=My shirt
+    Verify Successful Addition
+    Go Back
+    Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt     size=Small
+    Verify Successful Addition
+    Proceed To Shopping Cart
+    Check Item In Cart    Nike SB Zoom Stefan Janoski
+    Check Item In Cart    Custom T-Shirt
+    #Delete Nike Shirt
+    Select Term And Conditions
+    Click Button    //*[@id="checkout"]
+
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+
+    Do Registration
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${valid_emails}[4]    password=${test_data}[register][valid_password]
+    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+
+    Proceed To Shopping Cart
+    Select Term And Conditions
+    Click Button    //*[@id="checkout"]
+
+    Fill Default Checkout Details    shipping_type=Ground    payment_method=Check/Money Order   same_shipping_addr=False
+    ...    firstName=${test_data}[checkout][firstname]     lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    ...    firstName_ship=Tom     lastName_ship=Hanks
+    ...    email_ship=tom123@gmail.com    country_ship=1
+    ...    state_ship=53    city_ship=Nome
+    ...    addr1_ship=hno 234    zip_ship=1234    phone_ship=98989898989
+
+    Close All Browsers
 
 ***Keywords***
 
@@ -130,30 +176,6 @@ Do Registration
     ...            ${want_newsletter}
     Click Register Button
     Verify Successful Registration
-
-Fill Default Billing Form
-    [Documentation]
-    Fill Billing Address Form
-        ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
-        ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
-        ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
-        ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    Click Billing Address Continue Button
-
-Fill Default Shipping Form
-    [Documentation]
-    Verify Shipping Address Form Is Visible
-    Select Shipping Address As New Address
-
-    Fill Shipping Address Form
-    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
-    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
-    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
-    ...    addr1=${test_data}[checkout][addr1]    addr2=${test_data}[checkout][addr2]
-    ...    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    ...    company=${test_data}[checkout][company]    fax=${test_data}[checkout][fax]
-
-    Click Shipping Address Continue Button
 
 Fill Default Shipping Method Form
     [Documentation]
@@ -200,15 +222,42 @@ Fill Default Payment Details
     Click Payment Information Continue Button
 
 Fill Default Checkout Details
-    [Arguments]     ${shipping_type}    ${payment_method}   ${same_shipping_addr}=True
+    [Arguments]    ${firstName}    ${lastName}    ${email}
+    ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}    ${state}
+    ...            ${shipping_type}    ${payment_method}
+    ...            ${firstName_ship}=None    ${lastName_ship}=None     ${email_ship}=None
+    ...            ${country_ship}=None     ${city_ship}=None     ${addr1_ship}=None    ${zip_ship}=None    ${phone_ship}=None
+    ...            ${state_ship}=None
+    ...            ${company}=None    ${addr2}=None    ${fax}=None
+    ...            ${company_ship}=None    ${addr2_ship}=None    ${fax_ship}=None
+    ...            ${same_shipping_addr}=True
+
     IF  "${same_shipping_addr}"=="True"
         Select Same Shipping Address Checkbox
     ELSE
         Unselect Same Shipping Address Checkbox
     END
-    Fill Default Billing Form
+
+    Fill Billing Address Form
+        ...    firstName=${firstName}    lastName=${lastName}
+        ...    email=${email}    country=${country}
+        ...    state=${state}    city=${city}
+        ...    addr1=${addr1}    zip=${zip}    phone=${phone}
+    Click Billing Address Continue Button
+
     IF  "${same_shipping_addr}"!="True"
-        Fill Default Shipping Form
+        Verify Shipping Address Form Is Visible
+        Select Shipping Address As New Address
+
+        Fill Shipping Address Form
+        ...    firstName=${firstName_ship}    lastName=${lastName_ship}
+        ...    email=${email_ship}    country=${country_ship}
+        ...    state=${state_ship}   city=${city_ship}
+        ...    addr1=${addr1_ship}    addr2=${addr2_ship}
+        ...    zip=${zip_ship}    phone=${phone_ship}
+        ...    company=${company_ship}    fax=${fax_ship}
+
+        Click Shipping Address Continue Button
     END
     Fill Default Shipping Method Form     ${shipping_type}
     Fill Default Payment Method Form    ${payment_method}
