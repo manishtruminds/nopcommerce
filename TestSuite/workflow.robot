@@ -73,12 +73,19 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
   #  Select Checkbox    //*[@id="termsofservice"]
     Click Button    //*[@id="checkout"]
 
-    Fill Default Checkout Details    Second Day Air     Check/Money Order
+    
+    Fill Default Checkout Details    shipping_type=Second Day Air    payment_method=Check/Money Order
+    ...    firstName=${test_data}[checkout][firstname]     lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
 
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
     Close All Browsers
 
 Window Shopping For Clothes And Shoes As A Registered User
-    [Documentation]
+    [Documentation]   Window Shopping For Clothes And Shoes As A Registered User and not buying anything
     [Tags]    Workflow    TestCase5
     Open Webui    ${browser}    ${url}
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
@@ -105,7 +112,7 @@ Window Shopping For Clothes And Shoes As A Registered User
     Close All Browsers
 
 Shopping for Shoes and Shirt as a new registered user(Registering After Shopping)
-    [Documentation]
+    [Documentation]     Shopping for Shoes and Shirt as a new registered user(Registering After Shopping)
     [Tags]    Workflow    TestCase6
     Open Webui    ${browser}    ${url}
     Proceed To Apparel Page
@@ -149,12 +156,14 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
     ...    state_ship=53    city_ship=Nome
     ...    addr1_ship=hno 234    zip_ship=1234    phone_ship=98989898989
 
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
     Close All Browsers
 
 ***Keywords***
 
 Login
-    [Documentation]
+    [Documentation]   High level function to perform login operations
     [Arguments]     ${mail}     ${password}
     Proceed To Login Page
     Fill Login Form With RememberMe       ${mail}     ${password}
@@ -162,7 +171,7 @@ Login
     Verify Login Success
 
 Do Registration
-    [Documentation]
+    [Documentation]   High level function to perform registration operations
     [Arguments]    ${firstName}    ${lastName}    ${email}    ${password}
     ...            ${day}=0    ${month}=0    ${year}=0
     ...            ${gender}=None    ${company}=None
@@ -178,7 +187,6 @@ Do Registration
     Verify Successful Registration
 
 Fill Default Shipping Method Form
-    [Documentation]
     [Arguments]     ${shipping_type}
     Verify Shipping Method Form Is Visible
     IF  "${shipping_type}" == "Ground"
@@ -191,7 +199,7 @@ Fill Default Shipping Method Form
     Click Shipping Method Continue Button
 
 Fill Default Payment Method Form
-    [Documentation]
+
     [Arguments]     ${payment_method}
     Verify Payment Method Form Is Visible
 
@@ -204,7 +212,7 @@ Fill Default Payment Method Form
     Click Payment Method Continue Button
 
 Fill Default Payment Details
-    [Documentation]
+
     [Arguments]     ${payment_method}
 
     Verify Payment Information Form Is Visible
@@ -222,6 +230,7 @@ Fill Default Payment Details
     Click Payment Information Continue Button
 
 Fill Default Checkout Details
+    [Documentation]     Higher level function to perform all checkout operations
     [Arguments]    ${firstName}    ${lastName}    ${email}
     ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}    ${state}
     ...            ${shipping_type}    ${payment_method}
