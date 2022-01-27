@@ -17,7 +17,7 @@ Library                                                                         
 Library                                                                         SSHLibrary
 
 
-Variables   ${EXECDIR}/Variables/env.yaml
+Variables                                                                       ${EXECDIR}/Variables/env.yaml
 Variables                                                                       ${EXECDIR}/Variables/webelement.yaml
 Variables                                                                       ${EXECDIR}/Variables/testdata.yaml
 
@@ -35,7 +35,8 @@ Add Custom Shirt Remove And Checkout
     Add Clothes    Custom T-Shirt   custom_text=My New Shirt
     Proceed To Shopping Cart
     Check Item In Cart    Custom T-Shirt
-    Checkout
+    Select Term And Conditions
+    Click Checkout Button    Yes
     Close All Browsers
 
 Add Adidas Shoes Into Cart And Choose Giftwrap Option
@@ -48,7 +49,7 @@ Add Adidas Shoes Into Cart And Choose Giftwrap Option
     Proceed To Shopping Cart
     Check Item In Cart    adidas
     Choose Giftwrap Option    Yes
-    Verify Gift Wrap Option   Yes
+    #Verify Gift Wrap Option   Yes
     Select Term And Conditions
-    Checkout
+    Click Checkout Button    No
     Close All Browsers
