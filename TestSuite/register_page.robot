@@ -129,6 +129,55 @@ Invalid Registration Password
 
     Close All Browsers
 
+Invalid Registration FirstName
+    [Tags]    WebUI    WebUI_Register
+    [Documentation]    Test an invalid registration with invalid first names
+
+    Open Webui    ${browser}    ${url}
+    Proceed To Register Page
+
+    @{invalid_firstnames}=    Get Test Data From Pipe Separated String    ${test_data}[register][invalid_names]
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+    
+    FOR    ${invalid_firstname}    IN    @{invalid_firstnames}
+        Log    ${invalid_firstname}
+        
+        Fill Registration Form
+        ...    firstName=${invalid_firstname}    lastName=${test_data}[register][lastname]
+        ...    email=${valid_emails}[3]    password=${test_data}[register][valid_password]
+        
+        Click Register Button
+
+        
+        Verify Unsuccessful Registration
+    END
+    
+    Close All Browsers
+
+Invalid Registration LastName
+    [Tags]    WebUI    WebUI_Register
+    [Documentation]    Test an invalid registration with invalid last names
+
+    Open Webui    ${browser}    ${url}
+    Proceed To Register Page
+
+    @{invalid_lastnames}=    Get Test Data From Pipe Separated String    ${test_data}[register][invalid_names]
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+    
+    FOR    ${invalid_lastname}    IN    @{invalid_lastnames}
+        Log    ${invalid_lastname}
+        
+        Fill Registration Form
+        ...    firstName=${test_data}[register][firstname]    lastName=${invalid_lastname}
+        ...    email=${valid_emails}[4]    password=${test_data}[register][valid_password]
+        
+        Click Register Button
+        
+        Verify Unsuccessful Registration
+    END
+    
+    Close All Browsers
+
 Duplicate Registration
     [Tags]    WebUI    WebUI_Register
     [Documentation]    Ensure that duplicate registrations is not possible
@@ -140,7 +189,7 @@ Duplicate Registration
 
     Fill Registration Form
     ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
-    ...    email=${valid_emails}[3]    password=${test_data}[register][valid_password]
+    ...    email=${valid_emails}[5]    password=${test_data}[register][valid_password]
     ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
 
     Click Register Button
@@ -163,5 +212,11 @@ Duplicate Registration
 
     Verify Unsuccessful Registration
     Verify Email Already Exists Message
+<<<<<<< HEAD
 
     Close All Browsers
+=======
+    
+    Close All Browsers
+
+>>>>>>> origin/workflow1

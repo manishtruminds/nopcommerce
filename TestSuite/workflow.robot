@@ -1,55 +1,126 @@
-#First commit for workflow2 branch
-
 *** Settings ***
-Resource                                                                        ${EXECDIR}/Lib/Common_Utils.robot
-Resource                                                                        ${EXECDIR}/Lib/Login.robot
-Resource                                                                        ${EXECDIR}/Lib/Register.robot
-Resource                                                                        ${EXECDIR}/Lib/Home.robot
-Resource                                                                        ${EXECDIR}/Lib/Apparel.robot
-Resource                                                                        ${EXECDIR}/Lib/Clothing.robot
-Resource                                                                        ${EXECDIR}/Lib/Shoes.robot
-Resource                                                                        ${EXECDIR}/Lib/Checkout.robot
-Resource                                                                        ${EXECDIR}/Lib/Cart.robot
+Library    SeleniumLibrary
+Library    String
+Library    Collections
 
-Library                                                                         SeleniumLibrary
-Library                                                                         DependencyLibrary
-Library                                                                         OperatingSystem
-Library                                                                         DateTime
-Library                                                                         String
-Library                                                                         Collections
-Library                                                                         SSHLibrary
+Resource    ../Lib/Common_Utils.robot
+Resource    ../Lib/Home.robot
+Resource    ../Lib/Apparel.robot
+Resource    ../Lib/Clothing.robot
+Resource    ../Lib/Shoes.robot
+Resource    ../Lib/Checkout.robot
+Resource    ../Lib/Register.robot
+Resource    ../Lib/Login.robot
+Resource    ../Lib/Cart.robot
 
+Variables    ${EXECDIR}/Variables/webelement.yaml
+Variables    ${EXECDIR}/Variables/testdata.yaml
 
-Variables                                                                       ${EXECDIR}/Variables/env.yaml
-Variables                                                                       ${EXECDIR}/Variables/webelement.yaml
-Variables                                                                       ${EXECDIR}/Variables/testdata.yaml
+Variables    ${EXECDIR}/Variables/env.yaml
+Variables    ${EXECDIR}/Variables/webelement.yaml
+Variables    ${EXECDIR}/Variables/testdata.yaml
+
+Documentation    This resource file contains keywords for dealing with workflows
 
 *** Variables ***
 # Device test variables
 ${browser}                                  ${env_variables}[${ENV_TYPE}][browser]
 ${url}                                      ${env_variables}[${ENV_TYPE}][url]
-${username}                                 ${env_variables}[${ENV_TYPE}][username]
-${password}                                 ${env_variables}[${ENV_TYPE}][password]
-${path}
 
 *** Test Cases ***
-Testing
-    [Tags]    test
-    #${home_dir}     Get Environment Variable    HOME
-    #${download_dir}       Join Path    ${home_dir}    Downloads
-    OperatingSystem.File Should Exist    C:\\Users\\user\\Downloads\\order1.pdf
+Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order Payment
+    [Tags]    WebUI    WebUI_Workflow
+    [Documentation]    Test the workflow of adding Nike shoes to cart, checking out as guest, using ground shipping and check or money order payment
 
+    Open WebUI    ${browser}    ${url}
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+
+    Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=White/Blue     size=9   print=Fresh
+    Verify Successful Addition
+
+    Proceed To Shopping Cart
+    Proceed To Checkout
+    Click Checkout As Guest Button
+
+    Fill Default Checkout Details And Confirm Order    shipping_type=Ground    payment_method=Check/Money Order
+    Verify Successful Checkout
+
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
+
+    Close All Browsers
+
+
+Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And Check Or Money Order Payment
+    [Tags]    WebUI    WebUI_Workflow
+    [Documentation]    Test the workflow of adding custom T-shirt to cart, checking out as a registered user, using next day air shipping and check or money order payment
+
+    Open Webui    ${browser}    ${url}
+
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[0]
+
+    Verify Login Success
+
+    Proceed To Apparel Page
+    Proceed To Clothing Page
+
+    Add Clothes    Custom T-Shirt   custom_text=My New Shirt
+    Verify Successful Addition
+
+    Proceed To Shopping Cart
+    Proceed To Checkout
+
+    Fill Default Checkout Details And Confirm Order    shipping_type=Next Day Air    payment_method=Check/Money Order
+    Verify Successful Checkout
+
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
+
+    Close All Browsers
+
+Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air Shipping And Check Or Money Order Payment
+    [Tags]    WebUI    WebUI_Workflow
+    [Documentation]    Test the workflow of adding Nike T-shirt And Adidas Shoes to cart, checking out as a registered user, using second day air shipping and check or money order payment
+
+    Open Webui    ${browser}    ${url}
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[1]
+
+    Verify Login Success
+
+    Proceed To Apparel Page
+    Proceed To Clothing Page
+    Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt   size=1X
+    Verify Successful Addition
+
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    Add Shoes    adidas Consortium Campus 80s Running Shoes     size=9
+    Verify Successful Addition
+
+    Proceed To Shopping Cart
+    Proceed To Checkout
+
+    Fill Default Checkout Details And Confirm Order    shipping_type=Next Day Air    payment_method=Check/Money Order
+
+    Verify Successful Checkout
+
+    Proceed To Order Details Page
+    Verify Order Details Are Visible
+
+    Close All Browsers
+
+#First commit for workflow2 branch
 Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/Money Order Payment As A New User
     [Tags]    Workflow  Testcase4
     [Documentation]   Shopping for shoes and 4 Custom Tshirt using second day air shipping and Cheque/Money Order payment as a new user
 
     Open Webui    ${browser}    ${url}
-    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[2]
 
-    Do Registration
-    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
-    ...    email=${valid_emails}[2]    password=${test_data}[register][valid_password]
-    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
     Proceed To Apparel Page
     Proceed To Shoes Page
 
@@ -92,15 +163,13 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
 Window Shopping For Clothes And Shoes As A Registered User
     [Documentation]   Window Shopping For Clothes And Shoes As A Registered User and not buying anything
     [Tags]    Workflow    TestCase5
-    Open Webui    ${browser}    ${url}
-    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
 
-    Do Registration
-    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
-    ...    email=${valid_emails}[1]    password=${test_data}[register][valid_password]
-    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+    Open Webui    ${browser}    ${url}
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[3]
+
     Logout
-    Login    ${valid_emails}[1]   ${test_data}[register][valid_password]
+    Login    ${valid_emails}[3]   ${test_data}[register][valid_password]
 
     Search Store    shirt
 
@@ -140,26 +209,15 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
     Select Term And Conditions
     Click Button    //*[@id="checkout"]
 
-    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
-
-    Do Registration
-    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
-    ...    email=${valid_emails}[4]    password=${test_data}[register][valid_password]
-    ...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[4]
 
     Proceed To Shopping Cart
     Select Term And Conditions
     Click Button    //*[@id="checkout"]
 
-    Fill Default Checkout Details    shipping_type=Ground    payment_method=Check/Money Order   same_shipping_addr=False
-    ...    firstName=${test_data}[checkout][firstname]     lastName=${test_data}[checkout][lastname]
-    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
-    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
-    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    ...    firstName_ship=Tom     lastName_ship=Hanks
-    ...    email_ship=tom123@gmail.com    country_ship=1
-    ...    state_ship=53    city_ship=Nome
-    ...    addr1_ship=hno 234    zip_ship=1234    phone_ship=98989898989
+    Fill Default Checkout Details And Confirm Order    shipping_type=Ground    payment_method=Check/Money Order
+    Verify Successful Checkout
 
     Proceed To Order Details Page
     Verify Order Details Are Visible
@@ -170,7 +228,13 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
 
     Close All Browsers
 
-***Keywords***
+
+*** Keywords ***
+Proceed To Checkout
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Select Checkbox    //*[@id="termsofservice"]
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Click Button    //*[@id="checkout"]
 
 Login
     [Documentation]   High level function to perform login operations
@@ -180,37 +244,60 @@ Login
     Click Login Button
     Verify Login Success
 
-Do Registration
+Perform Default Registration And Continue
+    [Arguments]    ${email}
     [Documentation]   High level function to perform registration operations
-    [Arguments]    ${firstName}    ${lastName}    ${email}    ${password}
-    ...            ${day}=0    ${month}=0    ${year}=0
-    ...            ${gender}=None    ${company}=None
-    ...            ${want_newsletter}=False
 
     Proceed To Register Page
     Fill Registration Form
-    ...            ${firstName}    ${lastName}    ${email}    ${password}
-    ...            ${day}    ${month}    ${year}
-    ...            ${gender}    ${company}
-    ...            ${want_newsletter}
+    ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
+    ...    email=${email}    password=${test_data}[register][valid_password]
+
     Click Register Button
     Verify Successful Registration
 
-Fill Default Shipping Method Form
-    [Arguments]     ${shipping_type}
+Fill Default Billing Address Form And Continue
+    Fill Billing Address Form
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    addr2=${test_data}[checkout][addr2]
+    ...    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    ...    company=${test_data}[checkout][company]    fax=${test_data}[checkout][fax]
+
+    Click Billing Address Continue Button
+
+Fill Default Shipping Address Form And Continue
+    Verify Shipping Address Form Is Visible
+
+    Fill Shipping Address Form
+    ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    addr2=${test_data}[checkout][addr2]
+    ...    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
+    ...    company=${test_data}[checkout][company]    fax=${test_data}[checkout][fax]
+
+    Click Shipping Address Continue Button
+
+Fill Shipping Method Form And Continue
+    [Arguments]     ${shipping_method}
+
     Verify Shipping Method Form Is Visible
-    IF  "${shipping_type}" == "Ground"
+
+    IF  "${shipping_method}" == "Ground"
         Choose Shipping Method As Ground
-    ELSE IF  "${shipping_type}" == "Next Day Air"
+    ELSE IF  "${shipping_method}" == "Next Day Air"
         Choose Shipping Method As Next Day Air
-    ELSE IF  "${shipping_type}" == "Second Day Air"
+    ELSE IF  "${shipping_method}" == "Second Day Air"
         Choose Shipping Method As Second Day Air
     END
+
     Click Shipping Method Continue Button
 
-Fill Default Payment Method Form
-
+Fill Payment Method Form And Continue
     [Arguments]     ${payment_method}
+
     Verify Payment Method Form Is Visible
 
     IF  "${payment_method}" == "Check/Money Order"
@@ -221,8 +308,7 @@ Fill Default Payment Method Form
 
     Click Payment Method Continue Button
 
-Fill Default Payment Details
-
+Fill Payment Details Form And Continue
     [Arguments]     ${payment_method}
 
     Verify Payment Information Form Is Visible
@@ -239,17 +325,9 @@ Fill Default Payment Details
 
     Click Payment Information Continue Button
 
-Fill Default Checkout Details
+Fill Default Checkout Details And Confirm Order
+    [Arguments]    ${shipping_type}    ${payment_method}    ${same_shipping_addr}=True
     [Documentation]     Higher level function to perform all checkout operations
-    [Arguments]    ${firstName}    ${lastName}    ${email}
-    ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}    ${state}
-    ...            ${shipping_type}    ${payment_method}
-    ...            ${firstName_ship}=None    ${lastName_ship}=None     ${email_ship}=None
-    ...            ${country_ship}=None     ${city_ship}=None     ${addr1_ship}=None    ${zip_ship}=None    ${phone_ship}=None
-    ...            ${state_ship}=None
-    ...            ${company}=None    ${addr2}=None    ${fax}=None
-    ...            ${company_ship}=None    ${addr2_ship}=None    ${fax_ship}=None
-    ...            ${same_shipping_addr}=True
 
     IF  "${same_shipping_addr}"=="True"
         Select Same Shipping Address Checkbox
@@ -257,33 +335,17 @@ Fill Default Checkout Details
         Unselect Same Shipping Address Checkbox
     END
 
-    Fill Billing Address Form
-        ...    firstName=${firstName}    lastName=${lastName}
-        ...    email=${email}    country=${country}
-        ...    state=${state}    city=${city}
-        ...    addr1=${addr1}    zip=${zip}    phone=${phone}
-    Click Billing Address Continue Button
+    Fill Default Billing Address Form And Continue
 
     IF  "${same_shipping_addr}"!="True"
         Verify Shipping Address Form Is Visible
         Select Shipping Address As New Address
-
-        Fill Shipping Address Form
-        ...    firstName=${firstName_ship}    lastName=${lastName_ship}
-        ...    email=${email_ship}    country=${country_ship}
-        ...    state=${state_ship}   city=${city_ship}
-        ...    addr1=${addr1_ship}    addr2=${addr2_ship}
-        ...    zip=${zip_ship}    phone=${phone_ship}
-        ...    company=${company_ship}    fax=${fax_ship}
-
-        Click Shipping Address Continue Button
+        Fill Default Shipping Address Form And Continue
     END
-    Fill Default Shipping Method Form     ${shipping_type}
-    Fill Default Payment Method Form    ${payment_method}
 
-    Fill Default Payment Details    ${payment_method}
+    Fill Shipping Method Form And Continue    ${shipping_type}
+    Fill Payment Method Form And Continue    ${payment_method}
+    Fill Payment Details Form And Continue    ${payment_method}
 
     Verify Confirm Order Form Is Visible
     Click Confirm Order Button
-
-    Verify Successful Checkout

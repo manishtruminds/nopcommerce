@@ -2,10 +2,11 @@ test_data:
     register:
         firstname:          david
         lastname:           knuth
+        invalid_names:      123|*%^|+1234
         invalid_passwords:  a|#|123|abc12
         invalid_emails:     abc.com|abc@abc|efg@abc.|@abc.com
         valid_password:     abcd@1234
-        valid_emails:       davidknuth1@mail.com|davidknuth2@mail.com|davidknuth3@mail.com|davidknuth16@mail.com|davidknuth123@gmail.com
+        valid_emails:       davidk@mail.com|dknuth@mail.com|dk@mail.com|dakn@mail.com|dk2@mail.com|davidknuth@mail.com
     login:
         invalid_emailid:    anish.gupta@truminds.com|manishgupta@truminds.com|manish.gupta|manish.gupta@truminds
         wrong_mails:        abc|abc@|abc@gmail.|abc@gmail.com.
@@ -17,6 +18,7 @@ test_data:
         firstname:          david
         lastname:           knuth
         valid_email:        davidknuth@mail.com
+        valid_emails:       davidk@mail.com|dknuth@mail.com|dk@mail.com|dakn@mail.com|dk2@mail.com|davidknuth@mail.com
         invalid_emails:     abc.com|@abc.com
         country:            1
         state:              52
