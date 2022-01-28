@@ -32,6 +32,10 @@ Required Registration Fields
     Click Register Button
 
     Verify Unsuccessful Registration
+    Verify FirstName Required Message Appears
+    Verify LastName Required Message Appears
+    Verify Email Required Message Appears
+    Verify Password Required Message Appears
 
     Close All Browsers
 
@@ -52,6 +56,10 @@ Optional Registration Fields
     Click Register Button
 
     Verify Successful Registration
+    Verify FirstName Required Message Does Not Appear
+    Verify LastName Required Message Does Not Appear
+    Verify Email Required Message Does Not Appear
+    Verify Password Required Message Does Not Appear
 
     Close All Browsers
 
