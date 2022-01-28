@@ -75,6 +75,12 @@ Input Password
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Input Text    ${register}[confirm_password]    ${password}
 
+Verify Password And Confirmation Password Are Same
+    ${password}=    Get Text    ${register}[password]
+    ${confirm_password}=    Get Text    ${register}[confirm_password]
+
+    Should Be Equal As Strings    ${password}    ${confirm_password}
+
 Fill Registration Form
     [Arguments]    ${firstName}    ${lastName}    ${email}    ${password}
     ...            ${day}=0    ${month}=0    ${year}=0
@@ -93,6 +99,7 @@ Fill Registration Form
     Input LastName    ${lastName}
     Input Email    ${email}
     Input Password  ${password}
+    Verify Password And Confirmation Password Are Same
 
     Input Date Of Birth    ${day}    ${month}    ${year}
 
