@@ -30,9 +30,14 @@ ${browser}                                  ${env_variables}[${ENV_TYPE}][browse
 ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 ${username}                                 ${env_variables}[${ENV_TYPE}][username]
 ${password}                                 ${env_variables}[${ENV_TYPE}][password]
-
+${path}
 
 *** Test Cases ***
+Testing
+    [Tags]    test
+    #${home_dir}     Get Environment Variable    HOME
+    #${download_dir}       Join Path    ${home_dir}    Downloads
+    OperatingSystem.File Should Exist    C:\\Users\\user\\Downloads\\order1.pdf
 
 Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/Money Order Payment As A New User
     [Tags]    Workflow  Testcase4
@@ -73,7 +78,7 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
   #  Select Checkbox    //*[@id="termsofservice"]
     Click Button    //*[@id="checkout"]
 
-    
+
     Fill Default Checkout Details    shipping_type=Second Day Air    payment_method=Check/Money Order
     ...    firstName=${test_data}[checkout][firstname]     lastName=${test_data}[checkout][lastname]
     ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
@@ -158,6 +163,11 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
 
     Proceed To Order Details Page
     Verify Order Details Are Visible
+    ${order_num}=     Get Text    //div[@class='order-number']//strong
+    Log To Console    ${order_num}
+    Click Element    //a[contains(text(),'PDF Invoice')]
+    OperatingSystem.File Should Exist    C:\\Users\\user\\Downloads\\order1.pdf
+
     Close All Browsers
 
 ***Keywords***

@@ -29,13 +29,13 @@ Add Nike Floral Shoes To Cart And Checkout As Guest
     Click Button    //*[@id="checkout"]
 
     Click Checkout As Guest Button
-    
+
     Page Should Contain    Checkout
 
 # --------------------------------------------
 Select Same Shipping Address Checkbox
     Wait Until Element Is Visible    ${checkout}[billing_addr][ship_to_same_addr]    10s
-    
+
     ${is_checked}=    Run Keyword And Return Status    Checkbox Should Be Selected   ${checkout}[billing_addr][ship_to_same_addr]
     IF    ${is_checked} == ${False}
         Select Checkbox    ${checkout}[billing_addr][ship_to_same_addr]
@@ -44,7 +44,7 @@ Select Same Shipping Address Checkbox
 
 Unselect Same Shipping Address Checkbox
     Wait Until Element Is Visible    ${checkout}[billing_addr][ship_to_same_addr]    10s
-    
+
     ${is_checked}=    Run Keyword And Return Status    Checkbox Should Be Selected   ${checkout}[billing_addr][ship_to_same_addr]
     IF    ${is_checked} == ${True}
         Unselect Checkbox    ${checkout}[billing_addr][ship_to_same_addr]
@@ -121,19 +121,19 @@ Fill Address Form
     Input Address Form FirstName    ${addr_type}    ${firstName}
     Input Address Form LastName    ${addr_type}    ${lastName}
     Input Address Form Email    ${addr_type}    ${email}
-    
+
     IF    "${company}" != "${None}"
-        Input Address Form Company   ${addr_type}    ${company}        
+        Input Address Form Company   ${addr_type}    ${company}
     END
-    
+
     Select Address Form Country    ${addr_type}    ${country}
-    
-    
+
+
     Select Address Form State    ${addr_type}    ${state}
-    
+
     Input Address Form City    ${addr_type}    ${city}
     Input Address Form Addr1    ${addr_type}    ${addr1}
-    
+
     IF    "${addr2}" != "${None}"
         Input Address Form Addr2    ${addr_type}    ${addr2}
     END
@@ -150,7 +150,7 @@ Fill Billing Address Form
     ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
     ...            ${state}    ${company}=None    ${addr2}=None    ${fax}=None
 
-    
+
     Fill Address Form    addr_type=billing_addr
     ...            firstName=${firstName}    lastName=${lastName}    email=${email}
     ...            country=${country}    city=${city}    addr1=${addr1}    zip=${zip}    phone=${phone}
@@ -179,7 +179,7 @@ Fill Shipping Address Form
     ...            ${country}    ${city}    ${addr1}    ${zip}    ${phone}
     ...            ${state}    ${company}=None    ${addr2}=None    ${fax}=None
 
-    
+
     Fill Address Form    addr_type=shipping_addr
     ...            firstName=${firstName}    lastName=${lastName}    email=${email}
     ...            country=${country}    city=${city}    addr1=${addr1}    zip=${zip}    phone=${phone}
@@ -258,7 +258,7 @@ Verify Payment Information Form Is Visible
 Verify Payment Information Form Is Not Visible
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Element Should Not Be Visible    ${checkout}[payment_info][form]
-    
+
 Verify Check Or Money Order Payment Information Message
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Page Should Contain    Mail Personal or Business Check, Cashier's Check or money order to:
@@ -284,10 +284,10 @@ Input Payment Information Card Number
 
 Input Payment Information Card Expiration Date
     [Arguments]    ${month}    ${year}
-    
+
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...                Select From List By Value    ${checkout}[payment_info][expire_month]    ${month}
-    
+
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...                Select From List By Value    ${checkout}[payment_info][expire_year]    ${year}
 
