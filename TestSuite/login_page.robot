@@ -23,8 +23,7 @@ Variables                                                                       
 # Device test variables
 ${browser}                                  ${env_variables}[${ENV_TYPE}][browser]
 ${url}                                      ${env_variables}[${ENV_TYPE}][url]
-${username}                                 ${env_variables}[${ENV_TYPE}][username]
-${password}                                 ${env_variables}[${ENV_TYPE}][password]
+
 
 *** Test Cases ***
 
