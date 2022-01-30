@@ -31,10 +31,13 @@ ${password}                                 ${env_variables}[${ENV_TYPE}][passwo
 
 *** Test Cases ***
 Successful Login With RememberMe
-    [Tags]         WebUI_Login  ValidLogin  ValidLoginRememberMe
+    [Tags]   WebUI     WebUI_Login  ValidLogin  ValidLoginRememberMe
     [Documentation]   Successfully logging in and selecting Remember Me checkbox
     Open Webui  ${browser}  ${url}
     #Need to do registration here
+    Proceed To Register Page
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+
     Fill Registration Form
         ...    firstName=${test_data}[register][firstname]    lastName=${test_data}[register][lastname]
         ...    email=${valid_emails}[0]    password=${test_data}[register][valid_password]
@@ -46,10 +49,11 @@ Successful Login With RememberMe
     Fill Login Form With RememberMe       ${test_data}[login][valid_mailid]   ${test_data}[login][valid_password]
     Click Login Button
     Verify Login Success
+    Sleep    10
     Close All Browsers
 
 Successful Login Without RememberMe
-    [Tags]         WebUI_Login    ValidLogin  ValidLoginRememberMeNot
+    [Tags]      WebUI     WebUI_Login    ValidLogin  ValidLoginRememberMeNot
     [Documentation]   Successfully logging in without selecting Remember Me checkbox
     Open Webui  ${browser}  ${url}
     Proceed To Login Page
@@ -59,7 +63,7 @@ Successful Login Without RememberMe
     Close All Browsers
 
 Unsuccessful Login With Valid Mailid And Invalid Password
-    [Tags]        WebUI_Login    InvalidLogin  InvalidLoginRegisteredCredentials
+    [Tags]    WebUI    WebUI_Login    InvalidLogin  InvalidLoginRegisteredCredentials
     [Documentation]       Invalid logging in With Valid Mail ids And Invalid Password
     Open Webui  ${browser}  ${url}
     Proceed To Login Page
@@ -75,7 +79,7 @@ Unsuccessful Login With Valid Mailid And Invalid Password
     Close All Browsers
 
 Unsuccessful Login With Unregistered Credentials
-    [Tags]        WebUI_Login    InvalidLogin  InvalidLoginUnregisteredCredentials
+    [Tags]     WebUI   WebUI_Login    InvalidLogin  InvalidLoginUnregisteredCredentials
     [Documentation]       Invalid logging in With Unregistered Credentials
     Open Webui  ${browser}  ${url}
     Proceed To Login Page
@@ -90,7 +94,7 @@ Unsuccessful Login With Unregistered Credentials
     Close All Browsers
 
 Unsuccessful Login With Empty Parameters
-    [Tags]        WebUI_Login    InvalidLogin  InvalidLoginEmptyParameters
+    [Tags]   WebUI     WebUI_Login    InvalidLogin  InvalidLoginEmptyParameters
     [Documentation]       Invalid logging in With empty Parameters
     Open Webui  ${browser}  ${url}
     Proceed To Login Page
@@ -100,7 +104,7 @@ Unsuccessful Login With Empty Parameters
     Close All Browsers
 
 Unsuccessful Login With Wrong Mail
-    [Tags]        WebUI_Login    InvalidLogin  InvalidLoginWrongMail
+    [Tags]    WebUI    WebUI_Login    InvalidLogin  InvalidLoginWrongMail
     [Documentation]       Invalid logging in with wrong email ids
     Open Webui  ${browser}  ${url}
     Proceed To Login Page

@@ -1,0 +1,2332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.3 (Python 3.9.7 on win32)" generated="20220128 11:49:17.611" rpa="false" schemaversion="2">
+<suite id="s1" name="Apparel Clothing Page" source="D:\TruMinds\nopcommerce\TestSuite\apparel_clothing_page.robot">
+<test id="s1-t1" name="Successfully Adding Custom T-Shirt into cart">
+<kw name="Open Webui" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Open demo nopcommerce WebUI</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Browser: ${browser}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:49:18.160" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:18.160"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL: ${url}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:49:18.160" level="INFO" html="true">URL: https://demo.nopcommerce.com/</msg>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:18.160"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>5 seconds</arg>
+<arg>Open Webui Repeat</arg>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Webui Repeat" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser}'=='Firefox'</arg>
+<arg>Setup Firefox</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Chrome'</arg>
+<arg>Setup Chrome</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Edge'</arg>
+<arg>Setup Edge</arg>
+<arg>${url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setup Chrome" library="Common_Utils">
+<arg>${url}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Setting up Chrome</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:49:18.160" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:18.160"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:49:18.176" endtime="20220128 11:49:18.176"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220128 11:49:18.176" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220128 11:49:18.176" endtime="20220128 11:49:24.182"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:24.182"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:24.182"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Setting window size to 1920x1000 for standard execution across displays</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:49:24.182" endtime="20220128 11:49:24.182"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220128 11:49:24.182" endtime="20220128 11:49:24.319"/>
+</kw>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${width}</var>
+<var>${height}</var>
+<doc>Returns current window width and height as integers.</doc>
+<msg timestamp="20220128 11:49:24.323" level="INFO">${width} = 1386</msg>
+<msg timestamp="20220128 11:49:24.323" level="INFO">${height} = 788</msg>
+<status status="PASS" starttime="20220128 11:49:24.320" endtime="20220128 11:49:24.323"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Window: width: ${width} height: ${height}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:49:24.323" endtime="20220128 11:49:24.323"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${home}[logo_image]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220128 11:49:24.323" endtime="20220128 11:49:24.373"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:24.373"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:24.373"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:24.374"/>
+</kw>
+<kw name="Proceed To Apparel Page" library="Home">
+<doc>Navigating to Apparel Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Link</arg>
+<arg>${home}[apparel]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${home}[apparel]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:24.376" level="INFO">Clicking link '//*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]'.</msg>
+<status status="PASS" starttime="20220128 11:49:24.376" endtime="20220128 11:49:27.775"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:24.375" endtime="20220128 11:49:27.775"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:49:27.813" level="INFO">Page title is 'nopCommerce demo store. Apparel'.</msg>
+<status status="PASS" starttime="20220128 11:49:27.778" endtime="20220128 11:49:27.813"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:27.777" endtime="20220128 11:49:27.813"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:24.374" endtime="20220128 11:49:27.814"/>
+</kw>
+<kw name="Proceed To Clothing Page" library="Apparel">
+<doc>Navigating to Clothing Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Element</arg>
+<arg>${apparel}[clothing]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${apparel}[clothing]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:27.819" level="INFO">Clicking element '//div[@class='item-grid']//div[@class='item-box'][2]'.</msg>
+<status status="PASS" starttime="20220128 11:49:27.818" endtime="20220128 11:49:38.328"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:27.817" endtime="20220128 11:49:38.328"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:49:38.349" level="INFO">Page title is 'nopCommerce demo store. Clothing'.</msg>
+<status status="PASS" starttime="20220128 11:49:38.333" endtime="20220128 11:49:38.349"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:38.330" endtime="20220128 11:49:38.349"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:27.816" endtime="20220128 11:49:38.349"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Custom T-Shirt</arg>
+<arg>custom_text=My New Shirt</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[custom_tshirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:49:38.361" endtime="20220128 11:49:38.461"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:38.461" level="INFO">Clicking element '//div[@data-productid=29]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:49:38.461" endtime="20220128 11:49:42.846"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:38.361" endtime="20220128 11:49:42.847"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Custom T-Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Custom T-Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:49:42.906" level="INFO">Current page contains text 'Custom T-Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:49:42.851" endtime="20220128 11:49:42.906"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:42.848" endtime="20220128 11:49:42.906"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${custom_text}&quot; != &quot;None&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:49:42.908" endtime="20220128 11:49:42.994"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>${custom_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:42.996" level="INFO">Typing text 'My New Shirt' into text field '//input[@id='product_attribute_12']'.</msg>
+<status status="PASS" starttime="20220128 11:49:42.994" endtime="20220128 11:49:43.196"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:42.907" endtime="20220128 11:49:43.196"/>
+</branch>
+<status status="PASS" starttime="20220128 11:49:42.907" endtime="20220128 11:49:43.196"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:49:43.197" endtime="20220128 11:49:43.220"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:43.221" level="INFO">Typing text '1' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:49:43.220" endtime="20220128 11:49:43.334"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:43.196" endtime="20220128 11:49:43.334"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:49:46.340" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:49:43.334" endtime="20220128 11:49:46.340"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:49:46.342" endtime="20220128 11:49:46.423"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:46.426" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:49:46.424" endtime="20220128 11:49:46.527"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:49:49.531" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:49:46.528" endtime="20220128 11:49:49.531"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:46.341" endtime="20220128 11:49:49.531"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:38.361" endtime="20220128 11:49:49.531"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:38.361" endtime="20220128 11:49:49.531"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<status status="NOT RUN" starttime="20220128 11:49:49.532" endtime="20220128 11:49:49.532"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:49:49.532" endtime="20220128 11:49:49.532"/>
+</branch>
+<status status="PASS" starttime="20220128 11:49:38.361" endtime="20220128 11:49:49.532"/>
+</if>
+<status status="PASS" starttime="20220128 11:49:38.349" endtime="20220128 11:49:49.532"/>
+</kw>
+<kw name="Verify Successful Addition" library="Clothing">
+<doc>Verifying that item is successfully added to cart</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[success_message]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[success_message]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:49:49.543" level="INFO">Current page contains element '//div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]'.</msg>
+<status status="PASS" starttime="20220128 11:49:49.533" endtime="20220128 11:49:49.543"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:49.533" endtime="20220128 11:49:49.543"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:49.532" endtime="20220128 11:49:49.543"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220128 11:49:49.543" endtime="20220128 11:49:51.706"/>
+</kw>
+<doc>Successfully adding Custom T-shirt into the Cart</doc>
+<tag>Clothes</tag>
+<tag>WebUI</tag>
+<status status="PASS" starttime="20220128 11:49:18.160" endtime="20220128 11:49:51.706"/>
+</test>
+<test id="s1-t2" name="Successfully Adding Nike T-Shirt into cart">
+<kw name="Open Webui" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Open demo nopcommerce WebUI</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Browser: ${browser}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:49:51.706" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220128 11:49:51.706" endtime="20220128 11:49:51.706"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL: ${url}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:49:51.706" level="INFO" html="true">URL: https://demo.nopcommerce.com/</msg>
+<status status="PASS" starttime="20220128 11:49:51.706" endtime="20220128 11:49:51.722"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>5 seconds</arg>
+<arg>Open Webui Repeat</arg>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Webui Repeat" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser}'=='Firefox'</arg>
+<arg>Setup Firefox</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Chrome'</arg>
+<arg>Setup Chrome</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Edge'</arg>
+<arg>Setup Edge</arg>
+<arg>${url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setup Chrome" library="Common_Utils">
+<arg>${url}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Setting up Chrome</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:49:51.729" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220128 11:49:51.729" endtime="20220128 11:49:51.729"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:49:51.729" endtime="20220128 11:49:51.729"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220128 11:49:51.729" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220128 11:49:51.729" endtime="20220128 11:49:56.176"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:51.729" endtime="20220128 11:49:56.177"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:51.729" endtime="20220128 11:49:56.177"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Setting window size to 1920x1000 for standard execution across displays</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:49:56.178" endtime="20220128 11:49:56.179"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220128 11:49:56.180" endtime="20220128 11:49:56.323"/>
+</kw>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${width}</var>
+<var>${height}</var>
+<doc>Returns current window width and height as integers.</doc>
+<msg timestamp="20220128 11:49:56.332" level="INFO">${width} = 1386</msg>
+<msg timestamp="20220128 11:49:56.333" level="INFO">${height} = 788</msg>
+<status status="PASS" starttime="20220128 11:49:56.324" endtime="20220128 11:49:56.333"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Window: width: ${width} height: ${height}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:49:56.334" endtime="20220128 11:49:56.336"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${home}[logo_image]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220128 11:49:56.337" endtime="20220128 11:49:56.463"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:51.722" endtime="20220128 11:49:56.463"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:51.722" endtime="20220128 11:49:56.463"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:51.706" endtime="20220128 11:49:56.463"/>
+</kw>
+<kw name="Proceed To Apparel Page" library="Home">
+<doc>Navigating to Apparel Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Link</arg>
+<arg>${home}[apparel]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${home}[apparel]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:56.479" level="INFO">Clicking link '//*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]'.</msg>
+<status status="PASS" starttime="20220128 11:49:56.479" endtime="20220128 11:49:57.524"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:56.479" endtime="20220128 11:49:57.524"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:49:57.562" level="INFO">Page title is 'nopCommerce demo store. Apparel'.</msg>
+<status status="PASS" starttime="20220128 11:49:57.526" endtime="20220128 11:49:57.563"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:57.525" endtime="20220128 11:49:57.563"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:56.463" endtime="20220128 11:49:57.563"/>
+</kw>
+<kw name="Proceed To Clothing Page" library="Apparel">
+<doc>Navigating to Clothing Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Element</arg>
+<arg>${apparel}[clothing]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${apparel}[clothing]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:57.570" level="INFO">Clicking element '//div[@class='item-grid']//div[@class='item-box'][2]'.</msg>
+<status status="PASS" starttime="20220128 11:49:57.568" endtime="20220128 11:49:58.455"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:57.568" endtime="20220128 11:49:58.455"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:49:58.472" level="INFO">Page title is 'nopCommerce demo store. Clothing'.</msg>
+<status status="PASS" starttime="20220128 11:49:58.459" endtime="20220128 11:49:58.472"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:58.457" endtime="20220128 11:49:58.472"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:57.566" endtime="20220128 11:49:58.473"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<arg>size=1X</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<status status="NOT RUN" starttime="20220128 11:49:58.475" endtime="20220128 11:49:58.475"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:49:58.475" endtime="20220128 11:49:58.476"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[nike_shirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:49:58.482" endtime="20220128 11:49:58.546"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:49:58.547" level="INFO">Clicking element '//div[@data-productid=27]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:49:58.546" endtime="20220128 11:50:02.069"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:58.480" endtime="20220128 11:50:02.070"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:50:02.121" level="INFO">Current page contains text 'Nike Tailwind Loose Short-Sleeve Running Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:50:02.073" endtime="20220128 11:50:02.122"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:02.071" endtime="20220128 11:50:02.122"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${size}&quot; != &quot;None&quot;">
+<kw name="Select Size Option" library="Clothing">
+<arg>${size}</arg>
+<arg>${clothing}[nike_shirt][size_selector]</arg>
+<doc>Select size from dropdown list</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5times</arg>
+<arg>10seconds</arg>
+<arg>Select From List By Label</arg>
+<arg>name:${name}</arg>
+<arg>${size}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name:${name}</arg>
+<arg>${size}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220128 11:50:02.125" level="INFO">Selecting options from selection list 'name:product_attribute_11' by label 1X.</msg>
+<status status="PASS" starttime="20220128 11:50:02.124" endtime="20220128 11:50:02.241"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:02.124" endtime="20220128 11:50:02.241"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>2times</arg>
+<arg>10seconds</arg>
+<arg>Element Should Contain</arg>
+<arg>${name}</arg>
+<arg>${size}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${name}</arg>
+<arg>${size}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220128 11:50:02.284" level="INFO">Element 'product_attribute_11' contains text '1X'.</msg>
+<status status="PASS" starttime="20220128 11:50:02.242" endtime="20220128 11:50:02.284"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:02.242" endtime="20220128 11:50:02.284"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:02.123" endtime="20220128 11:50:02.284"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:02.122" endtime="20220128 11:50:02.285"/>
+</branch>
+<status status="PASS" starttime="20220128 11:50:02.122" endtime="20220128 11:50:02.285"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:02.285" endtime="20220128 11:50:02.320"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:02.321" level="INFO">Typing text '1' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:50:02.320" endtime="20220128 11:50:02.450"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:02.285" endtime="20220128 11:50:02.450"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:50:05.456" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:50:02.452" endtime="20220128 11:50:05.456"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:05.457" endtime="20220128 11:50:05.476"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:05.476" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:50:05.476" endtime="20220128 11:50:05.531"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:50:08.537" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:50:05.531" endtime="20220128 11:50:08.537"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:05.456" endtime="20220128 11:50:08.538"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:58.476" endtime="20220128 11:50:08.538"/>
+</kw>
+<status status="PASS" starttime="20220128 11:49:58.476" endtime="20220128 11:50:08.538"/>
+</branch>
+<status status="PASS" starttime="20220128 11:49:58.475" endtime="20220128 11:50:08.538"/>
+</if>
+<status status="PASS" starttime="20220128 11:49:58.474" endtime="20220128 11:50:08.539"/>
+</kw>
+<kw name="Verify Successful Addition" library="Clothing">
+<doc>Verifying that item is successfully added to cart</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[success_message]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[success_message]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:50:08.572" level="INFO">Current page contains element '//div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]'.</msg>
+<status status="PASS" starttime="20220128 11:50:08.543" endtime="20220128 11:50:08.573"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:08.542" endtime="20220128 11:50:08.573"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:08.541" endtime="20220128 11:50:08.573"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220128 11:50:08.574" endtime="20220128 11:50:10.766"/>
+</kw>
+<doc>Successfully adding Nike T-shirt into the Cart</doc>
+<tag>Clothes</tag>
+<tag>WebUI</tag>
+<status status="PASS" starttime="20220128 11:49:51.706" endtime="20220128 11:50:10.766"/>
+</test>
+<test id="s1-t3" name="Successfully Adding Many Clothes into cart">
+<kw name="Open Webui" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Open demo nopcommerce WebUI</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Browser: ${browser}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:50:10.766" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220128 11:50:10.766" endtime="20220128 11:50:10.781"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL: ${url}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:50:10.781" level="INFO" html="true">URL: https://demo.nopcommerce.com/</msg>
+<status status="PASS" starttime="20220128 11:50:10.781" endtime="20220128 11:50:10.781"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>5 seconds</arg>
+<arg>Open Webui Repeat</arg>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Webui Repeat" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser}'=='Firefox'</arg>
+<arg>Setup Firefox</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Chrome'</arg>
+<arg>Setup Chrome</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Edge'</arg>
+<arg>Setup Edge</arg>
+<arg>${url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setup Chrome" library="Common_Utils">
+<arg>${url}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Setting up Chrome</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:50:10.781" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220128 11:50:10.781" endtime="20220128 11:50:10.781"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:50:10.797" endtime="20220128 11:50:10.797"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220128 11:50:10.797" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220128 11:50:10.797" endtime="20220128 11:50:16.177"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:10.781" endtime="20220128 11:50:16.177"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:10.781" endtime="20220128 11:50:16.177"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Setting window size to 1920x1000 for standard execution across displays</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:50:16.178" endtime="20220128 11:50:16.178"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220128 11:50:16.178" endtime="20220128 11:50:16.297"/>
+</kw>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${width}</var>
+<var>${height}</var>
+<doc>Returns current window width and height as integers.</doc>
+<msg timestamp="20220128 11:50:16.301" level="INFO">${width} = 1386</msg>
+<msg timestamp="20220128 11:50:16.301" level="INFO">${height} = 788</msg>
+<status status="PASS" starttime="20220128 11:50:16.298" endtime="20220128 11:50:16.301"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Window: width: ${width} height: ${height}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:50:16.301" endtime="20220128 11:50:16.302"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${home}[logo_image]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220128 11:50:16.302" endtime="20220128 11:50:16.331"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:10.781" endtime="20220128 11:50:16.331"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:10.781" endtime="20220128 11:50:16.347"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:10.766" endtime="20220128 11:50:16.347"/>
+</kw>
+<kw name="Proceed To Apparel Page" library="Home">
+<doc>Navigating to Apparel Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Link</arg>
+<arg>${home}[apparel]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${home}[apparel]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:16.347" level="INFO">Clicking link '//*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]'.</msg>
+<status status="PASS" starttime="20220128 11:50:16.347" endtime="20220128 11:50:18.414"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:16.347" endtime="20220128 11:50:18.415"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:50:18.448" level="INFO">Page title is 'nopCommerce demo store. Apparel'.</msg>
+<status status="PASS" starttime="20220128 11:50:18.417" endtime="20220128 11:50:18.448"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:18.415" endtime="20220128 11:50:18.449"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:16.347" endtime="20220128 11:50:18.449"/>
+</kw>
+<kw name="Proceed To Clothing Page" library="Apparel">
+<doc>Navigating to Clothing Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Element</arg>
+<arg>${apparel}[clothing]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${apparel}[clothing]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:18.454" level="INFO">Clicking element '//div[@class='item-grid']//div[@class='item-box'][2]'.</msg>
+<status status="PASS" starttime="20220128 11:50:18.453" endtime="20220128 11:50:20.627"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:18.452" endtime="20220128 11:50:20.627"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:50:20.646" level="INFO">Page title is 'nopCommerce demo store. Clothing'.</msg>
+<status status="PASS" starttime="20220128 11:50:20.632" endtime="20220128 11:50:20.646"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:20.628" endtime="20220128 11:50:20.646"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:18.451" endtime="20220128 11:50:20.647"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<arg>size=1X</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<status status="NOT RUN" starttime="20220128 11:50:20.651" endtime="20220128 11:50:20.651"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:50:20.650" endtime="20220128 11:50:20.651"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[nike_shirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:20.656" endtime="20220128 11:50:20.739"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:20.739" level="INFO">Clicking element '//div[@data-productid=27]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:50:20.739" endtime="20220128 11:50:26.143"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:20.653" endtime="20220128 11:50:26.144"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:50:26.207" level="INFO">Current page contains text 'Nike Tailwind Loose Short-Sleeve Running Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:50:26.148" endtime="20220128 11:50:26.207"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:26.144" endtime="20220128 11:50:26.207"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${size}&quot; != &quot;None&quot;">
+<kw name="Select Size Option" library="Clothing">
+<arg>${size}</arg>
+<arg>${clothing}[nike_shirt][size_selector]</arg>
+<doc>Select size from dropdown list</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5times</arg>
+<arg>10seconds</arg>
+<arg>Select From List By Label</arg>
+<arg>name:${name}</arg>
+<arg>${size}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name:${name}</arg>
+<arg>${size}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220128 11:50:26.214" level="INFO">Selecting options from selection list 'name:product_attribute_11' by label 1X.</msg>
+<status status="PASS" starttime="20220128 11:50:26.213" endtime="20220128 11:50:26.421"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:26.211" endtime="20220128 11:50:26.421"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>2times</arg>
+<arg>10seconds</arg>
+<arg>Element Should Contain</arg>
+<arg>${name}</arg>
+<arg>${size}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${name}</arg>
+<arg>${size}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220128 11:50:26.458" level="INFO">Element 'product_attribute_11' contains text '1X'.</msg>
+<status status="PASS" starttime="20220128 11:50:26.422" endtime="20220128 11:50:26.458"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:26.421" endtime="20220128 11:50:26.458"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:26.209" endtime="20220128 11:50:26.458"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:26.208" endtime="20220128 11:50:26.458"/>
+</branch>
+<status status="PASS" starttime="20220128 11:50:26.208" endtime="20220128 11:50:26.458"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:26.460" endtime="20220128 11:50:26.488"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:26.489" level="INFO">Typing text '1' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:50:26.489" endtime="20220128 11:50:26.588"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:26.459" endtime="20220128 11:50:26.588"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:50:29.604" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:50:26.588" endtime="20220128 11:50:29.604"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:29.606" endtime="20220128 11:50:29.643"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:29.644" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:50:29.643" endtime="20220128 11:50:29.721"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:50:32.738" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:50:29.722" endtime="20220128 11:50:32.738"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:29.605" endtime="20220128 11:50:32.738"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:20.652" endtime="20220128 11:50:32.738"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:20.651" endtime="20220128 11:50:32.738"/>
+</branch>
+<status status="PASS" starttime="20220128 11:50:20.650" endtime="20220128 11:50:32.738"/>
+</if>
+<status status="PASS" starttime="20220128 11:50:20.648" endtime="20220128 11:50:32.739"/>
+</kw>
+<kw name="Verify Successful Addition" library="Clothing">
+<doc>Verifying that item is successfully added to cart</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[success_message]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[success_message]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:50:32.750" level="INFO">Current page contains element '//div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]'.</msg>
+<status status="PASS" starttime="20220128 11:50:32.740" endtime="20220128 11:50:32.751"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:32.739" endtime="20220128 11:50:32.751"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:32.739" endtime="20220128 11:50:32.751"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220128 11:50:32.751" endtime="20220128 11:50:34.593"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Custom T-Shirt</arg>
+<arg>custom_text=My New Shirt</arg>
+<arg>count=2</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[custom_tshirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:34.595" endtime="20220128 11:50:34.622"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:34.622" level="INFO">Clicking element '//div[@data-productid=29]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:50:34.622" endtime="20220128 11:50:35.842"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:34.595" endtime="20220128 11:50:35.842"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Custom T-Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Custom T-Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:50:35.934" level="INFO">Current page contains text 'Custom T-Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:50:35.847" endtime="20220128 11:50:35.934"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:35.843" endtime="20220128 11:50:35.935"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${custom_text}&quot; != &quot;None&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:35.937" endtime="20220128 11:50:35.992"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>${custom_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:35.993" level="INFO">Typing text 'My New Shirt' into text field '//input[@id='product_attribute_12']'.</msg>
+<status status="PASS" starttime="20220128 11:50:35.992" endtime="20220128 11:50:36.089"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:35.936" endtime="20220128 11:50:36.089"/>
+</branch>
+<status status="PASS" starttime="20220128 11:50:35.935" endtime="20220128 11:50:36.090"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:36.090" endtime="20220128 11:50:36.106"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:36.107" level="INFO">Typing text '2' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:50:36.107" endtime="20220128 11:50:36.192"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:36.090" endtime="20220128 11:50:36.193"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:50:39.204" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:50:36.193" endtime="20220128 11:50:39.204"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:39.206" endtime="20220128 11:50:39.264"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:39.266" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:50:39.265" endtime="20220128 11:50:39.409"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:50:42.416" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:50:39.410" endtime="20220128 11:50:42.416"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:39.205" endtime="20220128 11:50:42.417"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:34.594" endtime="20220128 11:50:42.418"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:34.594" endtime="20220128 11:50:42.418"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<status status="NOT RUN" starttime="20220128 11:50:42.419" endtime="20220128 11:50:42.419"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:50:42.418" endtime="20220128 11:50:42.419"/>
+</branch>
+<status status="PASS" starttime="20220128 11:50:34.594" endtime="20220128 11:50:42.419"/>
+</if>
+<status status="PASS" starttime="20220128 11:50:34.593" endtime="20220128 11:50:42.420"/>
+</kw>
+<kw name="Verify Successful Addition" library="Clothing">
+<doc>Verifying that item is successfully added to cart</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[success_message]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[success_message]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:50:42.447" level="INFO">Current page contains element '//div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]'.</msg>
+<status status="PASS" starttime="20220128 11:50:42.423" endtime="20220128 11:50:42.447"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:42.422" endtime="20220128 11:50:42.447"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:42.421" endtime="20220128 11:50:42.448"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:50:45.463" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:50:42.449" endtime="20220128 11:50:45.463"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220128 11:50:45.466" endtime="20220128 11:50:47.757"/>
+</kw>
+<doc>Successfully adding clothes into the Cart</doc>
+<tag>Clothes</tag>
+<tag>WebUI</tag>
+<status status="PASS" starttime="20220128 11:50:10.766" endtime="20220128 11:50:47.757"/>
+</test>
+<test id="s1-t4" name="Empty Custom TextBox">
+<kw name="Open Webui" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Open demo nopcommerce WebUI</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Browser: ${browser}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:50:47.757" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220128 11:50:47.757" endtime="20220128 11:50:47.757"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL: ${url}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:50:47.772" level="INFO" html="true">URL: https://demo.nopcommerce.com/</msg>
+<status status="PASS" starttime="20220128 11:50:47.757" endtime="20220128 11:50:47.772"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>5 seconds</arg>
+<arg>Open Webui Repeat</arg>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Webui Repeat" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser}'=='Firefox'</arg>
+<arg>Setup Firefox</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Chrome'</arg>
+<arg>Setup Chrome</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Edge'</arg>
+<arg>Setup Edge</arg>
+<arg>${url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setup Chrome" library="Common_Utils">
+<arg>${url}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Setting up Chrome</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:50:47.772" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220128 11:50:47.772" endtime="20220128 11:50:47.772"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:50:47.772" endtime="20220128 11:50:47.772"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220128 11:50:47.788" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220128 11:50:47.788" endtime="20220128 11:50:53.681"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:47.772" endtime="20220128 11:50:53.682"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:47.772" endtime="20220128 11:50:53.682"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Setting window size to 1920x1000 for standard execution across displays</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:50:53.682" endtime="20220128 11:50:53.683"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220128 11:50:53.684" endtime="20220128 11:50:53.822"/>
+</kw>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${width}</var>
+<var>${height}</var>
+<doc>Returns current window width and height as integers.</doc>
+<msg timestamp="20220128 11:50:53.825" level="INFO">${width} = 1386</msg>
+<msg timestamp="20220128 11:50:53.825" level="INFO">${height} = 788</msg>
+<status status="PASS" starttime="20220128 11:50:53.822" endtime="20220128 11:50:53.825"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Window: width: ${width} height: ${height}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:50:53.825" endtime="20220128 11:50:53.826"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${home}[logo_image]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220128 11:50:53.826" endtime="20220128 11:50:53.848"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:47.772" endtime="20220128 11:50:53.848"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:47.772" endtime="20220128 11:50:53.848"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:47.757" endtime="20220128 11:50:53.848"/>
+</kw>
+<kw name="Proceed To Apparel Page" library="Home">
+<doc>Navigating to Apparel Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Link</arg>
+<arg>${home}[apparel]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${home}[apparel]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:53.864" level="INFO">Clicking link '//*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]'.</msg>
+<status status="PASS" starttime="20220128 11:50:53.848" endtime="20220128 11:50:57.244"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:53.848" endtime="20220128 11:50:57.244"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:50:57.276" level="INFO">Page title is 'nopCommerce demo store. Apparel'.</msg>
+<status status="PASS" starttime="20220128 11:50:57.248" endtime="20220128 11:50:57.276"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:57.246" endtime="20220128 11:50:57.276"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:53.848" endtime="20220128 11:50:57.277"/>
+</kw>
+<kw name="Proceed To Clothing Page" library="Apparel">
+<doc>Navigating to Clothing Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Element</arg>
+<arg>${apparel}[clothing]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${apparel}[clothing]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:50:57.281" level="INFO">Clicking element '//div[@class='item-grid']//div[@class='item-box'][2]'.</msg>
+<status status="PASS" starttime="20220128 11:50:57.280" endtime="20220128 11:50:59.933"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:57.279" endtime="20220128 11:50:59.934"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:50:59.958" level="INFO">Page title is 'nopCommerce demo store. Clothing'.</msg>
+<status status="PASS" starttime="20220128 11:50:59.941" endtime="20220128 11:50:59.958"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:59.939" endtime="20220128 11:50:59.959"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:57.278" endtime="20220128 11:50:59.960"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Custom T-Shirt</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[custom_tshirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:50:59.968" endtime="20220128 11:51:00.061"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:00.077" level="INFO">Clicking element '//div[@data-productid=29]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:51:00.077" endtime="20220128 11:51:04.474"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:59.966" endtime="20220128 11:51:04.474"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Custom T-Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Custom T-Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:51:04.534" level="INFO">Current page contains text 'Custom T-Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:51:04.476" endtime="20220128 11:51:04.534"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:04.475" endtime="20220128 11:51:04.534"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${custom_text}&quot; != &quot;None&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20220128 11:51:04.534" endtime="20220128 11:51:04.535"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>${custom_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220128 11:51:04.535" endtime="20220128 11:51:04.535"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:51:04.534" endtime="20220128 11:51:04.535"/>
+</branch>
+<status status="PASS" starttime="20220128 11:51:04.534" endtime="20220128 11:51:04.535"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:04.538" endtime="20220128 11:51:04.613"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:04.614" level="INFO">Typing text '1' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:51:04.613" endtime="20220128 11:51:04.850"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:04.536" endtime="20220128 11:51:04.850"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:07.855" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:04.850" endtime="20220128 11:51:07.855"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:07.855" endtime="20220128 11:51:07.875"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:07.875" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:51:07.875" endtime="20220128 11:51:07.937"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:10.948" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:07.938" endtime="20220128 11:51:10.948"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:07.855" endtime="20220128 11:51:10.948"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:59.964" endtime="20220128 11:51:10.948"/>
+</kw>
+<status status="PASS" starttime="20220128 11:50:59.963" endtime="20220128 11:51:10.948"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<status status="NOT RUN" starttime="20220128 11:51:10.949" endtime="20220128 11:51:10.949"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:51:10.948" endtime="20220128 11:51:10.949"/>
+</branch>
+<status status="PASS" starttime="20220128 11:50:59.963" endtime="20220128 11:51:10.949"/>
+</if>
+<status status="PASS" starttime="20220128 11:50:59.961" endtime="20220128 11:51:10.949"/>
+</kw>
+<kw name="Verify Enter Text Error Message" library="Clothing">
+<doc>Verifying that "Enter Text Error" message is Visible</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[empty_textbox_error]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[empty_textbox_error]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:51:10.960" level="INFO">Current page contains element '//div[@class='bar-notification-container']//p[contains(text(),'Enter your text:')]'.</msg>
+<status status="PASS" starttime="20220128 11:51:10.950" endtime="20220128 11:51:10.960"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:10.950" endtime="20220128 11:51:10.960"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:10.949" endtime="20220128 11:51:10.960"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:13.972" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:10.960" endtime="20220128 11:51:13.972"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220128 11:51:13.974" endtime="20220128 11:51:16.239"/>
+</kw>
+<doc>Unsuccessful in adding clothes into the Cart due to empty custom textbox error</doc>
+<tag>Clothes</tag>
+<tag>EmptyCustomTextbox</tag>
+<tag>Unsuccessful_Addition</tag>
+<tag>WebUI</tag>
+<status status="PASS" starttime="20220128 11:50:47.757" endtime="20220128 11:51:16.239"/>
+</test>
+<test id="s1-t5" name="Empty Size Option">
+<kw name="Open Webui" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Open demo nopcommerce WebUI</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Browser: ${browser}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:51:16.245" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:16.245"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL: ${url}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:51:16.245" level="INFO" html="true">URL: https://demo.nopcommerce.com/</msg>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:16.245"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>5 seconds</arg>
+<arg>Open Webui Repeat</arg>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Webui Repeat" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser}'=='Firefox'</arg>
+<arg>Setup Firefox</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Chrome'</arg>
+<arg>Setup Chrome</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Edge'</arg>
+<arg>Setup Edge</arg>
+<arg>${url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setup Chrome" library="Common_Utils">
+<arg>${url}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Setting up Chrome</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:51:16.245" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:16.245"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:16.245"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220128 11:51:16.245" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:22.233"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:22.233"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:22.233"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Setting window size to 1920x1000 for standard execution across displays</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:51:22.233" endtime="20220128 11:51:22.233"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220128 11:51:22.233" endtime="20220128 11:51:22.369"/>
+</kw>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${width}</var>
+<var>${height}</var>
+<doc>Returns current window width and height as integers.</doc>
+<msg timestamp="20220128 11:51:22.372" level="INFO">${width} = 1386</msg>
+<msg timestamp="20220128 11:51:22.372" level="INFO">${height} = 788</msg>
+<status status="PASS" starttime="20220128 11:51:22.370" endtime="20220128 11:51:22.372"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Window: width: ${width} height: ${height}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:51:22.373" endtime="20220128 11:51:22.373"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${home}[logo_image]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220128 11:51:22.373" endtime="20220128 11:51:22.407"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:22.407"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:22.407"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:16.245" endtime="20220128 11:51:22.407"/>
+</kw>
+<kw name="Proceed To Apparel Page" library="Home">
+<doc>Navigating to Apparel Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Link</arg>
+<arg>${home}[apparel]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${home}[apparel]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:22.410" level="INFO">Clicking link '//*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]'.</msg>
+<status status="PASS" starttime="20220128 11:51:22.409" endtime="20220128 11:51:24.938"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:22.409" endtime="20220128 11:51:24.938"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:51:24.970" level="INFO">Page title is 'nopCommerce demo store. Apparel'.</msg>
+<status status="PASS" starttime="20220128 11:51:24.941" endtime="20220128 11:51:24.971"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:24.939" endtime="20220128 11:51:24.971"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:22.409" endtime="20220128 11:51:24.971"/>
+</kw>
+<kw name="Proceed To Clothing Page" library="Apparel">
+<doc>Navigating to Clothing Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Element</arg>
+<arg>${apparel}[clothing]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${apparel}[clothing]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:24.976" level="INFO">Clicking element '//div[@class='item-grid']//div[@class='item-box'][2]'.</msg>
+<status status="PASS" starttime="20220128 11:51:24.975" endtime="20220128 11:51:25.826"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:24.974" endtime="20220128 11:51:25.826"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:51:25.838" level="INFO">Page title is 'nopCommerce demo store. Clothing'.</msg>
+<status status="PASS" starttime="20220128 11:51:25.829" endtime="20220128 11:51:25.838"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:25.827" endtime="20220128 11:51:25.838"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:24.973" endtime="20220128 11:51:25.839"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<status status="NOT RUN" starttime="20220128 11:51:25.845" endtime="20220128 11:51:25.845"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:51:25.844" endtime="20220128 11:51:25.845"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[nike_shirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:25.851" endtime="20220128 11:51:25.917"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:25.919" level="INFO">Clicking element '//div[@data-productid=27]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:51:25.918" endtime="20220128 11:51:29.402"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:25.848" endtime="20220128 11:51:29.404"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:51:29.462" level="INFO">Current page contains text 'Nike Tailwind Loose Short-Sleeve Running Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:51:29.408" endtime="20220128 11:51:29.462"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:29.405" endtime="20220128 11:51:29.462"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${size}&quot; != &quot;None&quot;">
+<kw name="Select Size Option" library="Clothing">
+<arg>${size}</arg>
+<arg>${clothing}[nike_shirt][size_selector]</arg>
+<doc>Select size from dropdown list</doc>
+<status status="NOT RUN" starttime="20220128 11:51:29.463" endtime="20220128 11:51:29.464"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:51:29.463" endtime="20220128 11:51:29.464"/>
+</branch>
+<status status="PASS" starttime="20220128 11:51:29.463" endtime="20220128 11:51:29.464"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:29.466" endtime="20220128 11:51:29.546"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:29.547" level="INFO">Typing text '1' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:51:29.546" endtime="20220128 11:51:29.732"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:29.464" endtime="20220128 11:51:29.732"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:32.741" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:29.732" endtime="20220128 11:51:32.741"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:32.742" endtime="20220128 11:51:32.762"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:32.762" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:51:32.762" endtime="20220128 11:51:32.819"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:35.822" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:32.819" endtime="20220128 11:51:35.822"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:32.741" endtime="20220128 11:51:35.822"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:25.846" endtime="20220128 11:51:35.823"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:25.846" endtime="20220128 11:51:35.823"/>
+</branch>
+<status status="PASS" starttime="20220128 11:51:25.843" endtime="20220128 11:51:35.823"/>
+</if>
+<status status="PASS" starttime="20220128 11:51:25.841" endtime="20220128 11:51:35.823"/>
+</kw>
+<kw name="Verify No Size Error" library="Clothing">
+<doc>Verifying that "size is not selected" error message is visible</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[size_error]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[size_error]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:51:35.837" level="INFO">Current page contains element '//div[@class='bar-notification error']//p[contains(text(),'Please select Size')]'.</msg>
+<status status="PASS" starttime="20220128 11:51:35.824" endtime="20220128 11:51:35.837"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:35.824" endtime="20220128 11:51:35.837"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:35.823" endtime="20220128 11:51:35.837"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:38.842" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:35.838" endtime="20220128 11:51:38.842"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220128 11:51:38.844" endtime="20220128 11:51:41.096"/>
+</kw>
+<doc>Unsuccessful in adding clothes into the Cart due to empty size textbox error</doc>
+<tag>Clothes</tag>
+<tag>EmptySize</tag>
+<tag>Unsuccessful_Addition</tag>
+<tag>WebUI</tag>
+<status status="PASS" starttime="20220128 11:51:16.239" endtime="20220128 11:51:41.096"/>
+</test>
+<test id="s1-t6" name="Negative Count Error">
+<kw name="Open Webui" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Open demo nopcommerce WebUI</doc>
+<kw name="Log" library="BuiltIn">
+<arg>Browser: ${browser}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:51:41.102" level="INFO" html="true">Browser: Chrome</msg>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:41.102"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>URL: ${url}</arg>
+<arg>HTML</arg>
+<arg>console=true</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:51:41.102" level="INFO" html="true">URL: https://demo.nopcommerce.com/</msg>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:41.102"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>5 seconds</arg>
+<arg>Open Webui Repeat</arg>
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Open Webui Repeat" library="Common_Utils">
+<arg>${browser}</arg>
+<arg>${url}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>'${browser}'=='Firefox'</arg>
+<arg>Setup Firefox</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Chrome'</arg>
+<arg>Setup Chrome</arg>
+<arg>${url}</arg>
+<arg>ELSE IF</arg>
+<arg>'${browser}'=='Edge'</arg>
+<arg>Setup Edge</arg>
+<arg>${url}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Setup Chrome" library="Common_Utils">
+<arg>${url}</arg>
+<kw name="Log" library="BuiltIn">
+<arg>Setting up Chrome</arg>
+<arg>console=${True}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220128 11:51:41.118" level="INFO">Setting up Chrome</msg>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:41.118"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Opening browser with popup blocking disabled and ignoring certificate error</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:51:41.118" endtime="20220128 11:51:41.118"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>Chrome</arg>
+<arg>options=add_argument("--disable-popup-blocking"); add_argument("--ignore-certificate-errors")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220128 11:51:41.118" level="INFO">Opening browser 'Chrome' to base url 'https://demo.nopcommerce.com/'.</msg>
+<status status="PASS" starttime="20220128 11:51:41.118" endtime="20220128 11:51:46.665"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:46.666"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:46.666"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Setting window size to 1920x1000 for standard execution across displays</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:51:46.667" endtime="20220128 11:51:46.668"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>1920</arg>
+<arg>1000</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20220128 11:51:46.669" endtime="20220128 11:51:46.834"/>
+</kw>
+<kw name="Get Window Size" library="SeleniumLibrary">
+<var>${width}</var>
+<var>${height}</var>
+<doc>Returns current window width and height as integers.</doc>
+<msg timestamp="20220128 11:51:46.837" level="INFO">${width} = 1386</msg>
+<msg timestamp="20220128 11:51:46.837" level="INFO">${height} = 788</msg>
+<status status="PASS" starttime="20220128 11:51:46.834" endtime="20220128 11:51:46.837"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Window: width: ${width} height: ${height}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220128 11:51:46.837" endtime="20220128 11:51:46.837"/>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<arg>${home}[logo_image]</arg>
+<arg>timeout=30</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220128 11:51:46.837" endtime="20220128 11:51:46.919"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:46.919"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:46.919"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:51:46.919"/>
+</kw>
+<kw name="Proceed To Apparel Page" library="Home">
+<doc>Navigating to Apparel Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Link</arg>
+<arg>${home}[apparel]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>${home}[apparel]</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:46.919" level="INFO">Clicking link '//*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]'.</msg>
+<status status="PASS" starttime="20220128 11:51:46.919" endtime="20220128 11:51:49.140"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:46.919" endtime="20220128 11:51:49.140"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Apparel</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:51:49.150" level="INFO">Page title is 'nopCommerce demo store. Apparel'.</msg>
+<status status="PASS" starttime="20220128 11:51:49.140" endtime="20220128 11:51:49.150"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:49.140" endtime="20220128 11:51:49.151"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:46.919" endtime="20220128 11:51:49.151"/>
+</kw>
+<kw name="Proceed To Clothing Page" library="Apparel">
+<doc>Navigating to Clothing Page</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Click Element</arg>
+<arg>${apparel}[clothing]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${apparel}[clothing]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:49.155" level="INFO">Clicking element '//div[@class='item-grid']//div[@class='item-box'][2]'.</msg>
+<status status="PASS" starttime="20220128 11:51:49.155" endtime="20220128 11:51:51.008"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:49.154" endtime="20220128 11:51:51.008"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Title Should Be</arg>
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>nopCommerce demo store. Clothing</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20220128 11:51:51.017" level="INFO">Page title is 'nopCommerce demo store. Clothing'.</msg>
+<status status="PASS" starttime="20220128 11:51:51.009" endtime="20220128 11:51:51.017"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:51.008" endtime="20220128 11:51:51.017"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:49.153" endtime="20220128 11:51:51.017"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<arg>count=0</arg>
+<arg>size=Small</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<status status="NOT RUN" starttime="20220128 11:51:51.019" endtime="20220128 11:51:51.019"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:51:51.019" endtime="20220128 11:51:51.019"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[nike_shirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:51.020" endtime="20220128 11:51:51.052"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:51.053" level="INFO">Clicking element '//div[@data-productid=27]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:51:51.052" endtime="20220128 11:51:53.146"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:51.020" endtime="20220128 11:51:53.149"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Nike Tailwind Loose Short-Sleeve Running Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:51:53.217" level="INFO">Current page contains text 'Nike Tailwind Loose Short-Sleeve Running Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:51:53.153" endtime="20220128 11:51:53.218"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:53.150" endtime="20220128 11:51:53.218"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${size}&quot; != &quot;None&quot;">
+<kw name="Select Size Option" library="Clothing">
+<arg>${size}</arg>
+<arg>${clothing}[nike_shirt][size_selector]</arg>
+<doc>Select size from dropdown list</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5times</arg>
+<arg>10seconds</arg>
+<arg>Select From List By Label</arg>
+<arg>name:${name}</arg>
+<arg>${size}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>name:${name}</arg>
+<arg>${size}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20220128 11:51:53.220" level="INFO">Selecting options from selection list 'name:product_attribute_11' by label Small.</msg>
+<status status="PASS" starttime="20220128 11:51:53.220" endtime="20220128 11:51:53.320"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:53.219" endtime="20220128 11:51:53.320"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>2times</arg>
+<arg>10seconds</arg>
+<arg>Element Should Contain</arg>
+<arg>${name}</arg>
+<arg>${size}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Element Should Contain" library="SeleniumLibrary">
+<arg>${name}</arg>
+<arg>${size}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<msg timestamp="20220128 11:51:53.361" level="INFO">Element 'product_attribute_11' contains text 'Small'.</msg>
+<status status="PASS" starttime="20220128 11:51:53.321" endtime="20220128 11:51:53.361"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:53.320" endtime="20220128 11:51:53.361"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:53.218" endtime="20220128 11:51:53.361"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:53.218" endtime="20220128 11:51:53.361"/>
+</branch>
+<status status="PASS" starttime="20220128 11:51:53.218" endtime="20220128 11:51:53.362"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:53.362" endtime="20220128 11:51:53.394"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:53.395" level="INFO">Typing text '0' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:51:53.394" endtime="20220128 11:51:53.516"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:53.362" endtime="20220128 11:51:53.516"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:56.519" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:53.517" endtime="20220128 11:51:56.519"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:51:56.522" endtime="20220128 11:51:56.605"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:51:56.607" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:51:56.606" endtime="20220128 11:51:56.694"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:51:59.706" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:51:56.695" endtime="20220128 11:51:59.706"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:56.520" endtime="20220128 11:51:59.706"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:51.019" endtime="20220128 11:51:59.706"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:51.019" endtime="20220128 11:51:59.706"/>
+</branch>
+<status status="PASS" starttime="20220128 11:51:51.019" endtime="20220128 11:51:59.706"/>
+</if>
+<status status="PASS" starttime="20220128 11:51:51.018" endtime="20220128 11:51:59.707"/>
+</kw>
+<kw name="Verify Positive Quantity Error" library="Clothing">
+<doc>Verifying that "Positive Quantity" Error message is Visible</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[postive_quantity_error]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[postive_quantity_error]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:51:59.720" level="INFO">Current page contains element '//div[@class='bar-notification error']//p[contains(text(),'Quantity should be positive')]'.</msg>
+<status status="PASS" starttime="20220128 11:51:59.708" endtime="20220128 11:51:59.720"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:59.707" endtime="20220128 11:51:59.720"/>
+</kw>
+<status status="PASS" starttime="20220128 11:51:59.707" endtime="20220128 11:51:59.720"/>
+</kw>
+<kw name="Go Back" library="SeleniumLibrary">
+<doc>Simulates the user clicking the back button on their browser.</doc>
+<status status="PASS" starttime="20220128 11:51:59.721" endtime="20220128 11:52:00.164"/>
+</kw>
+<kw name="Add Clothes" library="Clothing">
+<arg>Custom T-Shirt</arg>
+<arg>custom_text=Hie</arg>
+<arg>count=-1</arg>
+<doc>Add Clothes according to the product name</doc>
+<if>
+<branch type="IF" condition="&quot;${title}&quot; == &quot;Custom T-Shirt&quot;">
+<kw name="Add Custom Tshirt" library="Clothing">
+<arg>${custom_text}</arg>
+<arg>${count}</arg>
+<doc>Adding Custom tshirt into the cart</doc>
+<kw name="Select Item" library="Clothing">
+<arg>${clothing}[custom_tshirt][productid]</arg>
+<doc>To select an item with given product id</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:52:00.170" endtime="20220128 11:52:00.193"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@data-productid=${product_id}]//div[@class='picture']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220128 11:52:00.194" level="INFO">Clicking element '//div[@data-productid=29]//div[@class='picture']'.</msg>
+<status status="PASS" starttime="20220128 11:52:00.193" endtime="20220128 11:52:02.583"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:00.169" endtime="20220128 11:52:02.583"/>
+</kw>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5 times</arg>
+<arg>10seconds</arg>
+<arg>Page Should Contain</arg>
+<arg>Custom T-Shirt</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Custom T-Shirt</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20220128 11:52:02.675" level="INFO">Current page contains text 'Custom T-Shirt'.</msg>
+<status status="PASS" starttime="20220128 11:52:02.587" endtime="20220128 11:52:02.676"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:02.585" endtime="20220128 11:52:02.676"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;${custom_text}&quot; != &quot;None&quot;">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:52:02.678" endtime="20220128 11:52:02.726"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[custom_tshirt][text]</arg>
+<arg>${custom_text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:52:02.727" level="INFO">Typing text 'Hie' into text field '//input[@id='product_attribute_12']'.</msg>
+<status status="PASS" starttime="20220128 11:52:02.726" endtime="20220128 11:52:02.817"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:02.677" endtime="20220128 11:52:02.817"/>
+</branch>
+<status status="PASS" starttime="20220128 11:52:02.676" endtime="20220128 11:52:02.817"/>
+</if>
+<kw name="Enter Quantity" library="Clothing">
+<arg>${count}</arg>
+<doc>Enter number of items to be added to cart</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:52:02.817" endtime="20220128 11:52:02.835"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${clothing}[quantity_box]</arg>
+<arg>${count}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220128 11:52:02.835" level="INFO">Typing text '-1' into text field '//input[@class='qty-input']'.</msg>
+<status status="PASS" starttime="20220128 11:52:02.835" endtime="20220128 11:52:02.915"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:02.817" endtime="20220128 11:52:02.916"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:52:05.930" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:52:02.916" endtime="20220128 11:52:05.930"/>
+</kw>
+<kw name="Enter Add To Cart" library="Clothing">
+<doc>Clicking Add To cart button</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<arg>timeout=10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220128 11:52:05.933" endtime="20220128 11:52:05.996"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${clothing}[add_to_cart_btn]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220128 11:52:05.997" level="INFO">Clicking button '//button[@class='button-1 add-to-cart-button']'.</msg>
+<status status="PASS" starttime="20220128 11:52:05.996" endtime="20220128 11:52:06.080"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:52:09.096" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:52:06.080" endtime="20220128 11:52:09.097"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:05.931" endtime="20220128 11:52:09.097"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:00.168" endtime="20220128 11:52:09.098"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:00.168" endtime="20220128 11:52:09.098"/>
+</branch>
+<branch type="ELSE IF" condition="&quot;${title}&quot; == &quot;Nike Tailwind Loose Short-Sleeve Running Shirt&quot;">
+<kw name="Add Nike Shirt" library="Clothing">
+<arg>${size}</arg>
+<arg>${count}</arg>
+<doc>Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart</doc>
+<status status="NOT RUN" starttime="20220128 11:52:09.099" endtime="20220128 11:52:09.099"/>
+</kw>
+<status status="NOT RUN" starttime="20220128 11:52:09.098" endtime="20220128 11:52:09.099"/>
+</branch>
+<status status="PASS" starttime="20220128 11:52:00.168" endtime="20220128 11:52:09.099"/>
+</if>
+<status status="PASS" starttime="20220128 11:52:00.166" endtime="20220128 11:52:09.100"/>
+</kw>
+<kw name="Verify Positive Quantity Error" library="Clothing">
+<doc>Verifying that "Positive Quantity" Error message is Visible</doc>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>3 times</arg>
+<arg>10 seconds</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${clothing}[postive_quantity_error]</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${clothing}[postive_quantity_error]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20220128 11:52:09.126" level="INFO">Current page contains element '//div[@class='bar-notification error']//p[contains(text(),'Quantity should be positive')]'.</msg>
+<status status="PASS" starttime="20220128 11:52:09.103" endtime="20220128 11:52:09.127"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:09.102" endtime="20220128 11:52:09.127"/>
+</kw>
+<status status="PASS" starttime="20220128 11:52:09.101" endtime="20220128 11:52:09.128"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220128 11:52:12.135" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220128 11:52:09.129" endtime="20220128 11:52:12.135"/>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20220128 11:52:12.138" endtime="20220128 11:52:14.375"/>
+</kw>
+<doc>Unsuccessful in adding clothes into the Cart due to negative or zero count of items</doc>
+<tag>Clothes</tag>
+<tag>NegativeCountError</tag>
+<tag>Unsuccessful_Addition</tag>
+<tag>WebUI</tag>
+<status status="PASS" starttime="20220128 11:51:41.102" endtime="20220128 11:52:14.375"/>
+</test>
+<status status="PASS" starttime="20220128 11:49:17.611" endtime="20220128 11:52:14.375"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="6" fail="0" skip="0">Clothes</stat>
+<stat pass="1" fail="0" skip="0">EmptyCustomTextbox</stat>
+<stat pass="1" fail="0" skip="0">EmptySize</stat>
+<stat pass="1" fail="0" skip="0">NegativeCountError</stat>
+<stat pass="3" fail="0" skip="0">Unsuccessful_Addition</stat>
+<stat pass="6" fail="0" skip="0">WebUI</stat>
+</tag>
+<suite>
+<stat pass="6" fail="0" skip="0" id="s1" name="Apparel Clothing Page">Apparel Clothing Page</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
