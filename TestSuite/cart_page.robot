@@ -34,9 +34,9 @@ Add Custom Shirt Remove And Checkout
     Proceed To Clothing Page
     Add Clothes    Custom T-Shirt   custom_text=My New Shirt
     Proceed To Shopping Cart
-    Check Item In Cart    Custom T-Shirt
+    Check Item In Cart    Custom T-Shirt  custom_text=My New Shirt
     Select Term And Conditions
-    Click Checkout Button    Yes
+    Click Checkout Button    No
     Close All Browsers
 
 Add Adidas Shoes Into Cart And Choose Giftwrap Option
@@ -47,9 +47,43 @@ Add Adidas Shoes Into Cart And Choose Giftwrap Option
     Proceed To Shoes Page
     Add Shoes    adidas Consortium Campus 80s Running Shoes     size=9
     Proceed To Shopping Cart
-    Check Item In Cart    adidas
-    Choose Giftwrap Option    Yes
-    #Verify Gift Wrap Option   Yes
+    Check Item In Cart    adidas    size=9    color=Red
+    Choose Giftwrap Option As Yes
+    Verify Gift Wrap Option As Yes
     Select Term And Conditions
     Click Checkout Button    No
     Close All Browsers
+
+Successfully Adding Nike Zoom Shoes
+    [Tags]    Shoes    Nike_Shoes_Zoom
+      [Documentation]   Successfully adding Nike Zoom Shoes into the Cart
+        Open Webui  ${browser}  ${url}
+        Proceed To Apparel Page
+        Proceed To Shoes Page
+        Add Shoes    title=Nike SB Zoom Stefan Janoski    count=2
+        Proceed To Shopping Cart
+        #ISSUE STARTS HERE @SAAKSHI
+        Check Item In Cart   Nike SB Zoom Stefan Janoski    count=1
+        Sleep    3
+            #Check Correct Items Are In Cart
+        Close All Browsers
+Add Nike Zoom Shoes And Estimate Shipping Without Country Or Zipcode
+    Open Webui  ${browser}  ${url}
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    Add Shoes    title=Nike SB Zoom Stefan Janoski    count=2
+    Proceed To Shopping Cart
+    Check Item In Cart   Nike SB Zoom Stefan Janoski
+
+
+
+Add Nike Floral Shoes And Continue Shopping
+    [Tags]    Nike_Shoes
+    Open Webui  ${browser}  ${url}
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=White/Blue     size=9   print=Fresh
+    Proceed To Shopping Cart
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes    size=9    print=Fresh
+    Click Continue Shopping Button
+    Check If Shoes Page
