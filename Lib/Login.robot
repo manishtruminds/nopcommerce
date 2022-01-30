@@ -1,7 +1,7 @@
 ***Settings***
 Library                                                                         SeleniumLibrary
 Resource                                                                        ${EXECDIR}/Lib/Common_Utils.robot
-***Variables***
+
 ***Keywords***
 Enter Username
     [Documentation]     Enter the username into textbox
