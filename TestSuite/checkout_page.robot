@@ -3,7 +3,7 @@
 Library    String
 Library    Collections
 
-Resource    ../Lib/Checkout.robot 
+Resource    ../Lib/Checkout.robot
 Resource    ../Lib/Common_Utils.robot
 
 Variables    ${EXECDIR}/Variables/env.yaml
@@ -20,7 +20,7 @@ ${url}        ${env_variables}[${ENV_TYPE}][url]
 Required Billing Address Fields
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test that billing address form requires required fields to be filled
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -36,10 +36,10 @@ Required Billing Address Fields
 Optional Billing Address Fields
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test that billing address form doesn't require optional fields to be filled
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
-    
+
     # fill only required fields, leaving optional fields empty
     Fill Billing Address Form
     ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
@@ -57,10 +57,10 @@ Optional Billing Address Fields
 Valid Billing Address Form
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test a Valid billing address form with all data filled
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
-    
+
     # fill all fields
     Fill Billing Address Form
     ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
@@ -80,7 +80,7 @@ Valid Billing Address Form
 Invalid Billing Address Form With Invalid Email
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test an invalid billing address form with invalid emails
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -98,14 +98,14 @@ Invalid Billing Address Form With Invalid Email
 
         Verify Shipping Address Form Is Not Visible
     END
-    
+
     Close All Browsers
 
 
 Shipping Address Form Appears When Same Shipping Address Checkbox Is Unchecked
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test that the shipping address form appears when the same shipping address checkbox was unchecked
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -124,7 +124,7 @@ Shipping Address Form Appears When Same Shipping Address Checkbox Is Unchecked
 Shipping Address Form Does Not Appear When Same Shipping Address Checkbox Is Checked
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test that the shipping address form does not appear when the same shipping address checkbox was checked
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -144,7 +144,7 @@ Shipping Address Form Does Not Appear When Same Shipping Address Checkbox Is Che
 Required Shipping Address Fields
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test that shipping address form requires required fields to be filled
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -153,9 +153,9 @@ Required Shipping Address Fields
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Address Form Is Visible
     Select Shipping Address As New Address
     # don't fill anything in the new shipping address form, just click on continue
@@ -170,7 +170,7 @@ Required Shipping Address Fields
 Optional Shipping Address Fields
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test that shipping address form doesn't require optional fields to be filled
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -179,9 +179,9 @@ Optional Shipping Address Fields
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Address Form Is Visible
     Select Shipping Address As New Address
 
@@ -202,7 +202,7 @@ Optional Shipping Address Fields
 Valid Shipping Address Fields
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test a Valid shipping address form with all data filled
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -211,9 +211,9 @@ Valid Shipping Address Fields
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Address Form Is Visible
     Select Shipping Address As New Address
 
@@ -236,7 +236,7 @@ Valid Shipping Address Fields
 Invalid Shipping Address Form With Invalid Email
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test an invalid shipping address form with invalid emails
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Unselect Same Shipping Address Checkbox
 
@@ -245,9 +245,9 @@ Invalid Shipping Address Form With Invalid Email
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Address Form Is Visible
     Select Shipping Address As New Address
 
@@ -265,15 +265,15 @@ Invalid Shipping Address Form With Invalid Email
 
         Verify Shipping Method Form Is Not Visible
     END
-    
+
     Close All Browsers
 #-----------------------
 
 
 Valid Checkout With Ground Shipping And Check Or Money Order Payment
     [Tags]    WebUI    WebUI_Checkout
-    [Documentation]    Test a valid checkout with shipping method as "Ground" and payment method as "Check or Money Order" 
-    
+    [Documentation]    Test a valid checkout with shipping method as "Ground" and payment method as "Check or Money Order"
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -282,9 +282,9 @@ Valid Checkout With Ground Shipping And Check Or Money Order Payment
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Method Form Is Visible
     Choose Shipping Method As Ground
     Click Shipping Method Continue Button
@@ -308,7 +308,7 @@ Valid Checkout With Ground Shipping And Check Or Money Order Payment
 Invalid Checkout With Ground Shipping And Credit Card Payment
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test an invalid checkout with shipping method as "Ground" and payment method as "Credit Card"
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -317,9 +317,9 @@ Invalid Checkout With Ground Shipping And Credit Card Payment
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Method Form Is Visible
     Choose Shipping Method As Ground
     Click Shipping Method Continue Button
@@ -346,7 +346,7 @@ Invalid Checkout With Ground Shipping And Credit Card Payment
 Valid Checkout With Next Day Air Shipping And Check Or Money Order Payment
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test a valid checkout with shipping method as "Next Day Air" and payment method as "Check or Money Order"
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -355,9 +355,9 @@ Valid Checkout With Next Day Air Shipping And Check Or Money Order Payment
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Method Form Is Visible
     Choose Shipping Method As Next Day Air
     Click Shipping Method Continue Button
@@ -380,7 +380,7 @@ Valid Checkout With Next Day Air Shipping And Check Or Money Order Payment
 Invalid Checkout With Next Day Air Shipping And Credit Card Payment
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test an invalid checkout with shipping method as "Next Day Air" and payment method as "Credit Card"
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -389,9 +389,9 @@ Invalid Checkout With Next Day Air Shipping And Credit Card Payment
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Method Form Is Visible
     Choose Shipping Method As Next Day Air
     Click Shipping Method Continue Button
@@ -417,7 +417,7 @@ Invalid Checkout With Next Day Air Shipping And Credit Card Payment
 Valid Checkout With Second Day Air Shipping And Check Or Money Order Payment
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test a valid checkout with shipping method as "Second Day Air" and payment method as "Check Or Money Order"
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -426,9 +426,9 @@ Valid Checkout With Second Day Air Shipping And Check Or Money Order Payment
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Method Form Is Visible
     Choose Shipping Method As Second Day Air
     Click Shipping Method Continue Button
@@ -451,7 +451,7 @@ Valid Checkout With Second Day Air Shipping And Check Or Money Order Payment
 Invalid Checkout With Second Day Air Shipping And Credit Card Payment
     [Tags]    WebUI    WebUI_Checkout
     [Documentation]    Test an invalid checkout with shipping method as "Second Day Air" and payment method as "Credit Card"
-    
+
     Add Nike Floral Shoes To Cart And Checkout As Guest
     Select Same Shipping Address Checkbox
 
@@ -460,9 +460,9 @@ Invalid Checkout With Second Day Air Shipping And Credit Card Payment
         ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
         ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
         ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
-    
+
     Click Billing Address Continue Button
-    
+
     Verify Shipping Method Form Is Visible
     Choose Shipping Method As Second Day Air
     Click Shipping Method Continue Button

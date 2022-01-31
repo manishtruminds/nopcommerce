@@ -40,7 +40,7 @@ Successful Login With RememberMe
         #...    day=10    month=1    year=1997    gender=M    company=acme    want_newsletter=False
     Click Register Button
     #logging out
-    Click Link    ${home}[logout]
+    Logout
     Proceed To Login Page
     Fill Login Form With RememberMe       ${test_data}[login][valid_mailid]   ${test_data}[login][valid_password]
     Click Login Button

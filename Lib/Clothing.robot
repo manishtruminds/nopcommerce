@@ -39,8 +39,8 @@ Select Item
     [Documentation]   To select an item with given product id
     [Arguments]     ${product_id}
 
-    Wait Until Element Is Visible    //div[@data-productid=${product_id}]  timeout=10
-    Click Element    //div[@data-productid=${product_id}]
+    Wait Until Element Is Visible    //div[@data-productid=${product_id}]//div[@class='picture']  timeout=10
+    Click Element    //div[@data-productid=${product_id}]//div[@class='picture']
 
 Select Size Option
     [Documentation]     Select size from dropdown list
