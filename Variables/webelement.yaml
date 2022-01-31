@@ -136,3 +136,9 @@ shopping_cart:
   gift_wrap_dropdown:   //*[@id="checkout_attribute_1"]
   continue_shopping:    //*[@id="shopping-cart-form"]/div[2]/div[1]/button[2]
   count_input:    //html/body/div[6]/div[3]/div/div/div/div[2]/div/form/div[1]/table/tbody/tr/td[5]/input
+  estimate_shipping:    //*[@id="open-estimate-shipping-popup"]
+  country_error:    //*[@id="estimate-shipping-popup"]/div[5]/div/div[1]
+  zipcode_error:    //*[@id="estimate-shipping-popup"]/div[5]/div/div[2]
+  apply_estimate_shipping:    //*[@id="estimate-shipping-popup"]/div[5]/button
+  update_cart:    //*[@id="updatecart"]
+  searched :    //*[@id="small-searchterms"]
