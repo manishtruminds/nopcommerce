@@ -35,7 +35,7 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
     Open WebUI    ${browser}    ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
-    
+
     Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=White/Blue     size=9   print=Fresh
     Verify Successful Addition
 
@@ -62,13 +62,13 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
     Perform Default Registration And Continue    email=${valid_emails}[0]
 
     Verify Login Success
-    
+
     Proceed To Apparel Page
     Proceed To Clothing Page
-    
+
     Add Clothes    Custom T-Shirt   custom_text=My New Shirt
     Verify Successful Addition
-    
+
     Proceed To Shopping Cart
     Proceed To Checkout
 
@@ -83,7 +83,7 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
 Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air Shipping And Check Or Money Order Payment
     [Tags]    WebUI    WebUI_Workflow    WTC-3
     [Documentation]    Test the workflow of adding Nike T-shirt And Adidas Shoes to cart, checking out as a registered user, using second day air shipping and check or money order payment
-    
+
     Open Webui    ${browser}    ${url}
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
     Perform Default Registration And Continue    email=${valid_emails}[1]
@@ -102,7 +102,7 @@ Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air
 
     Proceed To Shopping Cart
     Proceed To Checkout
-    
+
     Fill Default Checkout Details And Confirm Order    shipping_type=Next Day Air    payment_method=Check/Money Order
 
     Verify Successful Checkout
@@ -110,7 +110,7 @@ Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air
     Proceed To Order Details Page
     Verify Order Details Are Visible
 
-    Close All Browsers    
+    Close All Browsers
 
 #First commit for workflow2 branch
 Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/Money Order Payment As A New User
@@ -149,8 +149,12 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
   #  Select Checkbox    //*[@id="termsofservice"]
     Click Button    //*[@id="checkout"]
 
-    Fill Default Checkout Details And Confirm Order    shipping_type=Second Day Air    payment_method=Check/Money Order
-    Verify Successful Checkout
+
+    Fill Default Checkout Details    shipping_type=Second Day Air    payment_method=Check/Money Order
+    ...    firstName=${test_data}[checkout][firstname]     lastName=${test_data}[checkout][lastname]
+    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
+    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
+    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
 
     Proceed To Order Details Page
     Verify Order Details Are Visible
@@ -217,6 +221,11 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
 
     Proceed To Order Details Page
     Verify Order Details Are Visible
+    ${order_num}=     Get Text    //div[@class='order-number']//strong
+    Log To Console    ${order_num}
+    Click Element    //a[contains(text(),'PDF Invoice')]
+    OperatingSystem.File Should Exist    C:\\Users\\user\\Downloads\\order1.pdf
+
     Close All Browsers
 
 
@@ -260,7 +269,7 @@ Fill Default Billing Address Form And Continue
 
 Fill Default Shipping Address Form And Continue
     Verify Shipping Address Form Is Visible
-    
+
     Fill Shipping Address Form
     ...    firstName=${test_data}[checkout][firstname]    lastName=${test_data}[checkout][lastname]
     ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
@@ -268,14 +277,14 @@ Fill Default Shipping Address Form And Continue
     ...    addr1=${test_data}[checkout][addr1]    addr2=${test_data}[checkout][addr2]
     ...    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
     ...    company=${test_data}[checkout][company]    fax=${test_data}[checkout][fax]
-    
+
     Click Shipping Address Continue Button
 
 Fill Shipping Method Form And Continue
     [Arguments]     ${shipping_method}
-    
+
     Verify Shipping Method Form Is Visible
-    
+
     IF  "${shipping_method}" == "Ground"
         Choose Shipping Method As Ground
     ELSE IF  "${shipping_method}" == "Next Day Air"
@@ -283,12 +292,12 @@ Fill Shipping Method Form And Continue
     ELSE IF  "${shipping_method}" == "Second Day Air"
         Choose Shipping Method As Second Day Air
     END
-    
+
     Click Shipping Method Continue Button
 
 Fill Payment Method Form And Continue
     [Arguments]     ${payment_method}
-    
+
     Verify Payment Method Form Is Visible
 
     IF  "${payment_method}" == "Check/Money Order"
