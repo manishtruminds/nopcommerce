@@ -21,7 +21,7 @@ ${url}        ${env_variables}[${ENV_TYPE}][url]
 *** Test Cases ***
 
 Required Registration Fields
-    [Tags]    WebUI    WebUI_Register   test
+    [Tags]    WebUI    WebUI_Register    Invalid    Required_Fields
     [Documentation]    Test that registration requires required fields to be filled
 
     Open Webui    ${browser}    ${url}
@@ -32,11 +32,15 @@ Required Registration Fields
     Click Register Button
 
     Verify Unsuccessful Registration
-    Sleep    5
+    Verify FirstName Required Message Appears
+    Verify LastName Required Message Appears
+    Verify Email Required Message Appears
+    Verify Password Required Message Appears
+
     Close All Browsers
 
 Optional Registration Fields
-    [Tags]    WebUI    WebUI_Register
+    [Tags]    WebUI    WebUI_Register    Valid    Optional_Fields
     [Documentation]    Test that registration doesn't require optional fields to be filled
 
     Open Webui    ${browser}    ${url}
@@ -52,12 +56,16 @@ Optional Registration Fields
     Click Register Button
 
     Verify Successful Registration
+    Verify FirstName Required Message Does Not Appear
+    Verify LastName Required Message Does Not Appear
+    Verify Email Required Message Does Not Appear
+    Verify Password Required Message Does Not Appear
 
     Close All Browsers
 
 
 Valid Registration
-    [Tags]    WebUI    WebUI_Register
+    [Tags]    WebUI    WebUI_Register    Valid    All_Fields
     [Documentation]    Test a Valid Registration with all data filled
 
     Open Webui    ${browser}    ${url}
@@ -77,7 +85,7 @@ Valid Registration
     Close All Browsers
 
 Invalid Registration Email
-    [Tags]    WebUI    WebUI_Register
+    [Tags]    WebUI    WebUI_Register    Invalid    Invalid_Email
     [Documentation]    Test an invalid registration with invalid emails
 
     Open Webui    ${browser}    ${url}
@@ -103,7 +111,7 @@ Invalid Registration Email
     Close All Browsers
 
 Invalid Registration Password
-    [Tags]    WebUI    WebUI_Register
+    [Tags]    WebUI    WebUI_Register    Invalid    Invalid_Password
     [Documentation]    Test an invalid registration with invalid passwords
 
     Open Webui    ${browser}    ${url}
@@ -130,7 +138,7 @@ Invalid Registration Password
     Close All Browsers
 
 Invalid Registration FirstName
-    [Tags]    WebUI    WebUI_Register
+    [Tags]    WebUI    WebUI_Register    Invalid    Invalid_FirstName
     [Documentation]    Test an invalid registration with invalid first names
 
     Open Webui    ${browser}    ${url}
@@ -155,7 +163,7 @@ Invalid Registration FirstName
     Close All Browsers
 
 Invalid Registration LastName
-    [Tags]    WebUI    WebUI_Register
+    [Tags]    WebUI    WebUI_Register    Invalid    Invalid_LastName
     [Documentation]    Test an invalid registration with invalid last names
 
     Open Webui    ${browser}    ${url}
@@ -179,7 +187,7 @@ Invalid Registration LastName
     Close All Browsers
 
 Duplicate Registration
-    [Tags]    WebUI    WebUI_Register
+    [Tags]    WebUI    WebUI_Register        Invalid    Duplicate_Email
     [Documentation]    Ensure that duplicate registrations is not possible
 
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
@@ -212,11 +220,6 @@ Duplicate Registration
 
     Verify Unsuccessful Registration
     Verify Email Already Exists Message
-<<<<<<< HEAD
-
-    Close All Browsers
-=======
     
     Close All Browsers
 
->>>>>>> origin/workflow1
