@@ -25,12 +25,11 @@ Variables                                                                       
 # Device test variables
 ${browser}                                  ${env_variables}[${ENV_TYPE}][browser]
 ${url}                                      ${env_variables}[${ENV_TYPE}][url]
-${username}                                 ${env_variables}[${ENV_TYPE}][username]
-${password}                                 ${env_variables}[${ENV_TYPE}][password]
+
 *** Test Cases ***
 
 Successfully Adding Adidas Shoes Into Cart
-    [Tags]    Shoes    Adidas_Shoes
+    [Tags]    WebUI_Shoes    Successful_Addition    Adidas_Shoes
     [Documentation]   Successfully adding Adidas Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -42,7 +41,7 @@ Successfully Adding Adidas Shoes Into Cart
     Close All Browsers
 
 Successfully Adding Nike Floral Shoes Into Cart
-    [Tags]    Shoes     Nike_Shoes
+    [Tags]    WebUI_Shoes     Successful_Addition   Nike_Shoes
     [Documentation]   Successfully adding Nike Floral Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -54,7 +53,7 @@ Successfully Adding Nike Floral Shoes Into Cart
     Close All Browsers
 
 Successfully Adding Nike Zoom Shoes Into Cart
-    [Tags]    Shoes    Nike_Shoes_Zoom
+    [Tags]    WebUI_Shoes    Successful_Addition     Nike_Shoes_Zoom
     [Documentation]   Successfully adding Nike Zoom Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -66,7 +65,7 @@ Successfully Adding Nike Zoom Shoes Into Cart
     Close All Browsers
 
 Successfully Adding Many Shoes Into Cart
-    [Tags]    Shoes    Shoes_All
+    [Tags]    WebUI_Shoes    Successful_Addition    Shoes_All
     [Documentation]   Successfully adding Many Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -82,7 +81,7 @@ Successfully Adding Many Shoes Into Cart
     Close All Browsers
 
 No Size Error
-    [Tags]    Shoes   NoSize
+    [Tags]    WebUI_Shoes   NoSize    Unsuccessful_Addition
     [Documentation]   Unsuccessful in adding shoes into the Cart due to empty size textbox error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -94,7 +93,7 @@ No Size Error
     Close All Browsers
 
 No Color Error
-    [Tags]    Shoes   NoColor
+    [Tags]    WebUI_Shoes   NoColor   Unsuccessful_Addition
     [Documentation]   Unsuccessful in adding shoes into the Cart due to no color error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -106,7 +105,7 @@ No Color Error
     Close All Browsers
 
 No Print Error
-    [Tags]    Shoes   NoPrint
+    [Tags]    WebUI_Shoes   NoPrint   Unsuccessful_Addition
     [Documentation]   Unsuccessful in adding shoes into the Cart due to no color error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -118,7 +117,7 @@ No Print Error
     Close All Browsers
 
 Zero OR Negative Count Error
-    [Tags]    Shoes   ZeroCount
+    [Tags]    WebUI_Shoes   ZeroCount    Unsuccessful_Addition
     [Documentation]   Unsuccessful in adding shoes into the Cart due to no color error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page

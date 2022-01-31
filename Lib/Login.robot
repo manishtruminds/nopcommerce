@@ -1,17 +1,17 @@
 ***Settings***
 Library                                                                         SeleniumLibrary
 Resource                                                                        ${EXECDIR}/Lib/Common_Utils.robot
-***Variables***
+
 ***Keywords***
 Enter Username
     [Documentation]     Enter the username into textbox
-    [Arguments]     ${username}= None
+    [Arguments]     ${username}
     Wait Until Element Is Visible    ${login}[email]  timeout=10
     Input Text  ${login}[email]    ${username}
 
 Enter Password
     [Documentation]     Enter the password into textbox
-    [Arguments]     ${password}= None
+    [Arguments]     ${password}
     Wait Until Element Is Visible    ${login}[password]  timeout=10
     Input Text  ${login}[password]    ${password}
 
@@ -54,13 +54,13 @@ Verify Wrong Email Error Message
 
 Fill Login Form With RememberMe
     [Documentation]     Filling Details in login Form and selecting Remember Me checkbox
-    [Arguments]     ${username}= None     ${password}= None
+    [Arguments]     ${username}     ${password}
     Enter Username    ${username}
     Enter Password    ${password}
     Select RememberMe
 
 Fill Login Form Without RememberMe
     [Documentation]     Filling Details in login Form and not selecing Remember Me checkbox
-    [Arguments]     ${username}= None     ${password}= None
+    [Arguments]     ${username}     ${password}
     Enter Username    ${username}
     Enter Password    ${password}
