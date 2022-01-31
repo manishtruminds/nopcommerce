@@ -25,13 +25,10 @@ Variables                                                                       
 # Device test variables
 ${browser}                                  ${env_variables}[${ENV_TYPE}][browser]
 ${url}                                      ${env_variables}[${ENV_TYPE}][url]
-${username}                                 ${env_variables}[${ENV_TYPE}][username]
-${password}                                 ${env_variables}[${ENV_TYPE}][password]
-
 
 *** Test Cases ***
 Successfully Adding Custom T-Shirt into cart
-    [Tags]    WebUI_Clothing
+    [Tags]    WebUI_Clothing    Successful_Addition
     [Documentation]   Successfully adding Custom T-shirt into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -41,7 +38,7 @@ Successfully Adding Custom T-Shirt into cart
     Close All Browsers
 
 Successfully Adding Nike T-Shirt into cart
-    [Tags]    WebUI_Clothing
+    [Tags]    WebUI_Clothing    Successful_Addition
     [Documentation]   Successfully adding Nike T-shirt into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -51,7 +48,7 @@ Successfully Adding Nike T-Shirt into cart
     Close All Browsers
 
 Successfully Adding Many Clothes into cart
-    [Tags]    WebUI_Clothing
+    [Tags]    WebUI_Clothing    Successful_Addition
     [Documentation]   Successfully adding clothes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
