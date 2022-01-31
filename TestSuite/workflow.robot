@@ -29,7 +29,7 @@ ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
 Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order Payment
-    [Tags]    WebUI    WebUI_Workflow
+    [Tags]    WebUI    WebUI_Workflow    WTC-1
     [Documentation]    Test the workflow of adding Nike shoes to cart, checking out as guest, using ground shipping and check or money order payment
 
     Open WebUI    ${browser}    ${url}
@@ -53,7 +53,7 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
 
 
 Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And Check Or Money Order Payment 
-    [Tags]    WebUI    WebUI_Workflow
+    [Tags]    WebUI    WebUI_Workflow    WTC-2
     [Documentation]    Test the workflow of adding custom T-shirt to cart, checking out as a registered user, using next day air shipping and check or money order payment
 
     Open Webui    ${browser}    ${url}
@@ -81,7 +81,7 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
     Close All Browsers
 
 Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air Shipping And Check Or Money Order Payment
-    [Tags]    WebUI    WebUI_Workflow
+    [Tags]    WebUI    WebUI_Workflow    WTC-3
     [Documentation]    Test the workflow of adding Nike T-shirt And Adidas Shoes to cart, checking out as a registered user, using second day air shipping and check or money order payment
     
     Open Webui    ${browser}    ${url}
