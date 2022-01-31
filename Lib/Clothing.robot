@@ -28,7 +28,7 @@ View By List
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...      Page Should Contain Element    //div[@class='product-list']
 
-Enter Add To Cart
+Click Add To Cart Button
     [Documentation]   Clicking Add To cart button
 
     Wait Until Element Is Visible    ${clothing}[add_to_cart_btn]  timeout=10
@@ -107,7 +107,7 @@ Add Custom Tshirt
     END
     Enter Quantity    ${count}
     Sleep    3
-    Enter Add To Cart
+    Click Add to Cart Button
 
 Add Nike Shirt
     [Documentation]   Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart
@@ -122,4 +122,4 @@ Add Nike Shirt
     END
     Enter Quantity    ${count}
     Sleep    3
-    Enter Add To Cart
+    Click Add to Cart Button
