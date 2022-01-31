@@ -40,6 +40,7 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
     Verify Successful Addition
 
     Proceed To Shopping Cart
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes    size=9    color=White/Blue    print=Fresh
     Proceed To Checkout
     Click Checkout As Guest Button
 
@@ -70,6 +71,7 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
     Verify Successful Addition
 
     Proceed To Shopping Cart
+    Check Item In Cart    Custom T-Shirt    custom_text=My New Shirt
     Proceed To Checkout
 
     Fill Default Checkout Details And Confirm Order    shipping_type=Next Day Air    payment_method=Check/Money Order
@@ -101,6 +103,8 @@ Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air
     Verify Successful Addition
 
     Proceed To Shopping Cart
+    Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt   size=1X
+    Check Item In Cart    adidas Consortium Campus 80s Running Shoes     size=9
     Proceed To Checkout
 
     Fill Default Checkout Details And Confirm Order    shipping_type=Next Day Air    payment_method=Check/Money Order
