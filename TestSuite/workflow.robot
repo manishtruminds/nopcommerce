@@ -29,7 +29,7 @@ ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
 Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order Payment
-    [Tags]    WebUI    WebUI_Workflow    WTC-1
+    [Tags]    WebUI    WebUI_Workflow    WTC1
     [Documentation]    Test the workflow of adding Nike shoes to cart, checking out as guest, using ground shipping and check or money order payment
 
     Open WebUI    ${browser}    ${url}
@@ -41,8 +41,7 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
 
     Proceed To Shopping Cart
     Check Item In Cart    Nike Floral Roshe Customized Running Shoes    size=9    color=White/Blue    print=Fresh
-    Proceed To Checkout
-    Click Checkout As Guest Button
+    Proceed To Checkout As Guest
 
     Fill Default Checkout Details And Confirm Order    shipping_type=Ground    payment_method=Check/Money Order
     Verify Successful Checkout
@@ -54,7 +53,7 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
 
 
 Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And Check Or Money Order Payment
-    [Tags]    WebUI    WebUI_Workflow    WTC-2
+    [Tags]    WebUI    WebUI_Workflow    WTC2
     [Documentation]    Test the workflow of adding custom T-shirt to cart, checking out as a registered user, using next day air shipping and check or money order payment
 
     Open Webui    ${browser}    ${url}
@@ -72,7 +71,7 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
 
     Proceed To Shopping Cart
     Check Item In Cart    Custom T-Shirt    custom_text=My New Shirt
-    Proceed To Checkout
+    Proceed To Checkout As Signed In User
 
     Fill Default Checkout Details And Confirm Order    shipping_type=Next Day Air    payment_method=Check/Money Order
     Verify Successful Checkout
@@ -83,7 +82,7 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
     Close All Browsers
 
 Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air Shipping And Check Or Money Order Payment
-    [Tags]    WebUI    WebUI_Workflow    WTC-3
+    [Tags]    WebUI    WebUI_Workflow    WTC3
     [Documentation]    Test the workflow of adding Nike T-shirt And Adidas Shoes to cart, checking out as a registered user, using second day air shipping and check or money order payment
 
     Open Webui    ${browser}    ${url}
@@ -105,7 +104,7 @@ Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air
     Proceed To Shopping Cart
     Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt   size=1X
     Check Item In Cart    adidas Consortium Campus 80s Running Shoes     size=9
-    Proceed To Checkout
+    Proceed To Checkout As Signed In User
 
     Fill Default Checkout Details And Confirm Order    shipping_type=Next Day Air    payment_method=Check/Money Order
 
@@ -150,7 +149,7 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
     Check Item In Cart    adidas Consortium Campus 80s Running Shoes
     Check Item In Cart    Custom T-Shirt
 
-    Proceed To Checkout
+    Proceed To Checkout As Signed In User
     Fill Default Checkout Details And Confirm Order    shipping_type=Ground    payment_method=Check/Money Order
     Verify Successful Checkout
 
@@ -206,15 +205,13 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
     Check Item In Cart    Nike SB Zoom Stefan Janoski
     Check Item In Cart    Custom T-Shirt
     #Delete Nike Shirt
-    Select Term And Conditions
-    Click Button    //*[@id="checkout"]
+    Proceed To Checkout As Guest
 
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
     Perform Default Registration And Continue    email=${valid_emails}[4]
 
     Proceed To Shopping Cart
-    Select Term And Conditions
-    Click Button    //*[@id="checkout"]
+    Proceed To Checkout As Signed In User
 
     Fill Default Checkout Details And Confirm Order    shipping_type=Ground    payment_method=Check/Money Order
     Verify Successful Checkout
@@ -230,11 +227,14 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
 
 
 *** Keywords ***
-Proceed To Checkout
-    Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Select Checkbox    //*[@id="termsofservice"]
-    Wait Until Keyword Succeeds    5 times    10 seconds
-    ...    Click Button    //*[@id="checkout"]
+Proceed To Checkout As Guest
+    Select Term And Conditions
+    Click Checkout Button    signed_in=No
+    Click Checkout As Guest Button
+
+Proceed To Checkout As Signed In User
+    Select Term And Conditions
+    Click Checkout Button    signed_in=Yes
 
 Login
     [Documentation]   High level function to perform login operations
