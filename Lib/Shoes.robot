@@ -32,7 +32,7 @@ Add Adidas Shoes
     END
     Enter Quantity    ${count}
     Sleep    3
-    Enter Add To Cart
+    Click Add to Cart Button
 
 Add Nike Floral Shoes
     [Documentation]     Add Nike Floral Shoes into the cart
@@ -57,7 +57,7 @@ Add Nike Floral Shoes
     #Click Element    //div[class='master-wrapper-page']
     Mouse Out     ${shoes}[nike_floral_shoes][fresh_print]
     #Mouse Over    ${clothing}[add_to_cart_btn]
-    Enter Add To Cart
+    Click Add to Cart Button
 
 Add Nike Zoom Shoes
     [Documentation]     Add Nike Zoom Shoes into the cart
@@ -69,7 +69,7 @@ Add Nike Zoom Shoes
 
     Enter Quantity    ${count}
     Sleep    3
-    Enter Add To Cart
+    Click Add to Cart Button
 
 Select List Color
     [Documentation]   Selecting Color from dropdown menu

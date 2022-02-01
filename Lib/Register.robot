@@ -75,6 +75,12 @@ Input Password
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Input Text    ${register}[confirm_password]    ${password}
 
+Verify Password And Confirmation Password Are Same
+    ${password}=    Get Text    ${register}[password]
+    ${confirm_password}=    Get Text    ${register}[confirm_password]
+
+    Should Be Equal As Strings    ${password}    ${confirm_password}
+
 Fill Registration Form
     [Arguments]    ${firstName}    ${lastName}    ${email}    ${password}
     ...            ${day}=0    ${month}=0    ${year}=0
@@ -93,6 +99,7 @@ Fill Registration Form
     Input LastName    ${lastName}
     Input Email    ${email}
     Input Password  ${password}
+    Verify Password And Confirmation Password Are Same
 
     Input Date Of Birth    ${day}    ${month}    ${year}
 
@@ -110,6 +117,38 @@ Fill Registration Form
 Click Register Button
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Button    ${register}[register_button]
+
+Verify FirstName Required Message Appears
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    First name is required.
+
+Verify FirstName Required Message Does Not Appear
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Not Contain    First name is required.
+
+Verify LastName Required Message Appears
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Last name is required.
+
+Verify LastName Required Message Does Not Appear
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Not Contain    Last name is required.
+
+Verify Email Required Message Appears
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Email is required.
+
+Verify Email Required Message Does Not Appear
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Not Contain    Email is required.
+
+Verify Password Required Message Appears
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Contain    Password is required.
+
+Verify Password Required Message Does Not Appear
+    Wait Until Keyword Succeeds    5 times    10 seconds
+    ...    Page Should Not Contain    Password is required.
 
 Verify Successful Registration
     Wait Until Keyword Succeeds    5 times    10 seconds
