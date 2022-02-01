@@ -7,6 +7,8 @@ Resource                                                                        
 Resource                                                                        ${EXECDIR}/Lib/Apparel.robot
 Resource                                                                        ${EXECDIR}/Lib/Clothing.robot
 Resource                                                                        ${EXECDIR}/Lib/Shoes.robot
+Resource                                                                        ${EXECDIR}/Lib/Cart.robot
+Resource                                                                        ${EXECDIR}/Lib/Checkout.robot
 
 Library                                                                         SeleniumLibrary
 Library                                                                         DependencyLibrary
@@ -29,7 +31,11 @@ ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 *** Test Cases ***
 
 Successfully Adding Adidas Shoes Into Cart
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes    Successful_Addition    Adidas_Shoes
+=======
+    [Tags]    WebUI   Shoes    Adidas_Shoes
+>>>>>>> workflow2
     [Documentation]   Successfully adding Adidas Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -38,10 +44,16 @@ Successfully Adding Adidas Shoes Into Cart
     Verify Successful Addition
     Sleep    3
     #Check Correct Items Are In Cart
+    Proceed To Shopping Cart
+    Check Item In Cart    adidas Consortium Campus 80s Running Shoes
     Close All Browsers
 
 Successfully Adding Nike Floral Shoes Into Cart
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes     Successful_Addition   Nike_Shoes
+=======
+    [Tags]    WebUI   Shoes     Nike_Shoes
+>>>>>>> workflow2
     [Documentation]   Successfully adding Nike Floral Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -50,10 +62,16 @@ Successfully Adding Nike Floral Shoes Into Cart
     Verify Successful Addition
     Sleep    3
     #Check Correct Items Are In Cart
+    Proceed To Shopping Cart
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes
     Close All Browsers
 
 Successfully Adding Nike Zoom Shoes Into Cart
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes    Successful_Addition     Nike_Shoes_Zoom
+=======
+    [Tags]    WebUI   Shoes    Nike_Shoes_Zoom
+>>>>>>> workflow2
     [Documentation]   Successfully adding Nike Zoom Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -61,11 +79,17 @@ Successfully Adding Nike Zoom Shoes Into Cart
     Add Shoes    title=Nike SB Zoom Stefan Janoski    count=2
     Verify Successful Addition
     Sleep    3
-        #Check Correct Items Are In Cart
+    #Check Correct Items Are In Cart
+    Proceed To Shopping Cart
+    Check Item In Cart    Nike SB Zoom Stefan Janoski
     Close All Browsers
 
 Successfully Adding Many Shoes Into Cart
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes    Successful_Addition    Shoes_All
+=======
+    [Tags]    WebUI  Shoes    Shoes_All
+>>>>>>> workflow2
     [Documentation]   Successfully adding Many Shoes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -78,10 +102,18 @@ Successfully Adding Many Shoes Into Cart
     Go Back
     Add Shoes    Nike SB Zoom Stefan Janoski    count=3
     Verify Successful Addition
+    Proceed To Shopping Cart
+    Check Item In Cart    adidas Consortium Campus 80s Running Shoes
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes
+    Check Item In Cart    Nike SB Zoom Stefan Janoski
     Close All Browsers
 
 No Size Error
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes   NoSize    Unsuccessful_Addition
+=======
+    [Tags]    WebUI   Shoes   NoSize
+>>>>>>> workflow2
     [Documentation]   Unsuccessful in adding shoes into the Cart due to empty size textbox error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -93,7 +125,11 @@ No Size Error
     Close All Browsers
 
 No Color Error
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes   NoColor   Unsuccessful_Addition
+=======
+    [Tags]    WebUI  Shoes   NoColor
+>>>>>>> workflow2
     [Documentation]   Unsuccessful in adding shoes into the Cart due to no color error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -105,7 +141,11 @@ No Color Error
     Close All Browsers
 
 No Print Error
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes   NoPrint   Unsuccessful_Addition
+=======
+    [Tags]    WebUI   Shoes   NoPrint
+>>>>>>> workflow2
     [Documentation]   Unsuccessful in adding shoes into the Cart due to no color error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -117,7 +157,11 @@ No Print Error
     Close All Browsers
 
 Zero OR Negative Count Error
+<<<<<<< HEAD
     [Tags]    WebUI_Shoes   ZeroCount    Unsuccessful_Addition
+=======
+    [Tags]    WebUI   Shoes   ZeroCount
+>>>>>>> workflow2
     [Documentation]   Unsuccessful in adding shoes into the Cart due to no color error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page

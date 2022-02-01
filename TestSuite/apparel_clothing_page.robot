@@ -7,6 +7,8 @@ Resource                                                                        
 Resource                                                                        ${EXECDIR}/Lib/Apparel.robot
 Resource                                                                        ${EXECDIR}/Lib/Clothing.robot
 Resource                                                                        ${EXECDIR}/Lib/Shoes.robot
+Resource                                                                        ${EXECDIR}/Lib/Checkout.robot
+Resource                                                                        ${EXECDIR}/Lib/Cart.robot
 
 Library                                                                         SeleniumLibrary
 Library                                                                         DependencyLibrary
@@ -28,27 +30,43 @@ ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
 Successfully Adding Custom T-Shirt into cart
+<<<<<<< HEAD
     [Tags]    WebUI_Clothing    Successful_Addition
+=======
+    [Tags]    WebUI   Clothes
+>>>>>>> workflow2
     [Documentation]   Successfully adding Custom T-shirt into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
     Add Clothes    Custom T-Shirt   custom_text=My New Shirt
     Verify Successful Addition
+    Proceed To Shopping Cart
+    Check Item In Cart    Custom T-Shirt
     Close All Browsers
 
 Successfully Adding Nike T-Shirt into cart
+<<<<<<< HEAD
     [Tags]    WebUI_Clothing    Successful_Addition
+=======
+    [Tags]    WebUI     Clothes
+>>>>>>> workflow2
     [Documentation]   Successfully adding Nike T-shirt into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
     Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt   size=1X
     Verify Successful Addition
+    Proceed To Shopping Cart
+    Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt
     Close All Browsers
 
 Successfully Adding Many Clothes into cart
+<<<<<<< HEAD
     [Tags]    WebUI_Clothing    Successful_Addition
+=======
+    [Tags]    WebUI     Clothes
+>>>>>>> workflow2
     [Documentation]   Successfully adding clothes into the Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -60,10 +78,17 @@ Successfully Adding Many Clothes into cart
     Verify Successful Addition
     Sleep    3
     #Check Correct Items Are In Cart
+    Proceed To Shopping Cart
+    Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt
+    Check Item In Cart    Custom T-Shirt
     Close All Browsers
 
 Empty Custom TextBox
+<<<<<<< HEAD
     [Tags]    WebUI_Clothing   Unsuccessful_Addition   EmptyCustomTextbox
+=======
+    [Tags]    WebUI   Clothes   Unsuccessful_Addition   EmptyCustomTextbox
+>>>>>>> workflow2
     [Documentation]   Unsuccessful in adding clothes into the Cart due to empty custom textbox error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -74,7 +99,11 @@ Empty Custom TextBox
     Close All Browsers
 
 Empty Size Option
+<<<<<<< HEAD
     [Tags]    WebUI_Clothing   Unsuccessful_Addition   EmptySize
+=======
+    [Tags]    WebUI    Clothes   Unsuccessful_Addition   EmptySize
+>>>>>>> workflow2
     [Documentation]   Unsuccessful in adding clothes into the Cart due to empty size textbox error
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -85,7 +114,11 @@ Empty Size Option
     Close All Browsers
 
 Negative Count Error
+<<<<<<< HEAD
     [Tags]    WebUI_Clothing   Unsuccessful_Addition   NegativeCountError
+=======
+    [Tags]    WebUI    Clothes   Unsuccessful_Addition   NegativeCountError
+>>>>>>> workflow2
     [Documentation]   Unsuccessful in adding clothes into the Cart due to negative or zero count of items
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page

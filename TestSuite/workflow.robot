@@ -52,7 +52,7 @@ Shopping for Nike Shoes As Guest Using Ground Shipping And Check Or Money Order 
     Close All Browsers
 
 
-Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And Check Or Money Order Payment 
+Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And Check Or Money Order Payment
     [Tags]    WebUI    WebUI_Workflow    WTC-2
     [Documentation]    Test the workflow of adding custom T-shirt to cart, checking out as a registered user, using next day air shipping and check or money order payment
 
@@ -112,9 +112,9 @@ Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air
 
     Close All Browsers
 
-#First commit for workflow2 branch
+
 Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/Money Order Payment As A New User
-    [Tags]    Workflow  Testcase4
+    [Tags]    WebUI    WebUI_Workflow  WTC4
     [Documentation]   Shopping for shoes and 4 Custom Tshirt using second day air shipping and Cheque/Money Order payment as a new user
 
     Open Webui    ${browser}    ${url}
@@ -141,28 +141,23 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
     Verify Successful Addition
 
     Proceed To Shopping Cart
+
     Check Item In Cart    Nike Floral Roshe Customized Running Shoes
     Check Item In Cart    adidas Consortium Campus 80s Running Shoes
     Check Item In Cart    Custom T-Shirt
-    #need to be modified  to #Proceed To Checkout
-    Select Term And Conditions
-  #  Select Checkbox    //*[@id="termsofservice"]
-    Click Button    //*[@id="checkout"]
 
+    Proceed To Checkout
+    Fill Default Checkout Details And Confirm Order    shipping_type=Ground    payment_method=Check/Money Order
+    Verify Successful Checkout
 
-    Fill Default Checkout Details    shipping_type=Second Day Air    payment_method=Check/Money Order
-    ...    firstName=${test_data}[checkout][firstname]     lastName=${test_data}[checkout][lastname]
-    ...    email=${test_data}[checkout][valid_email]    country=${test_data}[checkout][country]
-    ...    state=${test_data}[checkout][state]    city=${test_data}[checkout][city]
-    ...    addr1=${test_data}[checkout][addr1]    zip=${test_data}[checkout][zip]    phone=${test_data}[checkout][phone]
 
     Proceed To Order Details Page
     Verify Order Details Are Visible
     Close All Browsers
 
 Window Shopping For Clothes And Shoes As A Registered User
+    [Tags]    WebUI    WebUI_Workflow    WTC5
     [Documentation]   Window Shopping For Clothes And Shoes As A Registered User and not buying anything
-    [Tags]    Workflow    TestCase5
 
     Open Webui    ${browser}    ${url}
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
@@ -186,8 +181,9 @@ Window Shopping For Clothes And Shoes As A Registered User
     Close All Browsers
 
 Shopping for Shoes and Shirt as a new registered user(Registering After Shopping)
+    [Tags]    WebUI    WebUI_Workflow    WTC6
     [Documentation]     Shopping for Shoes and Shirt as a new registered user(Registering After Shopping)
-    [Tags]    Workflow    TestCase6
+
     Open Webui    ${browser}    ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
@@ -224,7 +220,7 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
     ${order_num}=     Get Text    //div[@class='order-number']//strong
     Log To Console    ${order_num}
     Click Element    //a[contains(text(),'PDF Invoice')]
-    OperatingSystem.File Should Exist    C:\\Users\\user\\Downloads\\order1.pdf
+    #OperatingSystem.File Should Exist    C:\\Users\\user\\Downloads\\order1.pdf
 
     Close All Browsers
 
