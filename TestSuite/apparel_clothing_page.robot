@@ -53,7 +53,7 @@ Successfully Adding Custom T-Shirt into cart
     Add Clothes    Custom T-Shirt   custom_text=My New Shirt
     Verify Successful Addition
     Proceed To Shopping Cart
-    Check Item In Cart    Custom T-Shirt
+    Check Item In Cart    Custom T-Shirt    custom_text=My New Shirt
     Close All Browsers
 
 Successfully Adding Nike T-Shirt into cart
@@ -66,7 +66,7 @@ Successfully Adding Nike T-Shirt into cart
     Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt   size=1X
     Verify Successful Addition
     Proceed To Shopping Cart
-    Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt
+    Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt    size=1X
     Close All Browsers
 
 Successfully Adding Many Clothes into cart
@@ -85,8 +85,8 @@ Successfully Adding Many Clothes into cart
     Sleep    3
     #Check Correct Items Are In Cart
     Proceed To Shopping Cart
-    Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt
-    Check Item In Cart    Custom T-Shirt
+    Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt    size=1X
+    Check Item In Cart    Custom T-Shirt    custom_text=My New Shirt  count=2
     Close All Browsers
 
 Empty Custom TextBox
