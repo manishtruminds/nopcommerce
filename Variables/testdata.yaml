@@ -2,13 +2,40 @@ test_data:
     register:
         firstname:          david
         lastname:           knuth
+        invalid_names:      123|*%^|+1234
         invalid_passwords:  a|#|123|abc12
         invalid_emails:     abc.com|abc@abc|efg@abc.|@abc.com
         valid_password:     abcd@1234
-        valid_emails:       davidknuth1@mail.com|davidknuth2@mail.com|davidknuth3@mail.com|davidknuth16@mail.com
+<<<<<<< HEAD
+        valid_emails:       davidk1@mail.com|dknuth1@mail.com|dk1@mail.com|dakn1@mail.com|dk21@mail.com|davidknuth1@mail.com
+=======
+        valid_emails:       david123@mail.com|davidk@mail.com|dknuth@mail.com|dk@mail.com|dakn@mail.com|dk2@mail.com|davidknuth@mail.com
+>>>>>>> workflow2
     login:
         invalid_emailid:    anish.gupta@truminds.com|manishgupta@truminds.com|manish.gupta|manish.gupta@truminds
         wrong_mails:        abc|abc@|abc@gmail.|abc@gmail.com.
         invalid_password:   abcd1234|abcd12@34
-        valid_mailid:       manish.gupta@truminds.com
+        valid_mailid:       david123@mail.com
         valid_password:     abcd@1234
+
+    checkout:
+        firstname:          david
+        lastname:           knuth
+        valid_email:        davidknuth@mail.com
+        valid_emails:       davidk@mail.com|dknuth@mail.com|dk@mail.com|dakn@mail.com|dk2@mail.com|davidknuth@mail.com
+        invalid_emails:     abc.com|@abc.com
+        country:            1
+        state:              52
+        city:               Anchorage
+        addr1:              house no. 123
+        addr2:              abc street
+        zip:                99501
+        phone:              98989282899
+        company:            acme
+        fax:                123456
+        card_type:          Amex
+        cardholder_name:    david knuth
+        card_number:        123456789101112131415
+        expiration_month:   5
+        expiration_year:    2024
+        card_code:          633
