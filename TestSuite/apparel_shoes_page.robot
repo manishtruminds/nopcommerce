@@ -39,7 +39,7 @@ Displaying Shoes In List View And Grid View
     Sleep    3
     View By Grid
     Sleep    3
-    
+
     Close All Browsers
 Successfully Adding Adidas Shoes Into Cart
     [Tags]    WebUI_Shoes    Successful_Addition    Adidas_Shoes
@@ -53,7 +53,7 @@ Successfully Adding Adidas Shoes Into Cart
     Sleep    3
     #Check Correct Items Are In Cart
     Proceed To Shopping Cart
-    Check Item In Cart    adidas Consortium Campus 80s Running Shoes
+    Check Item In Cart    adidas Consortium Campus 80s Running Shoes    size=9
     Close All Browsers
 
 Successfully Adding Nike Floral Shoes Into Cart
@@ -67,7 +67,7 @@ Successfully Adding Nike Floral Shoes Into Cart
     Sleep    3
     #Check Correct Items Are In Cart
     Proceed To Shopping Cart
-    Check Item In Cart    Nike Floral Roshe Customized Running Shoes
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes    color=White/Blue     size=9   print=Fresh
     Close All Browsers
 
 Successfully Adding Nike Zoom Shoes Into Cart
@@ -83,7 +83,7 @@ Successfully Adding Nike Zoom Shoes Into Cart
     Sleep    3
     #Check Correct Items Are In Cart
     Proceed To Shopping Cart
-    Check Item In Cart    Nike SB Zoom Stefan Janoski
+    Check Item In Cart    Nike SB Zoom Stefan Janoski     count=2
     Close All Browsers
 
 Successfully Adding Many Shoes Into Cart
@@ -95,7 +95,7 @@ Successfully Adding Many Shoes Into Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
-    Add Shoes    adidas Consortium Campus 80s Running Shoes  size=10    square_color=silver
+    Add Shoes    adidas Consortium Campus 80s Running Shoes   size=10    square_color=Silver
     Verify Successful Addition
     Go Back
     Add Shoes    Nike Floral Roshe Customized Running Shoes   size=8    list_color=White/Black   print=Fresh
@@ -104,9 +104,9 @@ Successfully Adding Many Shoes Into Cart
     Add Shoes    Nike SB Zoom Stefan Janoski    count=3
     Verify Successful Addition
     Proceed To Shopping Cart
-    Check Item In Cart    adidas Consortium Campus 80s Running Shoes
-    Check Item In Cart    Nike Floral Roshe Customized Running Shoes
-    Check Item In Cart    Nike SB Zoom Stefan Janoski
+    Check Item In Cart    adidas Consortium Campus 80s Running Shoes    size=10    color=Silver
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes    size=8     color=White/Black   print=Fresh
+    Check Item In Cart    Nike SB Zoom Stefan Janoski    count=3
     Close All Browsers
 
 No Size Error

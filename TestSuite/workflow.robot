@@ -59,7 +59,7 @@ Shopping for Custom T-shirt As Registered User Using Next Day Air Shipping And C
     Open Webui    ${browser}    ${url}
 
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
-    Perform Default Registration And Continue    email=${valid_emails}[0]
+    Perform Default Registration And Continue    email=${valid_emails}[3]
 
     Verify Login Success
 
@@ -87,7 +87,7 @@ Shopping for Nike T-shirt And Adidas Shoes As Registered User Using Next Day Air
 
     Open Webui    ${browser}    ${url}
     @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
-    Perform Default Registration And Continue    email=${valid_emails}[1]
+    Perform Default Registration And Continue    email=${valid_emails}[4]
 
     Verify Login Success
 
@@ -121,8 +121,8 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
     [Documentation]   Shopping for shoes and 4 Custom Tshirt using second day air shipping and Cheque/Money Order payment as a new user
 
     Open Webui    ${browser}    ${url}
-    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
-    Perform Default Registration And Continue    email=${valid_emails}[2]
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[0]
 
     Proceed To Apparel Page
     Proceed To Shoes Page
@@ -135,7 +135,7 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
     Go Back
 
     Add Shoes    adidas Consortium Campus 80s Running Shoes
-    ...     size=11   square_color=blue   count=3
+    ...     size=11   square_color=Blue   count=3
     Verify Successful Addition
 
 
@@ -145,9 +145,9 @@ Shopping For Shoes And 4 Custom Tshirt Using Second Day Air Shipping And Cheque/
 
     Proceed To Shopping Cart
 
-    Check Item In Cart    Nike Floral Roshe Customized Running Shoes
-    Check Item In Cart    adidas Consortium Campus 80s Running Shoes
-    Check Item In Cart    Custom T-Shirt
+    Check Item In Cart    Nike Floral Roshe Customized Running Shoes    size=11    print=Natural   color=White/Black
+    Check Item In Cart    adidas Consortium Campus 80s Running Shoes   size=11   color=Blue   count=3
+    Check Item In Cart    Custom T-Shirt    custom_text=My New Shirt    count=4
 
     Proceed To Checkout As Signed In User
     Fill Default Checkout Details And Confirm Order    shipping_type=Ground    payment_method=Check/Money Order
@@ -163,11 +163,11 @@ Window Shopping For Clothes And Shoes As A Registered User
     [Documentation]   Window Shopping For Clothes And Shoes As A Registered User and not buying anything
 
     Open Webui    ${browser}    ${url}
-    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
-    Perform Default Registration And Continue    email=${valid_emails}[3]
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[1]
 
     Logout
-    Login    ${valid_emails}[3]   ${test_data}[register][valid_password]
+    Login    ${valid_emails}[1]   ${test_data}[register][valid_password]
 
     Search Store    shirt
 
@@ -175,12 +175,14 @@ Window Shopping For Clothes And Shoes As A Registered User
 
     Search Store    shoes
 
-    Add Shoes    adidas Consortium Campus 80s Running Shoes     size=10     square_color=silver
+    Add Shoes    adidas Consortium Campus 80s Running Shoes     size=10     square_color=Silver
 
     Proceed To Shopping Cart
 
     #modify count in shopping card
+    Change Quantity     Nike Tailwind Loose Short-Sleeve Running Shirt      6
     Logout
+
     Close All Browsers
 
 Shopping for Shoes and Shirt as a new registered user(Registering After Shopping)
@@ -202,13 +204,14 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
     Add Clothes    Nike Tailwind Loose Short-Sleeve Running Shirt     size=Small
     Verify Successful Addition
     Proceed To Shopping Cart
-    Check Item In Cart    Nike SB Zoom Stefan Janoski
-    Check Item In Cart    Custom T-Shirt
+    Check Item In Cart    Nike SB Zoom Stefan Janoski    count=2
+    Check Item In Cart    Custom T-Shirt    count=3    custom_text=My shirt
     #Delete Nike Shirt
+    Remove Item From Cart     Nike Tailwind Loose Short-Sleeve Running Shirt
     Proceed To Checkout As Guest
 
-    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[checkout][valid_emails]
-    Perform Default Registration And Continue    email=${valid_emails}[4]
+    @{valid_emails}=    Get Test Data From Pipe Separated String    ${test_data}[register][valid_emails]
+    Perform Default Registration And Continue    email=${valid_emails}[3]
 
     Proceed To Shopping Cart
     Proceed To Checkout As Signed In User
@@ -218,10 +221,7 @@ Shopping for Shoes and Shirt as a new registered user(Registering After Shopping
 
     Proceed To Order Details Page
     Verify Order Details Are Visible
-    ${order_num}=     Get Text    //div[@class='order-number']//strong
-    Log To Console    ${order_num}
-    Click Element    //a[contains(text(),'PDF Invoice')]
-    #OperatingSystem.File Should Exist    C:\\Users\\user\\Downloads\\order1.pdf
+
 
     Close All Browsers
 

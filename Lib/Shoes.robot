@@ -63,7 +63,7 @@ Add Nike Zoom Shoes
     [Documentation]     Add Nike Zoom Shoes into the cart
     [Arguments]      ${count}
 
-    Select Item    Nike SB Zoom Stefan Janoski "Medium Mint"
+    Select Item    Nike SB Zoom Stefan Janoski
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain     Nike SB Zoom Stefan Janoski "Medium Mint"
 
@@ -107,9 +107,9 @@ Select Square Color
     [Documentation]   Selecting color from square images boxes
     [Arguments]     ${square_color}
 
-    IF  "${square_color}" == "red"
+    IF  "${square_color}" == "Red"
         Select Red Color
-    ELSE IF  "${square_color}" == "blue"
+    ELSE IF  "${square_color}" == "Blue"
         Select Blue Color
     ELSE
         Select Silver Color
@@ -120,21 +120,21 @@ Select Red Color
 
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Element    ${shoes}[adidas_shoes][red_color]
-    Element Attribute Value Should Be   ${shoes}[adidas_shoes][red_color]    class    selected-value
+    Element Attribute Value Should Be   ${shoes}[adidas_shoes][red_color]/ancestor::li    class    selected-value
 
 Select Blue Color
     [Documentation]   Selecting Blue Color from square color box
 
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Element    ${shoes}[adidas_shoes][blue_color]
-    Element Attribute Value Should Be   ${shoes}[adidas_shoes][blue_color]    class    selected-value
+    Element Attribute Value Should Be   ${shoes}[adidas_shoes][blue_color]/ancestor::li    class    selected-value
 
 Select Silver Color
     [Documentation]   Selecting Silver Color from square color box
 
     Wait Until Keyword Succeeds    5 times    10 seconds
     ...    Click Element    ${shoes}[adidas_shoes][silver_color]
-    Element Attribute Value Should Be   ${shoes}[adidas_shoes][silver_color]    class    selected-value
+    Element Attribute Value Should Be   ${shoes}[adidas_shoes][silver_color]/ancestor::li    class    selected-value
 
 Verify No Color Error
     [Documentation]     Verifying "no color is selected" error message is visible
