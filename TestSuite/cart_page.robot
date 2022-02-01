@@ -39,7 +39,7 @@ Add Custom Shirt Remove And Checkout
     Remove Item From Cart   Custom T-Shirt
     Sleep    3
     Check If Cart Is empty
-    Close All Browsers
+    #Close All Browsers
 
 Add Adidas Shoes Into Cart And Choose Giftwrap Option
     [Documentation]   Adding adidas shoes to cart and choosing gift wrap Option.
@@ -63,9 +63,9 @@ Add Nike Zoom Shoes And Estimate Shipping Without Country Or Zipcode
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
-    Add Shoes    title=Nike SB Zoom Stefan Janoski    count=2
+    Add Shoes    title=Nike SB Zoom Stefan Janoski    count=1
     Proceed To Shopping Cart
-    Check Item In Cart   Nike SB Zoom Stefan Janoski    count=2
+    Check Item In Cart   Nike SB Zoom Stefan Janoski    count=1
     Click Estimate Shipping Button
     Click Apply Estimate Button
     Wait Until Keyword Succeeds    2 times    10 seconds
@@ -104,4 +104,31 @@ Add Nike Tailwind Shirt And Change Quantity To 3
     Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt    count=1
     Change Quantity    Nike Tailwind Loose Short-Sleeve Running Shirt   3
     Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt    count=3
+    Close All Browsers
+
+Add Adidas Shoes To Cart And Change Quantity To Minus Three
+    [Documentation]   Add Adidas shoes to cart and change the quantity to minus three.Error saying required quantity is zero should be shown on the page.
+    [Tags]    Shoes   Adidas_Shoes    negative_number
+    Open Webui    ${browser}    ${url}
+    Maximize Browser Window
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    Add Shoes    adidas Consortium Campus 80s Running Shoes     size=9
+    Proceed To Shopping Cart
+    Check Item In Cart    adidas    size=9    color=Red   count=1
+    Change Quantity    adidas Consortium Campus 80s Running Shoes   -3
+    Check Quantity Error
+    Close All Browsers
+
+Add Nike Zoom Shoes To Cart And Change Quantity To Zero
+    [Documentation]   Add Nike Zoom shoes to cart and change the quantity to zero.Item is removed from cart.
+    [Tags]    Shoes   Nike_Shoes_Zoom   zero
+    Open Webui  ${browser}  ${url}
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    Add Shoes    title=Nike SB Zoom Stefan Janoski    count=1
+    Proceed To Shopping Cart
+    Check Item In Cart   Nike SB Zoom Stefan Janoski    count=1
+    Change Quantity    Nike SB Zoom Stefan Janoski    0
+    Check If Cart Is empty
     Close All Browsers

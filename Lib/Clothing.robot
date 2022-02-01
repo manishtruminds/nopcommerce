@@ -42,11 +42,6 @@ Select Item
     Wait Until Element Is Visible    //a[contains(text(),"${text}")]  timeout=10
     Click Element    //a[contains(text(),"${text}")]
 
-<<<<<<< HEAD
-=======
-    Wait Until Element Is Visible    //div[@data-productid=${product_id}]//div[@class='picture']  timeout=10
-    Click Element    //div[@data-productid=${product_id}]//div[@class='picture']
->>>>>>> main
 
 Select Size Option
     [Documentation]     Select size from dropdown list

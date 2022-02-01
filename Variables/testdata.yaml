@@ -6,11 +6,7 @@ test_data:
         invalid_passwords:  a|#|123|abc12
         invalid_emails:     abc.com|abc@abc|efg@abc.|@abc.com
         valid_password:     abcd@1234
-<<<<<<< HEAD
-        valid_emails:       davidk1@mail.com|dknuth1@mail.com|dk1@mail.com|dakn1@mail.com|dk21@mail.com|davidknuth1@mail.com
-=======
         valid_emails:       david123@mail.com|davidk@mail.com|dknuth@mail.com|dk@mail.com|dakn@mail.com|dk2@mail.com|davidknuth@mail.com
->>>>>>> workflow2
     login:
         invalid_emailid:    anish.gupta@truminds.com|manishgupta@truminds.com|manish.gupta|manish.gupta@truminds
         wrong_mails:        abc|abc@|abc@gmail.|abc@gmail.com.
@@ -22,7 +18,7 @@ test_data:
         firstname:          david
         lastname:           knuth
         valid_email:        davidknuth@mail.com
-        valid_emails:       davidk@mail.com|dknuth@mail.com|dk@mail.com|dakn@mail.com|dk2@mail.com|davidknuth@mail.com
+        valid_emails:       davidk50@mail.com|dknuth1234@mail.com|dk0034@mail.com|dakn7842@mail.com|dk2667@mail.com|davidknuth678@mail.com
         invalid_emails:     abc.com|@abc.com
         country:            1
         state:              52
