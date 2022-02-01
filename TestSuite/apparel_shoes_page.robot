@@ -27,7 +27,18 @@ ${browser}                                  ${env_variables}[${ENV_TYPE}][browse
 ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
-
+Displaying Shoes In List View And Grid View
+    [Tags]    WebUI_Shoes    Different_Views
+    [Documentation]   Toggling between Displaying records as list and grid
+    Open Webui  ${browser}  ${url}
+    Proceed To Apparel Page
+    Proceed To Shoes Page
+    View By List
+    Sleep    3
+    View By Grid
+    Sleep    3
+    
+    Close All Browsers
 Successfully Adding Adidas Shoes Into Cart
     [Tags]    WebUI_Shoes    Successful_Addition    Adidas_Shoes
     [Documentation]   Successfully adding Adidas Shoes into the Cart

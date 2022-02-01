@@ -27,6 +27,20 @@ ${browser}                                  ${env_variables}[${ENV_TYPE}][browse
 ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
+
+Displaying Clothes In List View And Grid View
+    [Tags]    WebUI_Clothing    Different_Views
+    [Documentation]   Toggling between Displaying records as list and grid
+    Open Webui  ${browser}  ${url}
+    Proceed To Apparel Page
+    Proceed To Clothing Page
+    View By List
+    Sleep    3
+    View By Grid
+    Sleep    3
+
+    Close All Browsers
+
 Successfully Adding Custom T-Shirt into cart
     [Tags]    WebUI_Clothing    Successful_Addition
     [Documentation]   Successfully adding Custom T-shirt into the Cart

@@ -20,7 +20,7 @@ Add Adidas Shoes
     [Documentation]     Add Adidas Shoes into the cart
     [Arguments]      ${size}   ${square_color}     ${count}
 
-    Select Item    ${shoes}[adidas_shoes][productid]
+    Select Item    adidas Consortium Campus 80s Running Shoes
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain    adidas Consortium Campus 80s Running Shoes
 
@@ -38,7 +38,7 @@ Add Nike Floral Shoes
     [Documentation]     Add Nike Floral Shoes into the cart
     [Arguments]      ${size}   ${list_color}     ${print}     ${count}
 
-    Select Item    ${shoes}[nike_floral_shoes][productid]
+    Select Item    Nike Floral Roshe Customized Running Shoes
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain     Nike Floral Roshe Customized Running Shoes
 
@@ -63,7 +63,7 @@ Add Nike Zoom Shoes
     [Documentation]     Add Nike Zoom Shoes into the cart
     [Arguments]      ${count}
 
-    Select Item    ${shoes}[nike_zoom_shoes][productid]
+    Select Item    Nike SB Zoom Stefan Janoski "Medium Mint"
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain     Nike SB Zoom Stefan Janoski "Medium Mint"
 

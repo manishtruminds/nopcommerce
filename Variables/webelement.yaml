@@ -30,38 +30,35 @@ apparel:
   shoes:           //div[@class='item-grid']//div[@class='item-box'][1]
 
 clothing:
+
   grid:         //a[contains(text(),'Grid')]
   list:         //a[contains(text(),'List')]
-  add_to_cart_btn:    //button[@class='button-1 add-to-cart-button']
-  quantity_box:       //input[@class='qty-input']
+  grid_validate:      //div[@class='product-grid']
+  list_validate:      //div[@class='product-list']
+
+  add_to_cart_btn:    //div[@class="add-to-cart"]//button
+  quantity_box:       //div[@class="add-to-cart"]//input
+
   postive_quantity_error:     //div[@class='bar-notification error']//p[contains(text(),'Quantity should be positive')]
   empty_textbox_error:        //div[@class='bar-notification-container']//p[contains(text(),'Enter your text:')]
   success_message:            //div[@class='bar-notification success']//p[contains(text(),'The product has been added to your ')]
   size_error:        //div[@class='bar-notification error']//p[contains(text(),'Please select Size')]
 
   custom_tshirt:
-    text:        //input[@id='product_attribute_12']
-    productid:          29
-    quantity_box:         //input[@id='product_enteredQuantity_29']
-
+    text:        //div[@class="attributes"]//input[@class="textbox"]
   nike_shirt:
-    productid:    27
-    size_selector:    product_attribute_11
+    size_selector:    //div[@class="attributes"]//select
 
 shoes:
   no_color_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Color')]
   no_print_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Print')]
   adidas_shoes:
-    productid:  25
     size_selector:  product_attribute_9
-    red_color:        //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='25']
-    blue_color:       //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='26']
-    silver_color:     //ul[@class='option-list attribute-squares color-squares']//li[@data-attr-value='27']
+    red_color:        //span[@style="background-color:#663030"]
+    blue_color:       //span[@style="background-color:#363656"]
+    silver_color:     //span[@style="background-color:#c5c5d5"]
   nike_floral_shoes:
-    productid:  24
     color_selector: product_attribute_7
     natural_print:  //ul[@class='option-list attribute-squares image-squares']//li[@data-attr-value='19']
     fresh_print:  //ul[@class='option-list attribute-squares image-squares']//li[@data-attr-value='20']
     size_selector:    product_attribute_6
-  nike_zoom_shoes:
-    productid:  26

@@ -13,7 +13,7 @@ View By Grid
 
     Element Attribute Value Should Be    ${clothing.grid}    class    viewmode-icon grid selected
     Wait Until Keyword Succeeds    5 times  10 seconds
-    ...       Page Should Contain Element    //div[@class='product-grid']
+    ...       Page Should Contain Element    ${clothing}[grid_validate]
 
 View By List
     [Documentation]   To view the records in list view
@@ -26,7 +26,7 @@ View By List
 
     Element Attribute Value Should Be    ${clothing.list}    class    viewmode-icon list selected
     Wait Until Keyword Succeeds    5 times  10 seconds
-    ...      Page Should Contain Element    //div[@class='product-list']
+    ...      Page Should Contain Element    ${clothing}[list_validate]
 
 Click Add To Cart Button
     [Documentation]   Clicking Add To cart button
@@ -37,10 +37,10 @@ Click Add To Cart Button
 
 Select Item
     [Documentation]   To select an item with given product id
-    [Arguments]     ${product_id}
+    [Arguments]     ${text}
 
-    Wait Until Element Is Visible    //div[@data-productid=${product_id}]  timeout=10
-    Click Element    //div[@data-productid=${product_id}]
+    Wait Until Element Is Visible    //a[contains(text(),"${text}")]  timeout=10
+    Click Element    //a[contains(text(),"${text}")]
 
 Select Size Option
     [Documentation]     Select size from dropdown list
@@ -96,7 +96,7 @@ Add Custom Tshirt
     [Documentation]   Adding Custom tshirt into the cart
     [Arguments]      ${custom_text}   ${count}=1
 
-    Select Item    ${clothing}[custom_tshirt][productid]
+    Select Item    Custom T-Shirt
 
     Wait Until Keyword Succeeds    5 times  10seconds
     ...         Page Should Contain    Custom T-Shirt
@@ -113,7 +113,7 @@ Add Nike Shirt
     [Documentation]   Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart
     [Arguments]   ${size}=None   ${count}= 1
 
-    Select Item    ${clothing}[nike_shirt][productid]
+    Select Item    Nike Tailwind Loose Short-Sleeve Running Shirt
     Wait Until Keyword Succeeds    5 times  10 seconds
     ...       Page Should Contain    Nike Tailwind Loose Short-Sleeve Running Shirt
 
