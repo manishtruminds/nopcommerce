@@ -5,6 +5,9 @@ home:
   register:             //a[contains(text(),'Register')]
   apparel:              //*[@class='top-menu notmobile']//a[contains(text(),'Apparel')]
   shoes:                //*[@class='top-menu notmobile']//a[contains(text(),'Shoes')]
+  cart:                 //*[@id="topcartlink"]/a
+  search:               //input[@id='small-searchterms']
+  search_btn:           //button[contains(text(),'Search')]
 login:
   email:                //input[@id='Email']
   password:             //input[@id='Password']
@@ -24,6 +27,68 @@ register:
   password:             //*[@id="Password"]
   confirm_password:     //*[@id="ConfirmPassword"]
   register_button:      //*[@id="register-button"]
+
+checkout:
+  checkout_as_guest_button: class:checkout-as-guest-button
+  billing_addr:
+    ship_to_same_addr:  //*[@id="ShipToSameAddress"]
+    firstname:          //*[@id="BillingNewAddress_FirstName"]
+    lastname:           //*[@id="BillingNewAddress_LastName"]
+    email:              //*[@id="BillingNewAddress_Email"]
+    company:            //*[@id="BillingNewAddress_Company"]
+    country:            //*[@id="BillingNewAddress_CountryId"]
+    state:              //*[@id="BillingNewAddress_StateProvinceId"]
+    city:               //*[@id="BillingNewAddress_City"]
+    addr1:              //*[@id="BillingNewAddress_Address1"]
+    addr2:              //*[@id="BillingNewAddress_Address2"]
+    zip:                //*[@id="BillingNewAddress_ZipPostalCode"]
+    phone:              //*[@id="BillingNewAddress_PhoneNumber"]
+    fax:                //*[@id="BillingNewAddress_FaxNumber"]
+    continue_button:    //*[@id="billing-buttons-container"]/button[4]
+
+  shipping_addr:
+    form:                     //*[@id="shipping-addresses-form"]
+    select_shipping_addr:     shipping_address_id
+    firstname:                //*[@id="ShippingNewAddress_FirstName"]
+    lastname:                 //*[@id="ShippingNewAddress_LastName"]
+    email:                    //*[@id="ShippingNewAddress_Email"]
+    company:                  //*[@id="ShippingNewAddress_Company"]
+    country:                  //*[@id="ShippingNewAddress_CountryId"]
+    state:                    //*[@id="ShippingNewAddress_StateProvinceId"]
+    city:                     //*[@id="ShippingNewAddress_City"]
+    addr1:                    //*[@id="ShippingNewAddress_Address1"]
+    addr2:                    //*[@id="ShippingNewAddress_Address2"]
+    zip:                      //*[@id="ShippingNewAddress_ZipPostalCode"]
+    phone:                    //*[@id="ShippingNewAddress_PhoneNumber"]
+    fax:                      //*[@id="ShippingNewAddress_FaxNumber"]
+    continue_button:          //*[@id="shipping-buttons-container"]/button
+
+  shipping_method:
+    form:                       //*[@id="co-shipping-method-form"]
+    radio_shipping_method:      shippingoption
+    continue_button:            //*[@id="shipping-method-buttons-container"]/button
+
+  payment_method:
+    form:                       //*[@id="co-payment-method-form"]
+    radio_payment_method:       paymentmethod
+    continue_button:            //*[@id="payment-method-buttons-container"]/button
+
+  payment_info:
+    form:             //*[@id="co-payment-info-form"]
+    credit_card:      CreditCardType
+    cardholder_name:  //*[@id="CardholderName"]
+    card_number:      //*[@id="CardNumber"]
+    expire_month:     ExpireMonth
+    expire_year:      ExpireYear
+    card_code:        //*[@id="CardCode"]
+    continue_button:  //*[@id="payment-info-buttons-container"]/button
+
+  confirm_order:
+    form:                   //*[@id="checkout-step-confirm-order"]
+    confirm_order_button:   //*[@id="confirm-order-buttons-container"]/button
+
+  order_details_link:       //a[contains(text(),'Click here for order details.')]
+  order_details_info:       class:order-details-page
 
 apparel:
   clothing:        //div[@class='item-grid']//div[@class='item-box'][2]
@@ -50,6 +115,7 @@ clothing:
     size_selector:    //div[@class="attributes"]//select
 
 shoes:
+  shoes_header:   //html/body/div[6]/div[3]/div/div[3]/div/div[1]/h1
   no_color_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Color')]
   no_print_error:     //div[@class='bar-notification error']//p[contains(text(),'Please select Print')]
   adidas_shoes:

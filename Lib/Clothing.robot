@@ -42,6 +42,7 @@ Select Item
     Wait Until Element Is Visible    //a[contains(text(),"${text}")]  timeout=10
     Click Element    //a[contains(text(),"${text}")]
 
+
 Select Size Option
     [Documentation]     Select size from dropdown list
     [Arguments]   ${size}  ${name}
