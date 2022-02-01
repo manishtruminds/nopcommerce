@@ -5,6 +5,7 @@ Resource    ../Lib/Home.robot
 Resource    ../Lib/Apparel.robot
 Resource    ../Lib/Clothing.robot
 Resource    ../Lib/Shoes.robot
+Resource    Cart.robot
 
 Variables    ${EXECDIR}/Variables/webelement.yaml
 
@@ -16,17 +17,18 @@ Click Checkout As Guest Button
     ...    Click Button    ${checkout}[checkout_as_guest_button]
 
 Add Nike Floral Shoes To Cart And Checkout As Guest
+    [Arguments]    ${list_color}=White/Blue     ${size}=9   ${print}=Fresh
     Open Webui  ${browser}  ${url}
 
     Proceed To Apparel Page
     Proceed To Shoes Page
-    Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=White/Blue     size=9   print=Fresh
+    Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=${list_color}     size=${size}   print=${print}
     Verify Successful Addition
 
     Proceed To Shopping Cart
 
-    Select Checkbox    //*[@id="termsofservice"]
-    Click Button    //*[@id="checkout"]
+    Select Term And Conditions
+    Click Checkout Button    signed_in=No
 
     Click Checkout As Guest Button
 
