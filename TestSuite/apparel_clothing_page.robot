@@ -30,12 +30,9 @@ ${url}                                      ${env_variables}[${ENV_TYPE}][url]
 
 *** Test Cases ***
 Successfully Adding Custom T-Shirt into cart
-<<<<<<< HEAD
     [Tags]    WebUI_Clothing    Successful_Addition
-=======
-    [Tags]    WebUI   Clothes
->>>>>>> workflow2
     [Documentation]   Successfully adding Custom T-shirt into the Cart
+
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
@@ -46,12 +43,9 @@ Successfully Adding Custom T-Shirt into cart
     Close All Browsers
 
 Successfully Adding Nike T-Shirt into cart
-<<<<<<< HEAD
     [Tags]    WebUI_Clothing    Successful_Addition
-=======
-    [Tags]    WebUI     Clothes
->>>>>>> workflow2
     [Documentation]   Successfully adding Nike T-shirt into the Cart
+
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
@@ -62,12 +56,10 @@ Successfully Adding Nike T-Shirt into cart
     Close All Browsers
 
 Successfully Adding Many Clothes into cart
-<<<<<<< HEAD
+
     [Tags]    WebUI_Clothing    Successful_Addition
-=======
-    [Tags]    WebUI     Clothes
->>>>>>> workflow2
     [Documentation]   Successfully adding clothes into the Cart
+
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
@@ -84,12 +76,9 @@ Successfully Adding Many Clothes into cart
     Close All Browsers
 
 Empty Custom TextBox
-<<<<<<< HEAD
     [Tags]    WebUI_Clothing   Unsuccessful_Addition   EmptyCustomTextbox
-=======
-    [Tags]    WebUI   Clothes   Unsuccessful_Addition   EmptyCustomTextbox
->>>>>>> workflow2
     [Documentation]   Unsuccessful in adding clothes into the Cart due to empty custom textbox error
+
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
@@ -99,12 +88,9 @@ Empty Custom TextBox
     Close All Browsers
 
 Empty Size Option
-<<<<<<< HEAD
     [Tags]    WebUI_Clothing   Unsuccessful_Addition   EmptySize
-=======
-    [Tags]    WebUI    Clothes   Unsuccessful_Addition   EmptySize
->>>>>>> workflow2
     [Documentation]   Unsuccessful in adding clothes into the Cart due to empty size textbox error
+
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
@@ -114,12 +100,9 @@ Empty Size Option
     Close All Browsers
 
 Negative Count Error
-<<<<<<< HEAD
     [Tags]    WebUI_Clothing   Unsuccessful_Addition   NegativeCountError
-=======
-    [Tags]    WebUI    Clothes   Unsuccessful_Addition   NegativeCountError
->>>>>>> workflow2
     [Documentation]   Unsuccessful in adding clothes into the Cart due to negative or zero count of items
+
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Clothing Page
