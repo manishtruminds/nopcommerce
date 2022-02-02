@@ -48,7 +48,7 @@ Successfully Adding Adidas Shoes Into Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
-    Add Shoes    adidas Consortium Campus 80s Running Shoes     size=9
+    ${price}= Add Shoes    adidas Consortium Campus 80s Running Shoes     size=9
     Verify Successful Addition
     Sleep    3
     #Check Correct Items Are In Cart
@@ -62,7 +62,7 @@ Successfully Adding Nike Floral Shoes Into Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
-    Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=White/Blue     size=9   print=Fresh
+    ${price}=  Add Shoes   Nike Floral Roshe Customized Running Shoes    list_color=White/Blue     size=9   print=Fresh
     Verify Successful Addition
     Sleep    3
     #Check Correct Items Are In Cart
@@ -78,7 +78,7 @@ Successfully Adding Nike Zoom Shoes Into Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
-    Add Shoes    title=Nike SB Zoom Stefan Janoski    count=2
+    ${price}=  Add Shoes    title=Nike SB Zoom Stefan Janoski    count=2
     Verify Successful Addition
     Sleep    3
     #Check Correct Items Are In Cart
@@ -95,13 +95,20 @@ Successfully Adding Many Shoes Into Cart
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
     Proceed To Shoes Page
-    Add Shoes    adidas Consortium Campus 80s Running Shoes   size=10    square_color=Silver
+
+    ${price1}=  Add Shoes    adidas Consortium Campus 80s Running Shoes   size=10    square_color=Silver
     Verify Successful Addition
     Go Back
-    Add Shoes    Nike Floral Roshe Customized Running Shoes   size=8    list_color=White/Black   print=Fresh
+
+    ${price2}=  Add Shoes    Nike Floral Roshe Customized Running Shoes   size=8    list_color=White/Black   print=Fresh
     Verify Successful Addition
     Go Back
-    Add Shoes    Nike SB Zoom Stefan Janoski    count=3
+    ${price3}=  Add Shoes    Nike SB Zoom Stefan Janoski    count=3
+
+    ${total}=  Evaluate    ${price1} + ${price2} + ${price3}
+    ${expected_price}=    Get Total Cart Value
+    Should Be Equal As Numbers    ${total}    ${expected_price}
+
     Verify Successful Addition
     Proceed To Shopping Cart
     Check Item In Cart    adidas Consortium Campus 80s Running Shoes    size=10    color=Silver

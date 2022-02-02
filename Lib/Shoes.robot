@@ -9,12 +9,13 @@ Add Shoes
     [Arguments]   ${title}    ${count}=1     ${square_color}=None   ${size}=None   ${print}=None    ${list_color}=None
 
     IF  "${title}" == "adidas Consortium Campus 80s Running Shoes"
-        Add Adidas Shoes    ${size}   ${square_color}  ${count}
+        ${price}=    Add Adidas Shoes    ${size}   ${square_color}  ${count}
     ELSE IF  "${title}" == "Nike Floral Roshe Customized Running Shoes"
-        Add Nike Floral Shoes  ${size}  ${list_color}    ${print}  ${count}
+        ${price}=    Add Nike Floral Shoes  ${size}  ${list_color}    ${print}  ${count}
     ELSE IF  "${title}" == "Nike SB Zoom Stefan Janoski"
-        Add Nike Zoom Shoes   ${count}
+        ${price}=    Add Nike Zoom Shoes   ${count}
     END
+    [return]    ${price}
 
 Add Adidas Shoes
     [Documentation]     Add Adidas Shoes into the cart
@@ -31,8 +32,10 @@ Add Adidas Shoes
         Select Square Color  ${square_color}
     END
     Enter Quantity    ${count}
+    ${price}=    Find Price   ${count}
     Sleep    3
     Click Add to Cart Button
+    [return]    ${price}
 
 Add Nike Floral Shoes
     [Documentation]     Add Nike Floral Shoes into the cart
@@ -54,10 +57,12 @@ Add Nike Floral Shoes
     END
     Enter Quantity    ${count}
     Sleep    3
-    #Click Element    //div[class='master-wrapper-page']
+
     Mouse Out     ${shoes}[nike_floral_shoes][fresh_print]
-    #Mouse Over    ${clothing}[add_to_cart_btn]
+
+    ${price}=    Find Price    ${count}
     Click Add to Cart Button
+    [return]    ${price}
 
 Add Nike Zoom Shoes
     [Documentation]     Add Nike Zoom Shoes into the cart
@@ -69,7 +74,9 @@ Add Nike Zoom Shoes
 
     Enter Quantity    ${count}
     Sleep    3
+    ${price}=    Find Price    ${count}
     Click Add to Cart Button
+    [return]  ${price}
 
 Select List Color
     [Documentation]   Selecting Color from dropdown menu
