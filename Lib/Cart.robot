@@ -14,6 +14,7 @@ Documentation    This resource file contains keywords for dealing with the Shopp
 ${displayed_count}    -1
 ${remove_button}    ""
 ${count_input}    ""
+${price}    0
 *** Keywords ***
 Check Item In Cart
     [Documentation]   Checks if item is present in the cart.${expected_item} is the name of the product seen in the cart.
@@ -69,8 +70,11 @@ Click Checkout Button
     [Arguments]   ${signed_in}
     Wait Until Element Is Enabled     ${shopping_cart}[checkout]
     Click Button    ${shopping_cart}[checkout]
-    Run Keyword If    '${signed_in}'=='Yes'    Page Should Contain   Billing address
-    ...   ELSE    Page Should Contain    Checkout as a guest
+    IF    '${signed_in}'=='Yes'
+        Page Should Contain   Billing address
+    ELSE
+        Page Should Contain    Checkout as a guest
+    END
 
 Click Continue Shopping Button
     [Documentation]   Clicks on the continue shopping button
@@ -131,3 +135,10 @@ Check Quantity Error
     [Documentation]   Checks if the error :This product is required in the quantity of 0 is present on the page
     Wait Until Keyword Succeeds    2 times    10 seconds
     ...   Page Should Contain Element    ${shopping_cart}[quantity_error]
+
+Get Total Cart value
+    [Documentation]   Gets the total price of all the items in the card_type
+    Wait Until Keyword Succeeds    2 times    10 seconds
+    ...   Page Should Contain Element    ${shopping_cart}[total_price]
+    ${price}    Get Text    ${shopping_cart}[total_price]
+    Return From Keyword    ${price}

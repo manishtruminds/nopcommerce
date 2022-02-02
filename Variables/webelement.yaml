@@ -142,3 +142,4 @@ shopping_cart:
   searched :    //*[@id="small-searchterms"]
   remove_button:    (//table[@class="cart"]//child::*[contains(text(),"PLACEHOLDER_REPLACE_ME")]//following::button[@class="remove-btn"])[1]
   quantity_error:   //*[contains(text(),"This product is required in the quantity of 0")]
+  total_price:    //*[@class="order-total"]//child::*[@class="value-summary"]//*
