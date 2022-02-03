@@ -58,7 +58,7 @@ Add Adidas Shoes Into Cart And Choose Giftwrap Option
 
 
 Add Nike Zoom Shoes And Estimate Shipping Without Country Or Zipcode
-    [Tags]    Shoes   Nike_Shoes_Zoom   WebUI   WebUI_Cart
+    [Tags]    Shoes   Nike_Shoes_Zoom   WebUI   WebUI_Cart    new
     [Documentation]   Add Nike Zoom shoes and estimate shipping without entering country or zipcode details.
     Open Webui  ${browser}  ${url}
     Proceed To Apparel Page
@@ -68,10 +68,8 @@ Add Nike Zoom Shoes And Estimate Shipping Without Country Or Zipcode
     Check Item In Cart   Nike SB Zoom Stefan Janoski    count=1
     Click Estimate Shipping Button
     Click Apply Estimate Button
-    Wait Until Keyword Succeeds    2 times    10 seconds
-    ...    Page Should Contain Element    ${shopping_cart}[zipcode_error]
-    Wait Until Keyword Succeeds    2 times    10 seconds
-    ...   Page Should Contain Element    ${shopping_cart}[country_error]
+    Check Zipcode Error
+    Check Country Error
     Close All Browsers
 
 
