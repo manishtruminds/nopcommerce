@@ -142,3 +142,13 @@ Get Total Cart value
     ...   Page Should Contain Element    ${shopping_cart}[total_price]
     ${price}    Get Text    ${shopping_cart}[total_price]
     Return From Keyword    ${price}
+
+Check Zipcode Error
+    [Documentation]   Check if zipcode error message is displayed
+    Wait Until Keyword Succeeds    2 times    10 seconds
+    ...    Page Should Contain Element    ${shopping_cart}[zipcode_error]
+
+Check Country Error
+    [Documentation]   Check if zipcode error message is displayed
+    Wait Until Keyword Succeeds    2 times    10 seconds
+    ...   Page Should Contain Element    ${shopping_cart}[country_error]
