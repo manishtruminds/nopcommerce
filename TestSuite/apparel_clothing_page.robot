@@ -55,6 +55,12 @@ Successfully Adding Custom T-Shirt into cart
     Verify Successful Addition
     Proceed To Shopping Cart
     Check Item In Cart    Custom T-Shirt    custom_text=My New Shirt
+    #checking cart value is correct
+    ${price_str}=    Get Total Cart Value
+    ${expected_price} =	 Get Substring	  ${price_str}    1
+    Convert To Number    ${expected_price}
+    Should Be Equal As Numbers    ${price}    ${expected_price}
+
     Close All Browsers
 
 Successfully Adding Nike T-Shirt into cart
@@ -68,6 +74,13 @@ Successfully Adding Nike T-Shirt into cart
     Verify Successful Addition
     Proceed To Shopping Cart
     Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt    size=1X
+
+    #checking cart value is correct
+    ${price_str}=    Get Total Cart Value
+    ${expected_price} =	 Get Substring	  ${price_str}    1
+    Convert To Number    ${expected_price}
+    Should Be Equal As Numbers    ${price}    ${expected_price}
+
     Close All Browsers
 
 Successfully Adding Many Clothes into cart
@@ -89,7 +102,12 @@ Successfully Adding Many Clothes into cart
     Check Item In Cart    Nike Tailwind Loose Short-Sleeve Running Shirt    size=1X
     Check Item In Cart    Custom T-Shirt    custom_text=My New Shirt  count=2
     ${total}=   Evaluate    ${price1} + ${price2}
-    Log To Console    Total cost is ${total}
+    #checking cart value is correct
+    ${price_str}=    Get Total Cart Value
+    ${expected_price} =	 Get Substring	  ${price_str}    1
+    Convert To Number    ${expected_price}
+    Should Be Equal As Numbers    ${total}    ${expected_price}
+
     Close All Browsers
 
 Empty Custom TextBox
