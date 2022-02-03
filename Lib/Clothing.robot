@@ -88,10 +88,11 @@ Add Clothes
     [Arguments]   ${title}    ${count}=1     ${custom_text}=None   ${size}=None
 
     IF  "${title}" == "Custom T-Shirt"
-        Add Custom Tshirt    ${custom_text}   ${count}
+        ${price}=  Add Custom Tshirt    ${custom_text}   ${count}
     ELSE IF  "${title}" == "Nike Tailwind Loose Short-Sleeve Running Shirt"
-        Add Nike Shirt  ${size}  ${count}
+        ${price}=  Add Nike Shirt  ${size}  ${count}
     END
+    [return]    ${price}
 
 Add Custom Tshirt
     [Documentation]   Adding Custom tshirt into the cart
@@ -108,7 +109,11 @@ Add Custom Tshirt
     END
     Enter Quantity    ${count}
     Sleep    3
+    #convert into keyword
+    ${price}=   Find Price   ${count}
+
     Click Add to Cart Button
+    [return]    ${price}
 
 Add Nike Shirt
     [Documentation]   Adding Nike Tailwind Loose Short-Sleeve Running Shirt into the Cart
@@ -122,5 +127,17 @@ Add Nike Shirt
         Select Size Option    ${size}   ${clothing}[nike_shirt][size_selector]
     END
     Enter Quantity    ${count}
+    ${price}=   Find Price    ${count}
+
     Sleep    3
     Click Add to Cart Button
+    [return]    ${price}
+
+Find Price
+    [Documentation]   Finding price of the item
+    [Arguments]     ${count}
+    ${price_str}=  Get Text    //div[@class="product-price"]//span
+    ${price} =	 Get Substring	  ${price_str}    1
+    Convert To Number      ${price}
+    ${total}=  Evaluate    ${price} * ${count}
+    [return]    ${total}
